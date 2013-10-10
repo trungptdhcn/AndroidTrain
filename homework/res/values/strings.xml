@@ -4,7 +4,7 @@
     <string name="login_tvUsername">Username:</string>
     <string name="login_tvPassword">Password:</string>
     <string name="login_btLogin">Login</string>
-    <string name="info_btLogout">Logout</string>
+    <string name="info_btLogout"><u>Logout</u></string>
     <string name="info_tvAddress">Address: Ha Noi</string>
     <string name="info_tvBirthday">Birthday: 1/1/1991</string>
     <string name="info_tvOnline">Online: 12:06 AM</string>
@@ -12,5 +12,7 @@
     <string name="info_cbListFriend">Show friend list</string>
     <string name="info_listview_tvName">Name: </string>
     <string name="info_listview_tvPhone">Phone: </string>
+    <string name="info_radiobutton_male">Male</string>
+    <string name="info_radiobutton_female">Female</string>
 
 </resources>

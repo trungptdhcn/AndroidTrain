@@ -11,12 +11,9 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.*;
 
-import java.util.Calendar;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created with IntelliJ IDEA.
@@ -38,6 +35,9 @@ public class InformationActivity extends Activity
     private TextView info_tvOnline;
     private Button info_btLogout;
     private ImageView info_image;
+    private RadioGroup radioGroup;
+    private RadioButton radioButton_male;
+    private RadioButton radioButton_female;
     static final int DATE_DIALOG_ID = 999;
     final List<String[]> friendList = new LinkedList<String[]>();
     int[] displayViews = new int[]{android.R.id.text1,
@@ -67,30 +67,44 @@ public class InformationActivity extends Activity
             }
         });
         info_tvGender = (TextView) findViewById(R.id.info_tvGender);
+        radioGroup = (RadioGroup)findViewById(R.id.radioGroup);
         info_tvGender.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
             {
-                AlertDialogViewSetGender();
+//                AlertDialogViewSetGender();
+                radioGroup.setVisibility(View.VISIBLE);
             }
         });
-        info_listview_friendList = (ListView) findViewById(R.id.info_listview_friendList);
-        arrayAdapter = new ArrayAdapter<String[]>(this, android.R.layout.simple_list_item_2, android.R.id.text1, friendList)
+        radioButton_female = (RadioButton)findViewById(R.id.radioButton_female);
+        radioButton_male = (RadioButton)findViewById(R.id.radioButton_male);
+        radioButton_female.setOnClickListener(new View.OnClickListener()
         {
             @Override
-            public View getView(int position, View convertView, ViewGroup parent)
+            public void onClick(View v)
             {
-
-                View view = super.getView(position, convertView, parent);
-                String[] entry = friendList.get(position);
-                TextView text1 = (TextView) view.findViewById(android.R.id.text1);
-                TextView text2 = (TextView) view.findViewById(android.R.id.text2);
-                text1.setText(entry[0]);
-                text2.setText(entry[1]);
-                return view;
+                info_tvGender.setText("Gender: Female");
+                radioGroup.setVisibility(View.GONE);
             }
-        };
+        });
+        radioButton_male.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                info_tvGender.setText("Gender: Male");
+                radioGroup.setVisibility(View.GONE);
+            }
+        });
+
+        info_listview_friendList = (ListView) findViewById(R.id.info_listview_friendList);
+        ArrayList<Map<String, String>> list = buildData();
+        String[] from = { "name", "phone" };
+        int[] to = { android.R.id.text1, android.R.id.text2 };
+
+        final SimpleAdapter adapter = new SimpleAdapter(this, list,
+                android.R.layout.simple_list_item_2, from, to);
         info_checkBox = (CheckBox) findViewById(R.id.info_cbListFriend);
         info_checkBox.setOnClickListener(new View.OnClickListener()
         {
@@ -99,7 +113,7 @@ public class InformationActivity extends Activity
             {
                 if (((CheckBox) v).isChecked())
                 {
-                    info_listview_friendList.setAdapter(arrayAdapter);
+                    info_listview_friendList.setAdapter(adapter);
                 }
                 else
                 {
@@ -107,6 +121,7 @@ public class InformationActivity extends Activity
                 }
             }
         });
+
         info_tvBirthDay = (TextView) findViewById(R.id.info_tvBirthday);
         info_tvBirthDay.setOnClickListener(new View.OnClickListener()
         {
@@ -153,19 +168,31 @@ public class InformationActivity extends Activity
         });
 
     }
+    private ArrayList<Map<String, String>> buildData() {
+        ArrayList<Map<String, String>> list = new ArrayList<Map<String, String>>();
+        list.add(putData("Android", "Mobile"));
+        list.add(putData("Windows7", "Windows7"));
+        list.add(putData("iPhone", "iPhone"));
+        return list;
+    }
+    private HashMap<String, String> putData(String name, String phone) {
+        HashMap<String, String> item = new HashMap<String, String>();
+        item.put("name", name);
+        item.put("phone", phone);
+        return item;
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 1 && resultCode == RESULT_OK) {
             Uri u = (Uri) data.getData();
-            // Toast.makeText(getApplicationContext(), ""+u, 1).show();
             String[] filePathColumn = { MediaStore.Images.Media.DATA };
             Cursor cursor = getContentResolver().query(u, filePathColumn, null,
                     null, null);
             cursor.moveToFirst();
             int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
-            // Toast.makeText(getApplicationContext(), ""+filePath, 1).show();
             cursor.close();
             info_image.setImageURI(u);
         }

@@ -71,6 +71,23 @@
                         android:layout_height="match_parent"
                         android:text="@string/info_tvGender"
                         android:id="@+id/info_tvGender" android:layout_gravity="center" android:layout_weight="1"/>
+                <RadioGroup
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent" android:layout_weight="0.5" android:visibility="gone"
+                        android:id="@+id/radioGroup">
+                    <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/info_radiobutton_male"
+                            android:id="@+id/radioButton_male" android:layout_gravity="left|center_vertical"
+                            android:checked="false"/>
+                    <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/info_radiobutton_female"
+                            android:id="@+id/radioButton_female" android:layout_gravity="left|center_vertical"
+                            android:checked="true"/>
+                </RadioGroup>
                 <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -82,7 +99,7 @@
     <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" android:layout_weight="1.2">
+            android:layout_height="match_parent" android:layout_weight="2">
         <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
@@ -96,7 +113,7 @@
         <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" android:layout_weight="1.2">
+                android:layout_height="match_parent" android:layout_weight="1.6">
             <ListView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
