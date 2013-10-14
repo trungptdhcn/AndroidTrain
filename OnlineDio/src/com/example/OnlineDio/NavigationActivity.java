@@ -2,14 +2,15 @@ package com.example.OnlineDio;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import com.actionbarsherlock.app.SherlockFragmentActivity;
 
 /**
  * Created with IntelliJ IDEA.
@@ -18,7 +19,7 @@ import android.widget.ListView;
  * Time: 14:00
  * To change this template use File | Settings | File Templates.
  */
-public class NavigationActivity extends FragmentActivity
+public class NavigationActivity extends SherlockFragmentActivity
 {
     final String[] data ={"one","two","three"};
     final String[] fragments =
@@ -30,10 +31,11 @@ public class NavigationActivity extends FragmentActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().requestFeature(Window.FEATURE_ACTION_BAR);
+        requestWindowFeature(Window.FEATURE_ACTION_BAR);
         setContentView(R.layout.navigation);
-        getActionBar().hide();
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActionBar().getThemedContext(), android.R.layout.simple_list_item_1, data);
+        Log.e(this.getPackageName().toString(),"Yes");
+        getSupportActionBar().hide();
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getSupportActionBar().getThemedContext(), android.R.layout.simple_list_item_1, data);
 
         final DrawerLayout drawer = (DrawerLayout)findViewById(R.id.drawer_layout);
         final ListView navList = (ListView) findViewById(R.id.drawer);

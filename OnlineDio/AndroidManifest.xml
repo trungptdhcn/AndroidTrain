@@ -15,7 +15,8 @@
         <activity android:name=".HomeActivity"
                   android:theme="@android:style/Theme.NoTitleBar">
         </activity>
-        <activity android:name=".NavigationActivity">
+        <activity android:name=".NavigationActivity"
+                android:theme="@style/Theme.Sherlock.Light.DarkActionBar">
         </activity>
     </application>
 </manifest>

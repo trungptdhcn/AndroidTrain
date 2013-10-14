@@ -19,7 +19,7 @@
                 android:background="@drawable/home_bi_option" android:paddingLeft="5dp" android:layout_marginLeft="5dp"/>
         <ImageButton
                 android:layout_width="40dp"
-                android:layout_height="30dp"
+                android:layout_height="24dp"
                 android:layout_centerVertical="true"
                 android:id="@+id/imageButton1"
                 android:layout_alignParentRight="true"
@@ -37,7 +37,7 @@
     </RelativeLayout>
     <ImageView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="20dp"
             android:scaleType="fitXY"
             android:id="@+id/ivContentFeed" android:layout_alignLeft="@+id/relativeLayout"
             android:layout_below="@+id/relativeLayout" android:src="@drawable/home_contentfeeds"/>
@@ -47,12 +47,14 @@
             android:id="@+id/lvListSongs"
             android:layout_alignLeft="@+id/relativeLayout"
             android:background="@color/Gray"
+            android:divider="#d1d1d1"
+            android:dividerHeight="1px"
             android:layout_below="@+id/ivContentFeed"/>
     <ImageButton
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/home_bt_recorder2"
-            android:id="@+id/imageButton2"
+            android:id="@+id/home_imgbtRecord"
             android:layout_centerHorizontal="true"
             android:layout_alignBottom="@+id/lvListSongs"/>
 </RelativeLayout>
