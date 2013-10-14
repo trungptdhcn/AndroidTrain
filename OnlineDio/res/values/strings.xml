@@ -4,4 +4,6 @@
     <string name="login_edtEmail">Email</string>
     <string name="login_edtPass">Password</string>
     <string name = "login_tvForgotPass">I forgot my password</string>
+    <string name ="login_edtEmailHint">Email</string>
+    <string name ="login_edtPasswordHint">Password</string>
 </resources>

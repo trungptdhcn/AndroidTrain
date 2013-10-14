@@ -46,7 +46,11 @@
                         android:layout_height="match_parent"
                         android:id="@+id/login_edtEmail"
                         android:drawableLeft="@drawable/icon_email"
-                        android:layout_gravity="center">
+                        android:layout_gravity="center"
+                        android:background="@null"
+                        android:hint="@string/login_edtEmailHint"
+                        android:singleLine="true"
+                        >
                 </EditText>
             </LinearLayout>
             <LinearLayout
@@ -60,7 +64,10 @@
                         android:layout_height="match_parent"
                         android:id="@+id/login_edtPass"
                         android:drawableLeft="@drawable/icon_password"
-                        android:layout_gravity="center">
+                        android:layout_gravity="center"
+                        android:background="@null"
+                        android:hint="@string/login_edtPasswordHint"
+                        android:singleLine="true">
                 </EditText>
             </LinearLayout>
         </LinearLayout>
