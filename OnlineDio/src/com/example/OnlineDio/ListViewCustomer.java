@@ -21,6 +21,7 @@ public class ListViewCustomer extends BaseAdapter
     private ArrayList<Items> listData;
     private LayoutInflater layoutInflater;
 
+
     public ListViewCustomer(Context context, ArrayList<Items> listItems)
     {
         this.listData = listItems;

@@ -1,7 +1,10 @@
 package com.example.OnlineDio;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -12,6 +15,7 @@ public class HomeActivity extends Activity
      * Called when the activity is first created.
      */
     ListView lisView;
+    private ImageButton imageButton;
 
     @Override
     public void onCreate(Bundle savedInstanceState)
@@ -21,6 +25,16 @@ public class HomeActivity extends Activity
         lisView = (ListView) findViewById(R.id.lvListSongs);
         ArrayList<Items> listItems = buildData();
         lisView.setAdapter(new ListViewCustomer(this, listItems));
+        ImageButton imageButton = (ImageButton)findViewById(R.id.imageButton);
+        imageButton.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Intent i = new Intent(HomeActivity.this,NavigationActivity.class);
+                startActivity(i);
+            }
+        });
 
     }
 

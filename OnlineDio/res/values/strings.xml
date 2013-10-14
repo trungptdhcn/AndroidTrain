@@ -6,4 +6,13 @@
     <string name = "login_tvForgotPass">I forgot my password</string>
     <string name ="login_edtEmailHint">Email</string>
     <string name ="login_edtPasswordHint">Password</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+
+    <string name="image_base_url">https://raw.github.com/android/platform_frameworks_base/master/core/res/res/drawable-%1$s/%2$s.png</string>
+    <string name="action_add">Add</string>
+
+
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
 </resources>

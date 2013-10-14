@@ -46,7 +46,7 @@ public class MyActivity extends Activity
             switch (v.getId())
             {
                 case R.id.login_btDone:
-                    Intent i = new Intent(MyActivity.this,HomeActivity.class);
+                    Intent i = new Intent(MyActivity.this,NavigationActivity.class);
                     startActivity(i);
             }
         }
