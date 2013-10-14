@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:paddingLeft="3dp"
+                android:paddingRight="2dp"
+                android:layout_height="match_parent">
+
+    <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true" android:background="@drawable/icon_title"
+            android:id="@+id/relativeLayout">
+        <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:id="@+id/imageButton"
+                android:background="@drawable/home_option" android:paddingLeft="5dp" android:layout_marginLeft="5dp"/>
+        <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:id="@+id/imageButton1"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/home_internet" android:padding="1dp" android:layout_margin="6dp"
+                />
+    </RelativeLayout>
+    <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY"
+            android:id="@+id/imageView" android:layout_alignLeft="@+id/relativeLayout"
+            android:layout_below="@+id/relativeLayout" android:src="@drawable/home_contentfeeds"/>
+    <ListView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/lvListSongs" android:layout_alignLeft="@+id/relativeLayout"
+            android:layout_below="@+id/imageView"/>
+</RelativeLayout>

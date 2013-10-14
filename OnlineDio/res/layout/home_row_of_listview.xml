@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:background="@drawable/selector_listview_item"
+        android:layout_height="wrap_content" android:layout_gravity="center">
+    <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="58dp"
+            android:id="@+id/imageView" android:layout_alignParentLeft="true" android:layout_alignParentTop="true"
+            android:layout_marginTop="7dp" android:src="@drawable/home_avatasnhac" android:paddingBottom="3dp"/>
+    <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="3dp"
+            android:textSize="19dp"
+            android:text="Sound Of Silence"
+            android:id="@+id/tvTitleOfSong" android:layout_toRightOf="@+id/imageView"
+            android:layout_alignParentTop="true"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="2dp"
+            android:textSize="13dp"
+            android:paddingLeft="3dp"
+            android:text="Mr. Bean"
+            android:id="@+id/tvNameOfDirector" android:layout_toRightOf="@+id/imageView"
+            android:layout_below="@+id/tvTitleOfSong"/>
+    <ImageView
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:paddingRight="2dp"
+            android:id="@+id/imageView1" android:layout_alignParentRight="true"
+            android:layout_below="@+id/tvTitleOfSong" android:src="@drawable/home_arrow"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="3dp"
+            android:paddingTop="2dp"
+            android:textSize="13dp"
+            android:text="s days ago"
+            android:id="@+id/tvNumberOfPostedDay" android:layout_toLeftOf="@+id/imageView1"
+            android:layout_below="@+id/tvTitleOfSong" android:paddingRight="5dp"/>
+    <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" android:layout_toRightOf="@+id/imageView"
+            android:layout_below="@+id/tvNameOfDirector">
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="3dp"
+                android:paddingTop="2dp"
+                android:textSize="13dp"
+                android:text="Like: 100"
+                android:id="@+id/tvNumberOfLiked"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="2dp"
+                android:textSize="13dp"
+                android:text="Comment: 9"
+                android:id="@+id/tvNumberOfComment" android:layout_toRightOf="@+id/tvNumberOfLiked"
+                android:layout_alignTop="@+id/tvNumberOfLiked" android:paddingLeft="25dp"/>
+    </RelativeLayout>
+</RelativeLayout>
