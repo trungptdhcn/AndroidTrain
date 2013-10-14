@@ -5,15 +5,70 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent" android:background="#eeeeee">
 
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" android:background="@drawable/icon_title" android:layout_weight="9">
+        <Button
+                android:layout_width="55dp"
+                android:layout_height="28dp"
+                android:id="@+id/login_btBack"
+                android:background="@drawable/icon_back"
+                android:layout_alignParentLeft="true" android:layout_marginLeft="10dp" android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp">
+        </Button>
+
+        <Button
+                android:layout_width="55dp"
+                android:layout_height="28dp"
+                android:id="@+id/login_btDone" android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/icon_next" android:layout_marginRight="10dp"
+                android:layout_alignRight="@+id/login_btBack"
+                android:layout_marginTop="5dp" android:layout_marginBottom="5dp"/>
+    </RelativeLayout>
     <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:layout_gravity="center_vertical"
-            android:background="@drawable/icon_title">
-    </LinearLayout>
-    <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" android:gravity="fill_vertical">
+            android:layout_height="match_parent" android:layout_weight="1">
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:layout_gravity="center"
+                android:background="@drawable/icon_background" android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp" android:layout_marginRight="10dp">
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" android:layout_gravity="center" android:layout_weight="1"
+                    android:layout_marginLeft="10dp" android:layout_marginRight="10dp" android:layout_marginTop="10dp">
+                <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/login_edtEmail"
+                        android:drawableLeft="@drawable/icon_email"
+                        android:layout_gravity="center">
+                </EditText>
+            </LinearLayout>
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" android:layout_gravity="center" android:layout_weight="1"
+                    android:layout_marginBottom="10dp" android:layout_marginRight="10dp"
+                    android:layout_marginLeft="10dp">
+                <EditText
+                        android:layout_width="fill_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/login_edtPass"
+                        android:drawableLeft="@drawable/icon_password"
+                        android:layout_gravity="center">
+                </EditText>
+            </LinearLayout>
+        </LinearLayout>
+        <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal|fill_vertical"
+                android:text="@string/login_tvForgotPass"
+                android:layout_marginTop="5dp"/>
     </LinearLayout>
 </LinearLayout>
