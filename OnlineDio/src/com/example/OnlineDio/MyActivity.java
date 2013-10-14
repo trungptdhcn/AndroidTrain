@@ -23,8 +23,8 @@ public class MyActivity extends Activity
         setContentView(R.layout.login);
         login_btDone = (Button)findViewById(R.id.login_btDone);
         login_btBack  = (Button)findViewById(R.id.login_btBack);
-        login_edtEmail = (EditText)findViewById(R.id.login_edtEmail);
-        login_edtPass = (EditText)findViewById(R.id.login_edtPass);
+//        login_edtEmail = (EditText)findViewById(R.id.login_edtEmail);
+//        login_edtPass = (EditText)findViewById(R.id.login_edtPass);
 
     }
     public void validateAccount()
