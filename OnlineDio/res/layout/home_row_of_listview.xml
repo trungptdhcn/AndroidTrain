@@ -15,6 +15,8 @@
             android:layout_height="wrap_content"
             android:paddingLeft="3dp"
             android:textSize="19dp"
+            android:textStyle="bold"
+            android:textColor="@color/Black"
             android:text="Sound Of Silence"
             android:id="@+id/tvTitleOfSong" android:layout_toRightOf="@+id/imageView"
             android:layout_alignParentTop="true"/>
@@ -25,6 +27,7 @@
             android:textSize="13dp"
             android:paddingLeft="3dp"
             android:text="Mr. Bean"
+            android:textColor="@color/Black"
             android:id="@+id/tvNameOfDirector" android:layout_toRightOf="@+id/imageView"
             android:layout_below="@+id/tvTitleOfSong"/>
     <ImageView
@@ -32,7 +35,8 @@
             android:layout_height="15dp"
             android:paddingRight="2dp"
             android:id="@+id/imageView1" android:layout_alignParentRight="true"
-            android:layout_below="@+id/tvTitleOfSong" android:src="@drawable/home_arrow"/>
+            android:layout_below="@+id/tvTitleOfSong" android:src="@drawable/home_arrow"
+            android:layout_marginTop="5dp"/>
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -41,7 +45,8 @@
             android:textSize="13dp"
             android:text="s days ago"
             android:id="@+id/tvNumberOfPostedDay" android:layout_toLeftOf="@+id/imageView1"
-            android:layout_below="@+id/tvTitleOfSong" android:paddingRight="5dp"/>
+            android:layout_below="@+id/tvTitleOfSong" android:paddingRight="5dp"
+            android:layout_alignParentBottom="false"/>
     <RelativeLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content" android:layout_toRightOf="@+id/imageView"
