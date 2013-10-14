@@ -31,7 +31,6 @@ public class MyActivity extends Activity
 
         login_btDone.setOnClickListener(new ClickListener());
 
-
     }
 
     public void validateAccount()
