@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class MyActivity extends Activity
+public class LoginActivity extends Activity
 {
     /**
      * Called when the activity is first created.
@@ -46,7 +46,7 @@ public class MyActivity extends Activity
             switch (v.getId())
             {
                 case R.id.login_btDone:
-                    Intent i = new Intent(MyActivity.this,NavigationActivity.class);
+                    Intent i = new Intent(LoginActivity.this,NavigationActivity.class);
                     startActivity(i);
             }
         }

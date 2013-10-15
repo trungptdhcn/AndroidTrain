@@ -11,6 +11,9 @@
 
     <string name="image_base_url">https://raw.github.com/android/platform_frameworks_base/master/core/res/res/drawable-%1$s/%2$s.png</string>
     <string name="action_add">Add</string>
+    <string name="sologan_1">ONE PICTURE SAYS A THOUSAND WORD</string>
+    <string name="sologan_2">WHAT IF ONE CLIP CAN SAY YOU</string>
+    <string name="lauch_tvintro">By joining OnlineDio you agree to the <b>Tearms of Service</b> and <b>Privacy Policy</b> </string>
 
 
     <string name="drawer_open">Open navigation drawer</string>
