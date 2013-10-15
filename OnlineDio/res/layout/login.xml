@@ -7,24 +7,28 @@
 
     <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:background="@drawable/navbar_1" >
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_height="wrap_content" android:background="@drawable/navbar_1">
         <Button
                 android:layout_width="45dp"
-                android:layout_height="24dp"
+                android:layout_height="28dp"
                 android:id="@+id/login_btBack"
+                android:layout_centerVertical="true"
                 android:background="@drawable/icon_back"
-                android:padding="5dp" android:layout_alignParentLeft="true" android:layout_marginLeft="10dp"
-                android:layout_alignLeft="@+id/textView" android:layout_marginTop="2dp"
-                android:layout_marginBottom="3dp">
+                android:layout_alignParentLeft="true" android:layout_marginLeft="10dp" android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp" android:padding="5dp">
         </Button>
 
         <Button
                 android:layout_width="42dp"
-                android:layout_height="24dp"
-                android:id="@+id/login_btDone"
-                android:background="@drawable/custom_button_done"
-                android:layout_alignParentRight="true" android:layout_alignRight="@+id/textView"
-                android:layout_marginRight="10dp" android:layout_marginTop="2dp" android:layout_marginBottom="3dp"/>
+                android:layout_height="28dp"
+                android:id="@+id/login_btDone" android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/custom_button_done" android:layout_marginRight="10dp"
+                android:layout_alignRight="@+id/login_btBack"
+                android:layout_marginTop="5dp" android:layout_marginBottom="5dp"/>
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -39,7 +43,7 @@
     <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" android:layout_weight="1" android:background="#eeeeee"
+            android:layout_height="match_parent" android:layout_weight="1" android:background="#414141"
             android:baselineAligned="false">
         <LinearLayout
                 android:orientation="vertical"
@@ -89,6 +93,6 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal|fill_vertical"
                 android:text="@string/login_tvForgotPass"
-                android:layout_marginTop="5dp" android:textColor="#b1b1b1"/>
+                android:layout_marginTop="5dp"/>
     </LinearLayout>
 </LinearLayout>
