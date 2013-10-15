@@ -1,4 +1,4 @@
-package com.example.OnlineDio;
+package com.example.OnlineDio.nevigation;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -25,8 +25,7 @@ public class NavigationActivity extends SherlockFragmentActivity
     final String[] data ={"one","two","three"};
     final String[] fragments =
             {
-                    "com.example.OnlineDio.ActivityandFragment.HomeFragment",
-                    "com.example.OnlineDio.FragmentTwo"
+                    "com.example.OnlineDio.HomeFragment",
             };
 
     @Override

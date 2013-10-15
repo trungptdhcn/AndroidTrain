@@ -50,7 +50,7 @@
                 android:id="@+id/navigation_station_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#e6e6e6"
+                android:background="#f6f6f6"
                 android:orientation="horizontal"
                 >
             <LinearLayout
@@ -72,13 +72,17 @@
             <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:orientation="horizontal">
+                    android:paddingLeft="6dp"
+                    android:orientation="vertical">
                 <TextView
                         android:id="@+id/navigation_tvMyStation"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:layout_marginTop="3dp"
+                        android:layout_gravity="center_vertical"
                         android:text="@string/navigation_tvMyStation"
-                        android:textSize="16sp"
+                        android:textSize="13sp"
                         android:textStyle="bold"
                         android:textColor="#333333"
                         />
@@ -86,16 +90,62 @@
                         android:id="@+id/navigation_tvNameStation"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/"
-                        android:textSize="14sp"
+                        android:gravity="center_vertical"
+                        android:textSize="9sp"
+                        android:layout_marginBottom="3dp"
+                        android:layout_gravity="center_vertical"
+                        android:text="@string/navigation_tvNameStation"
                         android:textColor="#434343"
                         />
             </LinearLayout>
-            <LinearLayout
+            <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent">
+                <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/navigation_imgNext" android:layout_alignParentRight="true"
+                        android:layout_marginRight="10dp"
+                        android:layout_centerVertical="true" android:src="@drawable/navigation_nextimage"/>
+                <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:id="@+id/navigation_imgSetting"
+                        android:layout_toLeftOf="@+id/navigation_imgNext"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/navigation_imagesetting"/>
+                <!--<ImageView-->
+                <!--android:id="@+id/navigation_imgStationSetting"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_alignParentLeft="true"-->
+                <!--android:layout_marginBottom="5dp"-->
+                <!--android:layout_marginTop="5dp"-->
+                <!--android:src="@drawable/navigation_imagesetting"-->
+                <!--/>-->
+                <!--<ImageView-->
+                <!--android:id="@+id/navigation_imgStationNext"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:src="@drawable/navigation_nextimage"-->
+                <!--android:layout_toRightOf="@+id/navigation_imgstationsetting"/>-->
+            </RelativeLayout>
+        </LinearLayout>
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#000000"
+                >
+            <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:orientation="horizontal">
-            </LinearLayout>
+                    android:textColor="#ffffff"
+                    android:text="Menu"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="5dp"
+                    android:textSize="11sp">
+            </TextView>
         </LinearLayout>
         <ListView
                 android:id="@+id/navigation_lvDrawer"

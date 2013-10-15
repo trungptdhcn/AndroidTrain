@@ -1,4 +1,4 @@
-package com.example.OnlineDio;
+package com.example.OnlineDio.home;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -6,9 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ListView;
-import com.example.OnlineDio.ListViewCustomer;
-import com.example.OnlineDio.Items;
 import com.example.OnlineDio.R;
+import com.example.OnlineDio.nevigation.NavigationActivity;
 
 import java.util.ArrayList;
 
@@ -27,7 +26,7 @@ public class HomeActivity extends Activity
         setContentView(R.layout.home);
         lisView = (ListView) findViewById(R.id.lvListSongs);
         ArrayList<Items> listItems = buildData();
-        lisView.setAdapter(new ListViewCustomer(this, listItems));
+        lisView.setAdapter(new ListViewCustomerAdapter(this, listItems));
         ImageButton imageButton = (ImageButton)findViewById(R.id.imageButton);
         imageButton.setOnClickListener(new View.OnClickListener()
         {

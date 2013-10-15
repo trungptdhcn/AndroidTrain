@@ -8,9 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ListView;
-import com.example.OnlineDio.ListViewCustomer;
-import com.example.OnlineDio.Items;
-import com.example.OnlineDio.R;
+import com.example.OnlineDio.home.Items;
+import com.example.OnlineDio.home.ListViewCustomerAdapter;
 
 import java.util.ArrayList;
 
@@ -36,7 +35,7 @@ public class HomeFragment extends Fragment
         View view = inflater.inflate(R.layout.home, container, false);
         lisView = (ListView)view.findViewById(R.id.lvListSongs);
         ArrayList<Items> listItems = buildData();
-        lisView.setAdapter(new ListViewCustomer(getActivity(), listItems));
+        lisView.setAdapter(new ListViewCustomerAdapter(getActivity(), listItems));
         return view;
     }
     private ArrayList<Items> buildData()
