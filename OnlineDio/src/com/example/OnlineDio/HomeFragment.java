@@ -1,9 +1,11 @@
 package com.example.OnlineDio;
 
-import android.app.Activity;
-import android.content.Intent;
+import android.content.Context;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import com.example.OnlineDio.ListViewCustomer;
@@ -12,35 +14,31 @@ import com.example.OnlineDio.R;
 
 import java.util.ArrayList;
 
-public class HomeActivity extends Activity
+/**
+ * Created with IntelliJ IDEA.
+ * User: Trung
+ * Date: 14/10/2013
+ * Time: 14:10
+ * To change this template use File | Settings | File Templates.
+ */
+public class HomeFragment extends Fragment
 {
-    /**
-     * Called when the activity is first created.
-     */
     ListView lisView;
     private ImageButton imageButton;
+    public static Fragment newInstance(Context context) {
+        HomeFragment f = new HomeFragment();
 
-    @Override
-    public void onCreate(Bundle savedInstanceState)
-    {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.home);
-        lisView = (ListView) findViewById(R.id.lvListSongs);
-        ArrayList<Items> listItems = buildData();
-        lisView.setAdapter(new ListViewCustomer(this, listItems));
-        ImageButton imageButton = (ImageButton)findViewById(R.id.imageButton);
-        imageButton.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                Intent i = new Intent(HomeActivity.this,NavigationActivity.class);
-                startActivity(i);
-            }
-        });
-
+        return f;
     }
 
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.home, container, false);
+        lisView = (ListView)view.findViewById(R.id.lvListSongs);
+        ArrayList<Items> listItems = buildData();
+        lisView.setAdapter(new ListViewCustomer(getActivity(), listItems));
+        return view;
+    }
     private ArrayList<Items> buildData()
     {
         ArrayList<Items> listResult = new ArrayList<Items>();
