@@ -8,10 +8,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.*;
 
 public class LoginActivity extends Activity
 {
@@ -22,11 +19,14 @@ public class LoginActivity extends Activity
     private Button login_btBack;
     private EditText login_edEmail;
     private EditText login_edPass;
+    private ImageButton login_iv_cancelOfEmail;
+    private ImageButton login_iv_cancelOfPass;
     private TextView login_tvForgotPass;
     private boolean typedEmail = false;
     private boolean typedPass = false;
     private String dumEmail = "khang";
     private String dumPass = "khang";
+
 
     @Override
     public void onCreate(Bundle savedInstanceState)
@@ -38,25 +38,47 @@ public class LoginActivity extends Activity
         login_edEmail = (EditText) findViewById(R.id.login_edtEmail);
         login_edPass = (EditText) findViewById(R.id.login_edtPass);
 
+        login_iv_cancelOfEmail = (ImageButton) findViewById(R.id.login_iv_CancelOfEmail);
+        login_iv_cancelOfPass = (ImageButton) findViewById(R.id.login_iv_cancelOfPass);
+
         login_edEmail.addTextChangedListener(textChangeListener);
         login_edPass.addTextChangedListener(textChangeListener);
+
+        login_iv_cancelOfEmail.setOnClickListener(cancelOfBtEmail);
+        login_iv_cancelOfPass.setOnClickListener(cancelOfBtPass);
 
         login_btDone.setOnClickListener(new ClickListener());
 
     }
 
+    private View.OnClickListener cancelOfBtEmail = new View.OnClickListener()
+    {
+        @Override
+        public void onClick(View v)
+        {
+            login_edEmail.setText("");
+        }
+    };
+    private View.OnClickListener cancelOfBtPass = new View.OnClickListener()
+    {
+        @Override
+        public void onClick(View v)
+        {
+            login_edPass.setText("");
+        }
+    };
     private TextWatcher textChangeListener = new TextWatcher()
     {
         @Override
         public void beforeTextChanged(CharSequence s, int start, int count, int after)
         {
-            //To change body of implemented methods use File | Settings | File Templates.
+
         }
 
         @Override
         public void onTextChanged(CharSequence s, int start, int before, int count)
         {
-            //To change body of implemented methods use File | Settings | File Templates.
+
         }
 
         @Override
@@ -65,17 +87,21 @@ public class LoginActivity extends Activity
             if (!login_edEmail.getText().toString().equals(""))
             {
                 typedEmail = true;
+                login_iv_cancelOfEmail.setVisibility(View.VISIBLE);
             }
             else
             {
+                login_iv_cancelOfEmail.setVisibility(View.INVISIBLE);
                 typedEmail = false;
             }
             if (!login_edPass.getText().toString().isEmpty())
             {
+                login_iv_cancelOfPass.setVisibility(View.VISIBLE);
                 typedPass = true;
             }
             else
             {
+                login_iv_cancelOfPass.setVisibility(View.INVISIBLE);
                 typedPass = false;
             }
 

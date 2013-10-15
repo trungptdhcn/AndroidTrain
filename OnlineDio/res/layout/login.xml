@@ -53,7 +53,7 @@
                 android:id="@+id/rlEmail"
                 android:layout_margin="5dp" android:layout_marginBottom="50dp">
             <EditText
-                    android:layout_width="match_parent"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/login_edtEmail"
                     android:layout_centerVertical="true"
@@ -65,12 +65,13 @@
                     android:singleLine="true"
                     >
             </EditText>
-            <ImageView
+            <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:id="@+id/ivCancelOfEmail"
+                    android:id="@+id/login_iv_CancelOfEmail"
                     android:background="@drawable/delete_search"
+                    android:visibility="invisible"
                     android:layout_alignParentRight="true" android:layout_alignTop="@+id/login_edtEmail"/>
         </RelativeLayout>
         <View
@@ -97,11 +98,12 @@
                     android:singleLine="true"
                     android:layout_alignParentLeft="true" android:layout_alignParentTop="true">
             </EditText>
-            <ImageView
+            <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/ivCancelOfPass"
+                    android:id="@+id/login_iv_cancelOfPass"
                     android:background="@drawable/delete_search"
+                    android:visibility="invisible"
                     android:layout_gravity="right|center_vertical" android:layout_alignRight="@+id/login_edtPass"
                     android:layout_centerVertical="true"/>
         </RelativeLayout>
