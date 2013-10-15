@@ -1,4 +1,4 @@
-package com.example.OnlineDio;
+package com.example.OnlineDio.home;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -6,6 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+import com.example.OnlineDio.R;
+import com.example.OnlineDio.home.Items;
 
 import java.util.ArrayList;
 
@@ -16,13 +18,13 @@ import java.util.ArrayList;
  * Time: 5:01 PM
  * To change this template use File | Settings | File Templates.
  */
-public class ListViewCustomer extends BaseAdapter
+public class ListViewCustomerAdapter extends BaseAdapter
 {
     private ArrayList<Items> listData;
     private LayoutInflater layoutInflater;
 
 
-    public ListViewCustomer(Context context, ArrayList<Items> listItems)
+    public ListViewCustomerAdapter(Context context, ArrayList<Items> listItems)
     {
         this.listData = listItems;
         this.layoutInflater = LayoutInflater.from(context);

@@ -1,4 +1,4 @@
-package com.example.OnlineDio;
+package com.example.OnlineDio.nevigation;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -8,6 +8,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import com.example.OnlineDio.R;
+import com.example.OnlineDio.home.Items;
+import com.example.OnlineDio.home.ListViewCustomerAdapter;
 
 import java.util.ArrayList;
 
@@ -22,20 +25,24 @@ public class FavoriteFragment extends Fragment
 {
     ListView lisView;
     private ImageButton imageButton;
-    public static Fragment newInstance(Context context) {
+
+    public static Fragment newInstance(Context context)
+    {
         FavoriteFragment f = new FavoriteFragment();
 
         return f;
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+    {
         View view = inflater.inflate(R.layout.home, container, false);
-        lisView = (ListView)view.findViewById(R.id.lvListSongs);
+        lisView = (ListView) view.findViewById(R.id.lvListSongs);
         ArrayList<Items> listItems = buildData();
-        lisView.setAdapter(new ListViewCustomer(getActivity(), listItems));
+        lisView.setAdapter(new ListViewCustomerAdapter(getActivity(), listItems));
         return view;
     }
+
     private ArrayList<Items> buildData()
     {
         ArrayList<Items> listResult = new ArrayList<Items>();

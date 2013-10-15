@@ -1,4 +1,4 @@
-package com.example.OnlineDio;
+package com.example.OnlineDio.nevigation;
 
 /**
  * Created with IntelliJ IDEA.
@@ -7,23 +7,28 @@ package com.example.OnlineDio;
  * Time: 15:48
  * To change this template use File | Settings | File Templates.
  */
+
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import com.example.OnlineDio.R;
 
-public class FragmentTwo extends Fragment {
+public class FragmentTwo extends Fragment
+{
 
-    public static Fragment newInstance(Context context) {
+    public static Fragment newInstance(Context context)
+    {
         FragmentTwo f = new FragmentTwo();
 
         return f;
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+    {
         ViewGroup root = (ViewGroup) inflater.inflate(R.layout.fragment_two, null);
         return root;
     }

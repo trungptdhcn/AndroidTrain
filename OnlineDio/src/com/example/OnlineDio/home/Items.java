@@ -1,4 +1,4 @@
-package com.example.OnlineDio;
+package com.example.OnlineDio.home;
 
 /**
  * Created with IntelliJ IDEA.

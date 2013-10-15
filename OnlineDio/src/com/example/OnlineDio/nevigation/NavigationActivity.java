@@ -1,4 +1,4 @@
-package com.example.OnlineDio;
+package com.example.OnlineDio.nevigation;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -11,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
+import com.example.OnlineDio.R;
 
 /**
  * Created with IntelliJ IDEA.
@@ -21,31 +22,36 @@ import com.actionbarsherlock.app.SherlockFragmentActivity;
  */
 public class NavigationActivity extends SherlockFragmentActivity
 {
-    final String[] data ={"one","two","three"};
+    final String[] data = {"one", "two", "three"};
     final String[] fragments =
             {
-                    "com.example.OnlineDio.FavoriteFragment",
-                    "com.example.OnlineDio.FragmentTwo"
+                    "com.example.OnlineDio.nevigation.FavoriteFragment",
+                    "com.example.OnlineDio.nevigation.FragmentTwo"
             };
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_ACTION_BAR);
         setContentView(R.layout.navigation);
-        Log.e(this.getPackageName().toString(),"Yes");
+        Log.e(this.getPackageName().toString(), "Yes");
         getSupportActionBar().hide();
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getSupportActionBar().getThemedContext(), android.R.layout.simple_list_item_1, data);
 
-        final DrawerLayout drawer = (DrawerLayout)findViewById(R.id.drawer_layout);
+        final DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         final ListView navList = (ListView) findViewById(R.id.drawer);
         navList.setAdapter(adapter);
-        navList.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+        navList.setOnItemClickListener(new AdapterView.OnItemClickListener()
+        {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, final int pos,long id){
-                drawer.setDrawerListener( new DrawerLayout.SimpleDrawerListener(){
+            public void onItemClick(AdapterView<?> parent, View view, final int pos, long id)
+            {
+                drawer.setDrawerListener(new DrawerLayout.SimpleDrawerListener()
+                {
                     @Override
-                    public void onDrawerClosed(View drawerView){
+                    public void onDrawerClosed(View drawerView)
+                    {
                         super.onDrawerClosed(drawerView);
                         FragmentTransaction tx = getSupportFragmentManager().beginTransaction();
                         tx.replace(R.id.main, Fragment.instantiate(NavigationActivity.this, fragments[pos]));
@@ -56,7 +62,7 @@ public class NavigationActivity extends SherlockFragmentActivity
             }
         });
         FragmentTransaction tx = getSupportFragmentManager().beginTransaction();
-        tx.replace(R.id.main,Fragment.instantiate(NavigationActivity.this, fragments[0]));
+        tx.replace(R.id.main, Fragment.instantiate(NavigationActivity.this, fragments[0]));
         tx.commit();
     }
 }
