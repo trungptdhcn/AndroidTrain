@@ -134,7 +134,7 @@ public class LoginActivity extends Activity
             else
             {
                 login_iv_cancelOfEmail.setVisibility(View.INVISIBLE);
-                typedEmail = false;
+
             }
             if (!login_edPass.getText().toString().isEmpty() && login_edPass.isFocused() == true)
             {
@@ -144,10 +144,10 @@ public class LoginActivity extends Activity
             else
             {
                 login_iv_cancelOfPass.setVisibility(View.INVISIBLE);
-                typedPass = false;
+
             }
 
-            if (typedPass == true && typedEmail == true)
+            if (!login_edEmail.getText().toString().isEmpty() && !login_edPass.getText().toString().isEmpty())
             {
                 login_btDone.setEnabled(true);
                 login_btDone.setBackgroundDrawable(getResources().getDrawable(R.drawable.custom_button_done));
