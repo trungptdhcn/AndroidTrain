@@ -2,6 +2,7 @@ package com.example.OnlineDio.nevigation;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
@@ -10,7 +11,6 @@ import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.example.OnlineDio.R;
 
 /**
@@ -20,9 +20,9 @@ import com.example.OnlineDio.R;
  * Time: 14:00
  * To change this template use File | Settings | File Templates.
  */
-public class NavigationActivity extends SherlockFragmentActivity
+public class NavigationActivity extends FragmentActivity
 {
-    final String[] data ={"one","two","three"};
+    final String[] data ={"Home","two","three"};
     final String[] fragments =
             {
                     "com.example.OnlineDio.HomeFragment",
@@ -34,8 +34,7 @@ public class NavigationActivity extends SherlockFragmentActivity
         requestWindowFeature(Window.FEATURE_ACTION_BAR);
         setContentView(R.layout.navigation);
         Log.e(this.getPackageName().toString(),"Yes");
-        getSupportActionBar().hide();
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getSupportActionBar().getThemedContext(), android.R.layout.simple_list_item_1, data);
+        ArrayAdapter<String> adapter = new ListNavigationAdapter(this, data);
 
         final DrawerLayout drawer = (DrawerLayout)findViewById(R.id.navigation_drawer_layout);
         final ListView navList = (ListView) findViewById(R.id.navigation_lvDrawer);

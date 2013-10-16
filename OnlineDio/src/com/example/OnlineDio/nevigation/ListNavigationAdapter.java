@@ -1,5 +1,14 @@
 package com.example.OnlineDio.nevigation;
 
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
+import com.example.OnlineDio.R;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Trung
@@ -7,6 +16,35 @@ package com.example.OnlineDio.nevigation;
  * Time: 17:31
  * To change this template use File | Settings | File Templates.
  */
-//public class ListNavigationAdapter extends
-//{
-//}
+public class ListNavigationAdapter extends ArrayAdapter<String>
+{
+    private final Context context;
+    private final String[] values;
+
+    public ListNavigationAdapter(Context context, String[] values)
+    {
+        super(context, R.layout.navigation_layout_row, values);
+        this.context = context;
+        this.values = values;
+    }
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        LayoutInflater inflater = (LayoutInflater) context
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View rowView = inflater.inflate(R.layout.navigation_layout_row, parent, false);
+        TextView navigation_tvMenu = (TextView) rowView.findViewById(R.id.navigation_tvMenu);
+        ImageView navigation_imgIcon = (ImageView) rowView.findViewById(R.id.navigation_imgIcon);
+        ImageView navigation_imgArow =(ImageView)rowView.findViewById(R.id.navigation_imgArow);
+        navigation_tvMenu.setText(values[position]);
+        // Change the icon for Windows and iPhone
+        String s = values[position];
+        if (s.equals("Home")) {
+            navigation_imgIcon.setImageResource(R.drawable.navigation_homeicon);
+        }else
+        {
+            navigation_imgIcon.setImageResource(R.drawable.navigation_settingicon);
+        }
+        navigation_imgArow.setImageResource(R.drawable.navigation_nextimage);
+        return rowView;
+    }
+}

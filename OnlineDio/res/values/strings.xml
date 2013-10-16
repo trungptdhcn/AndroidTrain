@@ -3,7 +3,7 @@
     <string name="app_name">OnlineDio</string>
     <string name="login_edtEmail">Email</string>
     <string name="login_edtPass">Password</string>
-    <string name = "login_tvForgotPass">I forgot my password</string>
+    <string name = "login_tvForgotPass"><u>I forgot my password</u></string>
     <string name ="login_edtEmailHint">Email</string>
     <string name ="login_edtPasswordHint">Password</string>
     <string name="action_settings">Settings</string>
@@ -16,6 +16,8 @@
     <string name="lauch_tvintro">By joining OnlineDio you agree to the <b>Tearms of Service</b> and <b>Privacy Policy</b> </string>
     <string name="navigation_tvMyStation">My Station</string>
     <string name="navigation_tvNameStation">Mr.Bean Aloha</string>
+    <string name="login_tvLogin">Login</string>
+    <string name="navigation_tvHome">Home</string>
 
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>

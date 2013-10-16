@@ -12,7 +12,7 @@
                   android:theme="@android:style/Theme.NoTitleBar">
         </activity>
         <activity android:name=".nevigation.NavigationActivity"
-                  android:theme="@style/Theme.Sherlock.Light.DarkActionBar">
+                  android:theme="@android:style/Theme.NoTitleBar">
         </activity>
         <activity android:name=".LauchActivity"
                   android:theme="@android:style/Theme.NoTitleBar">
