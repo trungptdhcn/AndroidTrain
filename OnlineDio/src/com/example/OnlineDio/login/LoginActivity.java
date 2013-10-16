@@ -8,12 +8,9 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageButton;
-import android.widget.TextView;
-import com.example.OnlineDio.R;
+import android.widget.*;
 import com.example.OnlineDio.nevigation.NavigationActivity;
+import com.example.OnlineDio.R;
 
 public class LoginActivity extends Activity
 {
@@ -38,45 +35,64 @@ public class LoginActivity extends Activity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login2);
-        login_edEmail = (EditText)findViewById(R.id.login_edtEmail);
-        login_edPass = (EditText)findViewById(R.id.login_edtPass);
-        login_edPass.clearFocus();
-        login_btDone=(Button)findViewById(R.id.login_btDone);
-        login_btDone.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                Intent i = new Intent(LoginActivity.this,NavigationActivity.class);
-                startActivity(i);
-            }
-        });
-//        login_edEmail.setOnFocusChangeListener(new View.OnFocusChangeListener()
-//        {
-//            @Override
-//            public void onFocusChange(View v, boolean hasFocus)
-//            {
-//                login_edEmail.setText("");
-//            }
-//        });
-//        login_btDone = (Button) findViewById(R.id.login_btDone);
-//        login_btBack = (Button) findViewById(R.id.login_btBack);
-//        login_edEmail = (EditText) findViewById(R.id.login_edtEmail);
-//        login_edPass = (EditText) findViewById(R.id.login_edtPass);
-//
-//        login_iv_cancelOfEmail = (ImageButton) findViewById(R.id.login_iv_CancelOfEmail);
-//        login_iv_cancelOfPass = (ImageButton) findViewById(R.id.login_iv_cancelOfPass);
-//
-////        login_edEmail.addTextChangedListener(textChangeListener);
-////        login_edPass.addTextChangedListener(textChangeListener);
-//
-//        login_iv_cancelOfEmail.setOnClickListener(cancelOfBtEmail);
-//        login_iv_cancelOfPass.setOnClickListener(cancelOfBtPass);
-//
-//        login_btDone.setOnClickListener(new ClickListener());
+        login_btDone = (Button) findViewById(R.id.login_btDone);
+        login_btBack = (Button) findViewById(R.id.login_btBack);
+        login_edEmail = (EditText) findViewById(R.id.login_et_email);
+        login_edPass = (EditText) findViewById(R.id.login_et_Pass);
+
+        login_iv_cancelOfEmail = (ImageButton) findViewById(R.id.login_ib_cancelOfEmail);
+        login_iv_cancelOfPass = (ImageButton) findViewById(R.id.login_ib_cancelOfPass);
+
+        login_edEmail.addTextChangedListener(textChangeListener);
+        login_edPass.addTextChangedListener(textChangeListener);
+
+        login_edEmail.setOnFocusChangeListener(focusChange);
+        login_edPass.setOnFocusChangeListener(focusChange);
+
+        login_iv_cancelOfEmail.setOnClickListener(cancelOfBtEmail);
+        login_iv_cancelOfPass.setOnClickListener(cancelOfBtPass);
+
+        login_btDone.setOnClickListener(new ClickListener());
 
     }
 
+    private View.OnFocusChangeListener focusChange = new View.OnFocusChangeListener()
+    {
+        @Override
+        public void onFocusChange(View v, boolean hasFocus)
+        {
+            switch (v.getId())
+            {
+                case R.id.login_et_email:
+                    if (!hasFocus)
+                    {
+                        login_iv_cancelOfEmail.setVisibility(View.INVISIBLE);
+                    }
+                    else
+                    {
+                        if (!login_edEmail.getText().toString().equals(""))
+                        {
+                            login_iv_cancelOfEmail.setVisibility(View.VISIBLE);
+                        }
+                    }
+                    break;
+
+                case R.id.login_et_Pass:
+                    if (!hasFocus)
+                    {
+                        login_iv_cancelOfPass.setVisibility(View.INVISIBLE);
+                    }
+                    else
+                    {
+                        if (!login_edPass.getText().toString().isEmpty())
+                        {
+                            login_iv_cancelOfPass.setVisibility(View.VISIBLE);
+                        }
+                    }
+                    break;
+            }
+        }
+    };
     private View.OnClickListener cancelOfBtEmail = new View.OnClickListener()
     {
         @Override
@@ -110,7 +126,7 @@ public class LoginActivity extends Activity
         @Override
         public void afterTextChanged(Editable s)
         {
-            if (!login_edEmail.getText().toString().equals(""))
+            if (!login_edEmail.getText().toString().equals("") && login_edEmail.isFocused() == true)
             {
                 typedEmail = true;
                 login_iv_cancelOfEmail.setVisibility(View.VISIBLE);
@@ -120,7 +136,7 @@ public class LoginActivity extends Activity
                 login_iv_cancelOfEmail.setVisibility(View.INVISIBLE);
                 typedEmail = false;
             }
-            if (!login_edPass.getText().toString().isEmpty())
+            if (!login_edPass.getText().toString().isEmpty() && login_edPass.isFocused() == true)
             {
                 login_iv_cancelOfPass.setVisibility(View.VISIBLE);
                 typedPass = true;

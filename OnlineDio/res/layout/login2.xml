@@ -18,9 +18,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/login_btDone"
+                android:enabled="false"
                 android:layout_centerVertical="true"
                 android:layout_alignParentRight="true" android:layout_alignTop="@+id/login_btBack"
-                android:background="@drawable/soundboard_btn_done" android:layout_marginRight="6dp"/>
+                android:background="@drawable/soundboard_btn_done_selected" android:layout_marginRight="6dp"/>
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -45,14 +46,15 @@
                 android:layout_height="match_parent" android:layout_weight="1">
             <EditText android:layout_width="wrap_content" android:layout_height="match_parent"
                       android:drawableLeft="@drawable/icon_email" android:background="@null"
-                      android:id="@+id/login_edtPass"
+                      android:id="@+id/login_et_email"
                       android:drawablePadding="5dp"
                       android:layout_weight="1" android:layout_marginLeft="10dp" android:layout_marginRight="5dp"
                       android:layout_gravity="left|center_vertical" android:hint="@string/login_edtEmailHint"
                       android:singleLine="true" android:textSize="16sp"/>
             <ImageButton android:layout_width="wrap_content" android:layout_height="wrap_content"
-                         android:layout_centerVertical="true" android:id="@+id/ilogin_iv_CancelOfEmail"
+                         android:layout_centerVertical="true" android:id="@+id/login_ib_cancelOfEmail"
                          android:background="@drawable/login_incondelete"
+                         android:visibility="invisible"
                          android:layout_alignParentRight="true" android:layout_alignTop="@+id/login_edtEmail"
                          android:layout_gravity="center_vertical" android:layout_marginRight="10dp"/>
         </LinearLayout>
@@ -62,14 +64,16 @@
                 android:layout_height="match_parent" android:layout_gravity="center" android:layout_weight="1">
             <EditText android:layout_width="wrap_content" android:layout_height="match_parent"
                       android:drawableLeft="@drawable/icon_password" android:background="@null"
-                      android:id="@+id/login_edtPass" android:layout_gravity="left|center_vertical"
+                      android:id="@+id/login_et_Pass" android:layout_gravity="left|center_vertical"
                       android:layout_weight="1"
+                      android:password="true"
                       android:drawablePadding="5dp"
                       android:layout_marginLeft="10dp" android:layout_marginRight="5dp"
                       android:hint="@string/login_edtPasswordHint" android:singleLine="true" android:textSize="16sp"/>
             <ImageButton android:layout_width="wrap_content" android:layout_height="wrap_content"
-                         android:id="@+id/imageButton1" android:background="@drawable/login_incondelete"
+                         android:id="@+id/login_ib_cancelOfPass" android:background="@drawable/login_incondelete"
                          android:layout_gravity="center_vertical"
+                         android:visibility="invisible"
                          android:layout_alignRight="@+id/login_edtPass" android:layout_centerVertical="true"
                          android:layout_marginRight="10dp"/>
         </LinearLayout>
