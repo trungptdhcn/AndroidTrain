@@ -47,7 +47,7 @@
             android:layout_height="match_parent"
             android:id="@+id/lvListSongs"
             android:layout_alignLeft="@+id/relativeLayout"
-            android:background="@color/Gray"
+            android:background="#f6f6f6"
             android:divider="#d1d1d1"
             android:dividerHeight="1px"
             android:layout_below="@+id/ivContentFeed"/>
