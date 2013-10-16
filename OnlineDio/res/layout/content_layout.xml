@@ -78,6 +78,7 @@
                             android:drawableLeft="@drawable/content_imagecoment"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:drawablePadding="2dp"
                             android:text="812"
                             android:layout_gravity="center"
                             android:layout_weight="1" android:textColor="#a7a7a7" android:textSize="10sp"/>
@@ -86,6 +87,7 @@
                             android:drawableLeft="@drawable/content_imagefollow"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:drawablePadding="2dp"
                             android:text="799"
                             android:layout_gravity="center"
                             android:layout_weight="1" android:textColor="#a7a7a7" android:textSize="11sp"/>
@@ -94,6 +96,7 @@
                             android:drawableLeft="@drawable/content_imagelike"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:drawablePadding="2dp"
                             android:text="12"
                             android:layout_gravity="center"
                             android:layout_weight="1" android:textColor="#a7a7a7" android:textSize="11sp"/>
@@ -104,7 +107,7 @@
                 android:orientation="horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" android:layout_gravity="center"
-                android:layout_marginBottom="10dp">
+                android:layout_marginBottom="5dp">
             <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="wrap_content"

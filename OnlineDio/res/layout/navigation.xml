@@ -45,7 +45,6 @@
                         android:drawableLeft="@drawable/navigation_search_icon"
                         android:layout_marginLeft="3dp"
                         android:textSize="10sp">
-                    <!--android:background="@drawable/custom_navigation_edtsearch">-->
                 </EditText>
             </LinearLayout>
         </LinearLayout>
