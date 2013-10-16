@@ -7,7 +7,8 @@
 
     <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:background="#f6f6f6">
+            android:layout_height="wrap_content" android:background="#f6f6f6" android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp">
         <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -22,13 +23,24 @@
                 android:id="@+id/navigation_tvMenu"
                 android:layout_marginLeft="10dp"
                 android:layout_toRightOf="@+id/navigation_imgIcon" android:layout_centerVertical="true"
-                android:textStyle="bold" android:textColor="#333333"/>
+                android:textStyle="bold" android:textColor="#333333"
+                android:gravity="center_vertical|center_horizontal"/>
         <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/navigation_imgArow" android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:layout_alignBottom="@+id/navigation_imgIcon" android:background="@drawable/navigation_nextimage"
-                android:layout_marginRight="5dp"/>
+                android:layout_alignBottom="@+id/navigation_imgIcon"
+                android:src="@drawable/navigation_nextimage"
+                android:layout_marginRight="5dp" android:layout_marginBottom="5dp" android:layout_marginTop="5dp"
+                android:paddingTop="6dp"/>
+        <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/navigation_imgSuport"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/navigation_imgArow"
+                android:layout_marginRight="10dp" android:layout_marginBottom="5dp" android:layout_marginTop="5dp">
+        </ImageView>
     </RelativeLayout>
 </LinearLayout>

@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import com.example.OnlineDio.R;
 
@@ -22,40 +23,46 @@ import com.example.OnlineDio.R;
  */
 public class NavigationActivity extends FragmentActivity
 {
-    final String[] data ={"Home","two","three"};
+    final String[] data = {"Home", "Favorite", "Following", "Audience", "Genres", "Setting", "Help Center", "Sign Out"};
     final String[] fragments =
             {
                     "com.example.OnlineDio.HomeFragment",
             };
+    private LinearLayout layoutDrawer;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_ACTION_BAR);
         setContentView(R.layout.navigation);
-        Log.e(this.getPackageName().toString(),"Yes");
+        layoutDrawer = (LinearLayout) findViewById(R.id.left_drawer);
+        Log.e(this.getPackageName().toString(), "Yes");
         ArrayAdapter<String> adapter = new ListNavigationAdapter(this, data);
-
-        final DrawerLayout drawer = (DrawerLayout)findViewById(R.id.navigation_drawer_layout);
+        final DrawerLayout drawer = (DrawerLayout) findViewById(R.id.navigation_drawer_layout);
         final ListView navList = (ListView) findViewById(R.id.navigation_lvDrawer);
         navList.setAdapter(adapter);
-        navList.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+        navList.setOnItemClickListener(new AdapterView.OnItemClickListener()
+        {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, final int pos,long id){
-                drawer.setDrawerListener( new DrawerLayout.SimpleDrawerListener(){
+            public void onItemClick(AdapterView<?> parent, View view, final int pos, long id)
+            {
+                drawer.setDrawerListener(new DrawerLayout.SimpleDrawerListener()
+                {
                     @Override
-                    public void onDrawerClosed(View drawerView){
+                    public void onDrawerClosed(View drawerView)
+                    {
                         super.onDrawerClosed(drawerView);
                         FragmentTransaction tx = getSupportFragmentManager().beginTransaction();
                         tx.replace(R.id.navigation_main_FrameLayout, Fragment.instantiate(NavigationActivity.this, fragments[pos]));
                         tx.commit();
                     }
                 });
-                drawer.closeDrawer(navList);
+                drawer.closeDrawer(layoutDrawer);
             }
         });
         FragmentTransaction tx = getSupportFragmentManager().beginTransaction();
-        tx.replace(R.id.navigation_main_FrameLayout,Fragment.instantiate(NavigationActivity.this, fragments[0]));
+        tx.replace(R.id.navigation_main_FrameLayout, Fragment.instantiate(NavigationActivity.this, fragments[0]));
         tx.commit();
     }
 }
