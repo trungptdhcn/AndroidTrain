@@ -39,9 +39,12 @@ public class NavigationActivity extends FragmentActivity
         setContentView(R.layout.navigation);
         layoutDrawer = (LinearLayout) findViewById(R.id.left_drawer);
         Log.e(this.getPackageName().toString(), "Yes");
+
         ArrayAdapter<String> adapter = new ListNavigationAdapter(this, data);
+
         final DrawerLayout drawer = (DrawerLayout) findViewById(R.id.navigation_drawer_layout);
         final ListView navList = (ListView) findViewById(R.id.navigation_lvDrawer);
+
         navList.setAdapter(adapter);
         navList.setOnItemClickListener(new AdapterView.OnItemClickListener()
         {

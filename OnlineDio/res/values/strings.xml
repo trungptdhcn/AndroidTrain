@@ -32,4 +32,10 @@
     <string name="content_tvContent">Content</string>
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>
+    <string name="titleOfSong">Sound Of Silence</string>
+    <string name="nameOfDirector">Mr. Bean</string>
+    <string name="numberLike">Like: 100</string>
+    <string name="numberComment">Comment: 9</string>
+    <string name="numberTimePost">s days ago</string>
+    <string name="home">Home</string>
 </resources>

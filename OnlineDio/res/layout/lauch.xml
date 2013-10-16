@@ -30,7 +30,7 @@
         <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/imageView" android:layout_gravity="center" android:background="@drawable/lauch_logo"
+                android:id="@+id/ivAvatars" android:layout_gravity="center" android:background="@drawable/lauch_logo"
                 android:layout_marginTop="15dp" android:layout_marginBottom="5dp"/>
     </LinearLayout>
     <LinearLayout
@@ -45,7 +45,8 @@
             <Button
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:id="@+id/lauch_btloginFB" android:background="@drawable/login_fb" android:layout_gravity="center"
+                    android:id="@+id/lauch_btloginFB" android:background="@drawable/login_fb"
+                    android:layout_gravity="center"
                     android:layout_marginLeft="10dp" android:layout_weight="1"/>
             <Button
                     android:layout_width="wrap_content"

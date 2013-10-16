@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="home_item_textSize_title">16sp</dimen>
+    <dimen name="home_item_paddingLeft_title">3dp</dimen>
+    <dimen name="home_item_height_ivAvatas">58dp</dimen>
+    <dimen name="home_item_marginTop_ivAvatas">7dp</dimen>
+    <dimen name="home_item_paddingBottom_ivAvatas">3dp</dimen>
+    <dimen name="home_item_paddingTop_tvNameDirector">2dp</dimen>
+    <dimen name="home_item_textSize_tvNamDirector">10sp</dimen>
+    <dimen name="home_item_paddingLeft_tvNameDirector">3dp</dimen>
+    <dimen name="home_item_paddingRight_ivTitleSong">2dp</dimen>
+    <dimen name="home_item_marginTop_ivArrow">5dp</dimen>
+    <dimen name="home_item_marginRight_ivArror">5dp</dimen>
+    <dimen name="home_item_paddingLeft_tvNumberOfPostedDay">3dp</dimen>
+    <dimen name="home_item_paddingTop_tvNumberOfPostedDay">2dp</dimen>
+    <dimen name="home_item_textSize_tvNumberOfPostedDay">10sp</dimen>
+    <dimen name="home_item_paddingRight_tvNumberOfPostedDay">5dp</dimen>
+    <dimen name="home_item_paddingLeft_tvNumberOfClick">3dp</dimen>
+    <dimen name="home_item_paddingTop_tvNumberOfClick">2dp</dimen>
+    <dimen name="home_item_textSize_tvNumberOfClick">10dp</dimen>
+    <dimen name="home_item_paddingTop_tvNumberComment">2dp</dimen>
+    <dimen name="home_item_textSize_tvNumberComment">10dp</dimen>
+    <dimen name="home_item_paddingLeft_tvNumberComment">25dp</dimen>
+    <dimen name="home_paddingLeft_relativeLayout">1dp</dimen>
+    <dimen name="home_paddingRight_relativeLayout">2dp</dimen>
+    <dimen name="home_width_ibOption">40dp</dimen>
+    <dimen name="home_hight_ibOption">24dp</dimen>
+    <dimen name="home_paddingLeft_ibOption">5dp</dimen>
+    <dimen name="home_marginLeft_ibOption">5dp</dimen>
+    <dimen name="home_padding_ibDone">1dp</dimen>
+    <dimen name="home_margin_ibDone">6dp</dimen>
+    <dimen name="home_textSize_tvHome">20dp</dimen>
+    <dimen name="home_hight_ivContenFeed">20dp</dimen>
+    <dimen name="home_dividerHight_lvListSong">1px</dimen>
+</resources>

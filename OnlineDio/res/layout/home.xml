@@ -2,8 +2,8 @@
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
-                android:paddingLeft="1dp"
-                android:paddingRight="2dp"
+                android:paddingLeft="@dimen/home_paddingLeft_relativeLayout"
+                android:paddingRight="@dimen/home_paddingRight_relativeLayout"
                 android:layout_height="match_parent" android:background="#f6f6f6">
 
     <RelativeLayout
@@ -12,27 +12,26 @@
             android:layout_alignParentTop="true" android:background="@drawable/navbar_1"
             android:id="@+id/relativeLayout" android:focusable="false">
         <ImageButton
-                android:layout_width="40dp"
-                android:layout_height="24dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:id="@+id/content_imgbtNote"
-                android:background="@drawable/home_bi_option" android:paddingLeft="5dp"
-                android:layout_marginLeft="5dp"/>
+                android:id="@+id/ibBack"
+                android:background="@drawable/home_bi_option" android:paddingLeft="@dimen/home_paddingLeft_ibOption"
+                android:layout_marginLeft="@dimen/home_marginLeft_ibOption"/>
         <ImageButton
-                android:layout_width="40dp"
-                android:layout_height="24dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:id="@+id/content_imgbtRyclebin"
+                android:id="@+id/ibDone"
                 android:layout_alignParentRight="true"
-                android:background="@drawable/home_bi_notification"
-                android:padding="1dp"
-                android:layout_margin="6dp"
+                android:background="@drawable/home_ib_notification" android:padding="@dimen/home_padding_ibDone"
+                android:layout_margin="@dimen/home_margin_ibDone"
                 />
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Home"
-                android:textSize="20dp"
+                android:text="@string/home"
+                android:textSize="@dimen/home_textSize_tvHome"
                 android:textStyle="bold"
                 android:textColor="@color/White"
                 android:layout_centerInParent="true"
@@ -40,7 +39,7 @@
     </RelativeLayout>
     <ImageView
             android:layout_width="match_parent"
-            android:layout_height="20dp"
+            android:layout_height="@dimen/home_hight_ivContenFeed"
             android:scaleType="fitXY"
             android:id="@+id/ivContentFeed" android:layout_alignLeft="@+id/relativeLayout"
             android:layout_below="@+id/relativeLayout" android:src="@drawable/home_contentfeeds"/>
@@ -49,9 +48,9 @@
             android:layout_height="match_parent"
             android:id="@+id/lvListSongs"
             android:layout_alignLeft="@+id/relativeLayout"
-            android:background="#f6f6f6"
+            android:background="@color/Gray"
             android:divider="#d1d1d1"
-            android:dividerHeight="1px"
+            android:dividerHeight="@dimen/home_dividerHight_lvListSong"
             android:layout_below="@+id/ivContentFeed"/>
     <ImageButton
             android:layout_width="wrap_content"

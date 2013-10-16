@@ -1,79 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content" android:layout_gravity="center"
-        android:background="@drawable/selector_listview_item">
+        android:background="@drawable/selector_listview_item"
+        android:layout_height="wrap_content" android:layout_gravity="center">
     <ImageView
             android:layout_width="wrap_content"
-            android:layout_height="58dp"
-            android:id="@+id/imageView"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="7dp"
-            android:src="@drawable/home_avatasnhac"
-            android:paddingBottom="3dp"/>
+            android:layout_height="wrap_content"
+            android:id="@+id/ivAvatars" android:layout_alignParentLeft="true" android:layout_alignParentTop="true"
+            android:layout_marginTop="@dimen/home_item_marginTop_ivAvatas" android:src="@drawable/home_avatasnhac"
+            android:paddingBottom="@dimen/home_item_paddingBottom_ivAvatas"/>
     <TextView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:paddingLeft="3dp"
-            android:textSize="16sp"
+            android:paddingLeft="@dimen/home_item_paddingLeft_title"
+            android:textSize="@dimen/home_item_textSize_title"
             android:textStyle="bold"
             android:textColor="#333333"
-            android:text="Sound Of Silence"
-            android:id="@+id/tvTitleOfSong"
-            android:layout_toRightOf="@+id/imageView"
+            android:text="@string/titleOfSong"
+            android:id="@+id/tvTitleOfSong" android:layout_toRightOf="@+id/ivAvatars"
             android:layout_alignParentTop="true"/>
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingTop="2dp"
-            android:textSize="10sp"
-            android:paddingLeft="3dp"
-            android:text="Mr. Bean"
+            android:paddingTop="@dimen/home_item_paddingTop_tvNameDirector"
+            android:textSize="@dimen/home_item_textSize_tvNamDirector"
+            android:paddingLeft="@dimen/home_item_paddingLeft_tvNameDirector"
+            android:text="@string/nameOfDirector"
             android:textColor="#333333"
-            android:id="@+id/tvNameOfDirector"
-            android:layout_toRightOf="@+id/imageView"
+            android:id="@+id/tvNameOfDirector" android:layout_toRightOf="@+id/ivAvatars"
             android:layout_below="@+id/tvTitleOfSong"/>
     <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingRight="2dp"
-            android:id="@+id/navigation_imgNext"
-            android:layout_alignParentRight="true"
-            android:layout_below="@+id/tvTitleOfSong"
-            android:src="@drawable/navigation_nextimage"
-            android:layout_marginTop="5dp"
-            android:layout_marginRight="5dp"/>
+            android:paddingRight="@dimen/home_item_paddingRight_ivTitleSong"
+            android:id="@+id/navigation_imgNext" android:layout_alignParentRight="true"
+            android:layout_below="@+id/tvTitleOfSong" android:src="@drawable/navigation_nextimage"
+            android:layout_marginTop="@dimen/home_item_marginTop_ivArrow"
+            android:layout_marginRight="@dimen/home_item_marginRight_ivArror"/>
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingLeft="3dp"
-            android:paddingTop="2dp"
-            android:textSize="10sp"
-            android:text="s days ago"
+            android:paddingLeft="@dimen/home_item_paddingLeft_tvNumberOfPostedDay"
+            android:paddingTop="@dimen/home_item_paddingTop_tvNumberOfPostedDay"
+            android:textSize="@dimen/home_item_textSize_tvNumberOfPostedDay"
+            android:text="@string/numberTimePost"
             android:id="@+id/tvNumberOfPostedDay" android:layout_toLeftOf="@+id/navigation_imgNext"
-            android:layout_below="@+id/tvTitleOfSong" android:paddingRight="5dp"
+            android:layout_below="@+id/tvTitleOfSong"
+            android:paddingRight="@dimen/home_item_paddingRight_tvNumberOfPostedDay"
             android:layout_alignParentBottom="false" android:textColor="#a7a7a7"/>
     <RelativeLayout
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content" android:layout_toRightOf="@+id/imageView"
+            android:layout_height="wrap_content" android:layout_toRightOf="@+id/ivAvatars"
             android:layout_below="@+id/tvNameOfDirector">
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="3dp"
-                android:paddingTop="2dp"
-                android:textSize="10dp"
-                android:text="Like: 100"
-                android:id="@+id/tvNumberOfLiked" android:textColor="#777777"/>
+                android:paddingLeft="@dimen/home_item_paddingLeft_tvNumberOfClick"
+                android:paddingTop="@dimen/home_item_paddingTop_tvNumberOfClick"
+                android:textSize="@dimen/home_item_textSize_tvNumberOfClick"
+                android:text="@string/numberLike"
+                android:id="@+id/tvNumberOfLiked"
+                android:textColor="#777777"/>
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingTop="2dp"
-                android:textSize="10dp"
-                android:text="Comment: 9"
+                android:paddingTop="@dimen/home_item_paddingTop_tvNumberComment"
+                android:textSize="@dimen/home_item_textSize_tvNumberComment"
+                android:text="@string/numberComment"
                 android:id="@+id/tvNumberOfComment" android:layout_toRightOf="@+id/tvNumberOfLiked"
-                android:layout_alignTop="@+id/tvNumberOfLiked" android:paddingLeft="25dp" android:textColor="#777777"/>
+                android:layout_alignTop="@+id/tvNumberOfLiked"
+                android:paddingLeft="@dimen/home_item_paddingLeft_tvNumberComment" android:textColor="#777777"/>
     </RelativeLayout>
 </RelativeLayout>

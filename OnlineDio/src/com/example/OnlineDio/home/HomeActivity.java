@@ -27,7 +27,7 @@ public class HomeActivity extends Activity
         lisView = (ListView) findViewById(R.id.lvListSongs);
         ArrayList<Items> listItems = buildData();
         lisView.setAdapter(new ListViewCustomerAdapter(this, listItems));
-        ImageButton imageButton = (ImageButton) findViewById(R.id.content_imgbtNote);
+        ImageButton imageButton = (ImageButton) findViewById(R.id.ibBack);
         imageButton.setOnClickListener(new View.OnClickListener()
         {
             @Override
