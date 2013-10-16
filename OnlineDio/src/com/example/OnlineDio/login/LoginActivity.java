@@ -26,7 +26,7 @@ public class LoginActivity extends Activity
     private TextView login_tvForgotPass;
     private boolean typedEmail = false;
     private boolean typedPass = false;
-    private String dumEmail = "khang";
+    private String dumEmail = "khang@gmail.com";
     private String dumPass = "khang";
 
 
@@ -34,7 +34,7 @@ public class LoginActivity extends Activity
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.login2);
+        setContentView(R.layout.login);
         login_btDone = (Button) findViewById(R.id.login_btDone);
         login_btBack = (Button) findViewById(R.id.login_btBack);
         login_edEmail = (EditText) findViewById(R.id.login_et_email);
@@ -67,12 +67,19 @@ public class LoginActivity extends Activity
                     if (!hasFocus)
                     {
                         login_iv_cancelOfEmail.setVisibility(View.INVISIBLE);
+                        if (!login_edEmail.getText().toString().isEmpty() && new EmailValidator().validate(login_edEmail.getText().toString()) == false)
+                        {
+                            Toast toast = Toast.makeText(getApplicationContext(), "Invalid Email", Toast.LENGTH_LONG);
+                            toast.show();
+                        }
+
                     }
                     else
                     {
                         if (!login_edEmail.getText().toString().equals(""))
                         {
                             login_iv_cancelOfEmail.setVisibility(View.VISIBLE);
+
                         }
                     }
                     break;
@@ -174,11 +181,12 @@ public class LoginActivity extends Activity
             switch (v.getId())
             {
                 case R.id.login_btDone:
-                    if (login_edEmail.getText().toString().equals(dumEmail) && login_edPass.getText().toString().equals(dumPass))
+                    if (new EmailValidator().validate(login_edEmail.getText().toString()) && login_edEmail.getText().toString().equals(dumEmail) && login_edPass.getText().toString().equals(dumPass))
                     {
                         Intent i = new Intent(LoginActivity.this, NavigationActivity.class);
                         startActivity(i);
                     }
+
                     else
                     {
                         AlertDialog alertDialog = new AlertDialog.Builder(LoginActivity.this).create();
@@ -187,8 +195,7 @@ public class LoginActivity extends Activity
 
                         // Setting Dialog Message
                         alertDialog.setMessage("There is no connection  to the internet ");
-                        // Setting Icon to Dialog
-//                        alertDialog.setIcon(R.drawable.tick);
+
                         // Setting OK Button
                         alertDialog.setButton("OK", (DialogInterface.OnClickListener) null);
                         alertDialog.show();
