@@ -22,14 +22,14 @@
                 android:layout_gravity="start"
                 android:background="@drawable/navbar_1">
             <LinearLayout
-
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginLeft="8dp"
                     android:layout_marginRight="8dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="7dp"
+                    android:layout_marginBottom="7dp"
+                    android:background="@drawable/navigation_search"
                     android:orientation="horizontal">
                 <EditText
                         android:layout_width="match_parent"
@@ -37,12 +37,15 @@
                         android:id="@+id/navigation_edtSearch"
                         android:layout_gravity="center"
                         android:gravity="center_vertical"
+                        android:singleLine="true"
+                        android:layout_marginRight="5dp"
                         android:hint="Search"
+                        android:background="@null"
                         android:paddingLeft="5dp"
                         android:drawableLeft="@drawable/navigation_search_icon"
                         android:layout_marginLeft="3dp"
-                        android:textSize="10sp"
-                        android:background="@drawable/custom_navigation_edtsearch">
+                        android:textSize="10sp">
+                    <!--android:background="@drawable/custom_navigation_edtsearch">-->
                 </EditText>
             </LinearLayout>
         </LinearLayout>
