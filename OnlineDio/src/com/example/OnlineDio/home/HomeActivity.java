@@ -27,13 +27,13 @@ public class HomeActivity extends Activity
         lisView = (ListView) findViewById(R.id.lvListSongs);
         ArrayList<Items> listItems = buildData();
         lisView.setAdapter(new ListViewCustomerAdapter(this, listItems));
-        ImageButton imageButton = (ImageButton)findViewById(R.id.imageButton);
+        ImageButton imageButton = (ImageButton) findViewById(R.id.content_imgbtNote);
         imageButton.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
             {
-                Intent i = new Intent(HomeActivity.this,NavigationActivity.class);
+                Intent i = new Intent(HomeActivity.this, NavigationActivity.class);
                 startActivity(i);
             }
         });

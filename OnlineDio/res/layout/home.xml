@@ -15,16 +15,18 @@
                 android:layout_width="40dp"
                 android:layout_height="24dp"
                 android:layout_centerVertical="true"
-                android:id="@+id/imageButton"
+                android:id="@+id/content_imgbtNote"
                 android:background="@drawable/home_bi_option" android:paddingLeft="5dp"
                 android:layout_marginLeft="5dp"/>
         <ImageButton
                 android:layout_width="40dp"
                 android:layout_height="24dp"
                 android:layout_centerVertical="true"
-                android:id="@+id/imageButton1"
+                android:id="@+id/content_imgbtRyclebin"
                 android:layout_alignParentRight="true"
-                android:background="@drawable/home_bi_notification" android:padding="1dp" android:layout_margin="6dp"
+                android:background="@drawable/home_bi_notification"
+                android:padding="1dp"
+                android:layout_margin="6dp"
                 />
         <TextView
                 android:layout_width="wrap_content"

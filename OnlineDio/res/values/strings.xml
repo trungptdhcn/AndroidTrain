@@ -22,6 +22,9 @@
         and
         <b>Privacy Policy</b>
     </string>
+    <string name="content_tvTime">I month ago</string>
+    <string name="content_tvSound">Sound of Silence</string>
+    <string name="content_tvName">Mr. Bean Mini</string>
     <string name="navigation_tvMyStation">My Station</string>
     <string name="navigation_tvNameStation">Mr.Bean Aloha</string>
     <string name="login_tvLogin">Login</string>

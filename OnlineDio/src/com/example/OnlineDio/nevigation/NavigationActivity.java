@@ -27,6 +27,7 @@ public class NavigationActivity extends FragmentActivity
     final String[] fragments =
             {
                     "com.example.OnlineDio.HomeFragment",
+                    "com.example.OnlineDio.content.ContentFragment"
             };
     private LinearLayout layoutDrawer;
 
