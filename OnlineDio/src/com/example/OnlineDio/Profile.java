@@ -16,6 +16,6 @@ public class Profile extends Activity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);    //To change body of overridden methods use File | Settings | File Templates.
-        setContentView(R.layout.profile);
+        setContentView(R.layout.profile2);
     }
 }

@@ -115,7 +115,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="10dp"
-                        android:id="@+id/navigation_imgSetting"
+                        android:id="@+id/navigation_ivProfile"
                         android:layout_toLeftOf="@+id/navigation_imgNext"
                         android:layout_centerVertical="true"
                         android:src="@drawable/navigation_imagesetting"/>
