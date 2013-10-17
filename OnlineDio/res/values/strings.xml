@@ -38,4 +38,7 @@
     <string name="numberComment">Comment: 9</string>
     <string name="numberTimePost">s days ago</string>
     <string name="home">Home</string>
+    <string name="content_rbThumbnail">Thumbnail</string>
+    <string name="content_rbDetail">Detail</string>
+    <string name="content_rbCommnet">Comment</string>
 </resources>

@@ -90,7 +90,8 @@
                             android:drawablePadding="2dp"
                             android:text="799"
                             android:layout_gravity="center"
-                            android:layout_weight="1" android:textColor="#a7a7a7" android:textSize="11sp"/>
+                            android:layout_weight="1" android:textColor="#a7a7a7" android:textSize="11sp"
+                            android:layout_marginLeft="3dp"/>
                     <TextView
                             android:id="@+id/content_tvLike"
                             android:drawableLeft="@drawable/content_imagelike"
@@ -99,7 +100,8 @@
                             android:drawablePadding="2dp"
                             android:text="12"
                             android:layout_gravity="center"
-                            android:layout_weight="1" android:textColor="#a7a7a7" android:textSize="11sp"/>
+                            android:layout_weight="1" android:textColor="#a7a7a7" android:textSize="11sp"
+                            android:layout_marginLeft="3dp"/>
                 </LinearLayout>
             </LinearLayout>
         </RelativeLayout>
@@ -177,7 +179,7 @@
         <RelativeLayout
                 android:orientation="vertical"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:background="@drawable/content_iconbuttonplay">
             <Button
                     android:layout_width="wrap_content"
@@ -189,14 +191,141 @@
         </RelativeLayout>
         <LinearLayout
                 android:orientation="vertical"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:layout_gravity="right|center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" android:layout_gravity="right|center_vertical"
                 android:background="@drawable/conent_imagebackground2">
+
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent" android:layout_weight="1">
+                <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" android:layout_gravity="left|center_vertical"
+                        android:layout_weight="4">
+                    <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="match_parent"
+                            android:text="1:27"
+                            android:id="@+id/textView1" android:layout_gravity="center" android:gravity="center"/>
+                </LinearLayout>
+                <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" android:layout_gravity="center" android:layout_weight="1.5"
+                        >
+                    <SeekBar
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:progressDrawable="@drawable/scrubber_progress_horizontal_holo_light"
+                            android:thumb="@drawable/scrubber_control_selector_holo_light"
+                            android:id="@+id/seekBar" android:layout_gravity="center" android:paddingLeft="5dp"/>
+                </LinearLayout>
+                <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" android:layout_weight="4">
+                    <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="match_parent"
+                            android:text="3:45"
+                            android:id="@+id/textView2" android:layout_gravity="center" android:gravity="center"/>
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent" android:layout_weight="1">
+                <RelativeLayout android:orientation="vertical"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="4"
+                                android:id="@+id/linearLayout1">
+                    <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/imageView1"
+                            android:layout_centerInParent="true"
+                            android:layout_gravity="center" android:src="@drawable/content_volumeicon"/>
+                </RelativeLayout>
+                <LinearLayout android:orientation="vertical" android:layout_width="match_parent"
+                              android:layout_height="match_parent" android:layout_gravity="center"
+                              android:layout_weight="1.5" android:id="@+id/linearLayout">
+                    <SeekBar
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:progressDrawable="@drawable/scrubber_progress_horizontal_holo_light"
+                            android:thumb="@drawable/scrubber_control_selector_holo_light"
+                            android:id="@+id/seekBar1" android:paddingLeft="5dp"/>
+                </LinearLayout>
+                <RelativeLayout android:orientation="vertical" android:layout_width="match_parent"
+                                android:layout_height="match_parent" android:layout_weight="4"
+                                android:id="@+id/linearLayout2">
+                    <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/imageView2"
+                            android:layout_gravity="center"
+                            android:src="@drawable/content_iconvolumemax"
+                            android:layout_centerInParent="true"/>
+                </RelativeLayout>
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
     <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+            <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@null"
+                        android:id="@+id/content_rbThumbnail" android:checked="true" android:layout_weight="1"
+                        android:background="@drawable/content_custom_radiobutton_thumbnail"
+                        android:text="@string/content_rbThumbnail"
+                        android:gravity="center" android:textColor="#333333" android:textStyle="bold"/>
+                <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@null"
+                        android:id="@+id/content_rbDetail" android:checked="false"
+                        android:layout_weight="1"
+                        android:background="@drawable/content_custom_radiobutton_thumbnail" android:gravity="center"
+                        android:text="@string/content_rbDetail" android:textColor="#333333"
+                        android:textStyle="bold"/>
+                <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/content_rbComment"
+                        android:button="@null"
+                        android:checked="false" android:layout_weight="1"
+                        android:background="@drawable/content_custom_radiobutton_thumbnail" android:gravity="center"
+                        android:text="@string/content_rbCommnet" android:textColor="#333333"
+                        android:textStyle="bold"/>
+            </RadioGroup>
+        </LinearLayout>
+        <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/scrollView">
+            <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent">
+                <FrameLayout
+                        android:id="@+id/content_frame_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                </FrameLayout>
+            </RelativeLayout>
+        </ScrollView>
     </LinearLayout>
 </LinearLayout>
