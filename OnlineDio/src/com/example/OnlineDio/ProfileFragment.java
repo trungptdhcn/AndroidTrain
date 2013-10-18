@@ -1,17 +1,20 @@
 package com.example.OnlineDio;
 
+import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.content.Intent;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.DatePicker;
-import android.widget.EditText;
-import android.widget.Spinner;
+import android.widget.*;
 
 import java.util.Calendar;
 
@@ -30,6 +33,8 @@ public class ProfileFragment extends Fragment
     private int month;
     private int day;
     private Spinner spListCountry;
+    private RelativeLayout rlCoverImage;
+    private ImageView ibProfileIcon;
 
 
     @Override
@@ -40,12 +45,72 @@ public class ProfileFragment extends Fragment
         dpBirthday = (EditText) view.findViewById(R.id.profile_dpBirthday);
         spListCountry = (Spinner) view.findViewById(R.id.profile_spListCountry);
         etCountry = (EditText) view.findViewById(R.id.profile_etCountry);
+        rlCoverImage = (RelativeLayout) view.findViewById(R.id.profile_rlCoverImage);
+        ibProfileIcon = (ImageView) view.findViewById(R.id.profile_ivAvatar);
 
         etCountry.setOnClickListener(clickedCountry);
         dpBirthday.setOnClickListener(setBirthdayDate);
         spListCountry.setOnItemSelectedListener(itemSelect);
+        initialCurrentTime();
+        rlCoverImage.setOnClickListener(onClickCoverImage);
+        ibProfileIcon.setOnClickListener(onClickCoverImage);
 
         return view;
+    }
+
+    private View.OnClickListener onClickCoverImage = new View.OnClickListener()
+    {
+        @Override
+        public void onClick(View v)
+        {
+            /*Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(
+                    "content://media/internal/images/media"));
+            startActivity(intent);*/
+            Intent i = new Intent(Intent.ACTION_PICK,
+                    android.provider.MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+            final int ACTIVITY_SELECT_IMAGE = 1234;
+            startActivityForResult(i, ACTIVITY_SELECT_IMAGE);
+
+        }
+
+    };
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == Activity.RESULT_OK)
+        {
+            if (requestCode == 1234)
+            {
+                Uri selectedImageUri = data.getData();
+                String selectedImagePath = getPath(selectedImageUri);
+                System.out.println("Image Path : " + selectedImagePath);
+
+                int height = ibProfileIcon.getHeight();
+                int width = ibProfileIcon.getWidth();
+                ibProfileIcon.setImageURI(selectedImageUri);
+                //ibProfileIcon.setLayoutParams(new LinearLayout.LayoutParams(width, height));
+            }
+        }
+
+    }
+
+    private String getPath(Uri selectedImageUri)
+    {
+        String[] projection = {MediaStore.Images.Media.DATA};
+        Cursor cursor = getActivity().managedQuery(selectedImageUri, projection, null, null, null);
+        int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+        cursor.moveToFirst();
+        return cursor.getString(column_index);
+    }
+
+    private void initialCurrentTime()
+    {
+        final Calendar c = Calendar.getInstance();
+        year = 1990;
+        month = c.get(Calendar.MONTH);
+        day = c.get(Calendar.DAY_OF_MONTH);
     }
 
     private View.OnClickListener clickedCountry = new View.OnClickListener()
@@ -100,8 +165,6 @@ public class ProfileFragment extends Fragment
 
     protected Dialog onCreateDialog()
     {
-        final Calendar c = Calendar.getInstance();
-        Log.d("Date", c.get(Calendar.YEAR) + "");
-        return new DatePickerDialog(getActivity(), datePickerListener, 1990, c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH));
+        return new DatePickerDialog(getActivity(), datePickerListener, year, month, day);
     }
 }

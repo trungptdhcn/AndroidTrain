@@ -7,6 +7,7 @@
     <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@drawable/background"
             android:id="@+id/scrollView" android:layout_alignParentLeft="true" android:layout_alignParentTop="true">
 
 
@@ -14,12 +15,47 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
             <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:background="@drawable/navbar_1"
+                    android:layout_alignParentTop="true" android:id="@+id/profile_bar">
+                <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:id="@+id/profile_ibBack"
+                        android:background="@drawable/home_bi_option"
+                        android:paddingLeft="@dimen/home_paddingLeft_ibOption"
+                        android:layout_marginLeft="@dimen/home_marginLeft_ibOption"/>
+                <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:id="@+id/profile_ibSave"
+                        android:layout_alignParentRight="true"
+                        android:background="@drawable/btn_save" android:padding="@dimen/home_padding_ibDone"
+                        android:layout_margin="@dimen/home_margin_ibDone"
+                        />
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Profile Setup"
+                        android:textSize="@dimen/home_textSize_tvHome"
+                        android:textStyle="bold"
+                        android:textColor="@color/White"
+                        android:layout_centerInParent="true"
+                        />
+            </RelativeLayout>
+            <RelativeLayout
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content" android:layout_alignParentLeft="true"
-                    android:layout_alignParentTop="true" android:background="@drawable/cover_image"
-                    android:id="@+id/rlCoverImage">
+                    android:layout_alignParentTop="false" android:background="@drawable/cover_image"
+                    android:id="@+id/profile_rlCoverImage" android:layout_marginLeft="3dp"
+                    android:layout_marginRight="2dp"
+                    android:layout_below="@+id/profile_bar">
                 <ImageView
-                        android:id="@+id/profille_ivAvatar"
+                        android:id="@+id/profile_ivAvatar"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
 
@@ -27,45 +63,13 @@
                         android:layout_alignParentLeft="true" android:layout_marginLeft="28dp"
                         android:layout_alignParentTop="true"
                         android:layout_marginTop="88dp"/>
-                <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentLeft="true"
-                        android:background="@drawable/navbar_1"
-                        android:layout_alignParentTop="true">
-                    <ImageButton
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
-                            android:id="@+id/ibBack"
-                            android:background="@drawable/home_bi_option"
-                            android:paddingLeft="@dimen/home_paddingLeft_ibOption"
-                            android:layout_marginLeft="@dimen/home_marginLeft_ibOption"/>
-                    <ImageButton
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
-                            android:id="@+id/ibDone"
-                            android:layout_alignParentRight="true"
-                            android:background="@drawable/btn_save" android:padding="@dimen/home_padding_ibDone"
-                            android:layout_margin="@dimen/home_margin_ibDone"
-                            />
-                    <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Profile Setup"
-                            android:textSize="@dimen/home_textSize_tvHome"
-                            android:textStyle="bold"
-                            android:textColor="@color/White"
-                            android:layout_centerInParent="true"
-                            />
-                </RelativeLayout>
+
             </RelativeLayout>
             <RelativeLayout
                     android:layout_width="fill_parent"
                     android:layout_height="match_parent"
-                    android:layout_below="@+id/rlCoverImage" android:id="@+id/profile_rlContent"
-                    >
+                    android:layout_below="@+id/profile_rlCoverImage" android:id="@+id/profile_rlContent"
+                    android:layout_marginLeft="3dp" android:layout_marginRight="2dp">
                 <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -258,7 +262,7 @@
                             android:id="@+id/profile_etCountry"
                             android:drawableRight="@drawable/home_arrow"
                             android:layout_alignLeft="@+id/editText1" android:layout_below="@+id/viewBelowGender"
-                            android:layout_marginRight="5dp"/>
+                            android:layout_marginRight="10dp"/>
                     <RadioGroup
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -292,7 +296,8 @@
             </RelativeLayout>
             <RelativeLayout
                     android:layout_width="fill_parent"
-                    android:layout_height="190dp" android:layout_below="@+id/profile_rlContent">
+                    android:layout_height="190dp" android:layout_below="@+id/profile_rlContent"
+                    android:layout_marginLeft="3dp" android:layout_marginRight="2dp">
                 <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -308,7 +313,8 @@
                         android:gravity="top|left"
                         android:inputType="textMultiLine|textImeMultiLine"
                         android:id="@+id/editText2" android:layout_below="@+id/textView4"
-                        android:layout_alignParentBottom="true"/>
+                        android:layout_alignParentBottom="true" android:layout_marginLeft="3dp"
+                        android:layout_marginRight="2dp"/>
             </RelativeLayout>
         </RelativeLayout>
 
