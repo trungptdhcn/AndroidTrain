@@ -32,4 +32,8 @@
     <dimen name="home_textSize_tvHome">20dp</dimen>
     <dimen name="home_hight_ivContenFeed">20dp</dimen>
     <dimen name="home_dividerHight_lvListSong">1px</dimen>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="image_view_size">255dp</dimen>
+    <dimen name="space">3dp</dimen>
 </resources>

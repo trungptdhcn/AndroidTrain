@@ -6,8 +6,8 @@ import android.os.Bundle;
 /**
  * Created with IntelliJ IDEA.
  * User: Trung
- * Date: 16/10/2013
- * Time: 17:50
+ * Date: 17/10/2013
+ * Time: 17:43
  * To change this template use File | Settings | File Templates.
  */
 public class Profile extends Activity

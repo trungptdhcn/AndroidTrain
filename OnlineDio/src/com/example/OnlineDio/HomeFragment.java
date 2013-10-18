@@ -3,11 +3,14 @@ package com.example.OnlineDio;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import com.example.OnlineDio.content.ContentFragment;
 import com.example.OnlineDio.home.Items;
 import com.example.OnlineDio.home.ListViewCustomerAdapter;
 
@@ -24,20 +27,34 @@ public class HomeFragment extends Fragment
 {
     ListView lisView;
     private ImageButton imageButton;
-    public static Fragment newInstance(Context context) {
+
+    public static Fragment newInstance(Context context)
+    {
         HomeFragment f = new HomeFragment();
 
         return f;
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+    {
         View view = inflater.inflate(R.layout.home, container, false);
-        lisView = (ListView)view.findViewById(R.id.lvListSongs);
+        lisView = (ListView) view.findViewById(R.id.lvListSongs);
         ArrayList<Items> listItems = buildData();
         lisView.setAdapter(new ListViewCustomerAdapter(getActivity(), listItems));
+        lisView.setOnItemClickListener(new AdapterView.OnItemClickListener()
+        {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, final int pos, long id)
+            {
+                FragmentTransaction tx = getActivity().getSupportFragmentManager().beginTransaction();
+                tx.replace(R.id.navigation_main_FrameLayout, new ContentFragment());
+                tx.commit();
+            }
+        });
         return view;
     }
+
     private ArrayList<Items> buildData()
     {
         ArrayList<Items> listResult = new ArrayList<Items>();

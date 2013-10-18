@@ -1,10 +1,8 @@
 package com.example.OnlineDio.nevigation;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
@@ -30,7 +28,7 @@ public class NavigationActivity extends FragmentActivity
                     "com.example.OnlineDio.content.ContentFragment"
             };
     private LinearLayout layoutDrawer;
-    private ImageView ivProfile;
+    private LinearLayout llProfile;
 
 
     @Override
@@ -41,7 +39,7 @@ public class NavigationActivity extends FragmentActivity
         setContentView(R.layout.navigation);
         layoutDrawer = (LinearLayout) findViewById(R.id.left_drawer);
         Log.e(this.getPackageName().toString(), "Yes");
-        ivProfile = (ImageView) findViewById(R.id.navigation_ivProfile);
+        llProfile = (LinearLayout) findViewById(R.id.navigation_station_layout);
         ArrayAdapter<String> adapter = new ListNavigationAdapter(this, data);
 
         final DrawerLayout drawer = (DrawerLayout) findViewById(R.id.navigation_drawer_layout);
@@ -70,20 +68,19 @@ public class NavigationActivity extends FragmentActivity
         FragmentTransaction tx = getSupportFragmentManager().beginTransaction();
         tx.replace(R.id.navigation_main_FrameLayout, Fragment.instantiate(NavigationActivity.this, fragments[0]));
         tx.commit();
-
-        ivProfile.setOnClickListener(profileScreen);
+        llProfile.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                ProfileFragment profileFragment = new ProfileFragment();
+                FragmentTransaction tx = getSupportFragmentManager().beginTransaction();
+                tx.replace(R.id.navigation_main_FrameLayout, profileFragment);
+                tx.commit();
+                drawer.closeDrawer(layoutDrawer);
+            }
+        });
     }
 
-    private View.OnClickListener profileScreen = new View.OnClickListener()
-    {
-        @Override
-        public void onClick(View v)
-        {
-            ProfileFragment profileFragment = new ProfileFragment();
-            FragmentManager fragmentManager = getSupportFragmentManager();
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.replace(android.R.id.content, profileFragment);
-            fragmentTransaction.commit();
-        }
-    };
+
 }

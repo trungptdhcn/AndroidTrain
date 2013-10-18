@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.RadioButton;
 import com.example.OnlineDio.R;
@@ -26,11 +27,13 @@ public class ContentFragment extends Fragment
     private RadioButton content_rbThumbnail;
     private RadioButton content_rbDetail;
     private RadioButton content_rbComment;
+    private Button content_btnPlay;
     private FrameLayout content_frame_layout;
     boolean check_Detail = false;
     boolean check_Thumbnail = true;
     boolean check_Comment = false;
     private String flag;
+    boolean check_play = true;
 
     public static Fragment newInstance(Context context)
     {
@@ -44,6 +47,7 @@ public class ContentFragment extends Fragment
         View view = inflater.inflate(R.layout.content_layout, container, false);
         content_rbComment = (RadioButton) view.findViewById(R.id.content_rbComment);
         content_rbDetail = (RadioButton) view.findViewById(R.id.content_rbDetail);
+        content_btnPlay = (Button) view.findViewById(R.id.content_btnPlay);
         content_rbThumbnail = (RadioButton) view.findViewById(R.id.content_rbThumbnail);
         content_rbComment.setOnClickListener(new View.OnClickListener()
         {
@@ -51,8 +55,8 @@ public class ContentFragment extends Fragment
             public void onClick(View v)
             {
                 FragmentTransaction tx = getFragmentManager().beginTransaction();
-                ContentFragment contentFragment = new ContentFragment();
-                tx.replace(R.id.content_frame_layout, contentFragment);
+                CommentFragment commentFragment = new CommentFragment();
+                tx.replace(R.id.content_frame_layout, commentFragment);
                 tx.commit();
             }
         });
@@ -82,6 +86,23 @@ public class ContentFragment extends Fragment
         ThumbnailFragment thumbnailFragment = new ThumbnailFragment();
         tx.replace(R.id.content_frame_layout, thumbnailFragment);
         tx.commit();
+        content_btnPlay.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                if (check_play == true)
+                {
+                    content_btnPlay.setBackground(getResources().getDrawable(R.drawable.content_buttonplay));
+                    check_play = false;
+                }
+                else
+                {
+                    content_btnPlay.setBackground(getResources().getDrawable(R.drawable.content_buttonpause));
+                    check_play = true;
+                }
+            }
+        });
 
 //        content_btThumbnail = (Button)view.findViewById(R.id.content_btThumbnail);
 //        content_btThumbnail.setOnClickListener(new View.OnClickListener()

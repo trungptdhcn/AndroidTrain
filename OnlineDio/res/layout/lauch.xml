@@ -51,13 +51,13 @@
             <Button
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:id="@+id/lauch_btloginNormal" android:background="@drawable/lauch_login_nomal"
+                    android:id="@+id/lauch_btloginNormal" android:background="@drawable/lauch_custom_buttonloginnormal"
                     android:layout_gravity="center" android:layout_marginLeft="5dp" android:layout_weight="1"/>
             <Button
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:id="@+id/lauch_btSign" android:layout_gravity="center"
-                    android:background="@drawable/lauch_sign" android:layout_marginRight="10dp"
+                    android:background="@drawable/lauch_custom_buttonsign" android:layout_marginRight="10dp"
                     android:layout_weight="1" android:layout_marginLeft="5dp"/>
         </LinearLayout>
         <LinearLayout
