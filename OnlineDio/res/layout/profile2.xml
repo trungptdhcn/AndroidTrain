@@ -25,7 +25,7 @@
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:id="@+id/profile_ibBack"
-                        android:background="@drawable/home_bi_option"
+                        android:background="@drawable/profile_tb_cancel"
                         android:paddingLeft="@dimen/home_paddingLeft_ibOption"
                         android:layout_marginLeft="@dimen/home_marginLeft_ibOption"/>
                 <ImageButton

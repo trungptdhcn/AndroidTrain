@@ -1,8 +1,10 @@
 package com.example.OnlineDio.nevigation;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
@@ -12,6 +14,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import com.example.OnlineDio.ProfileFragment;
 import com.example.OnlineDio.R;
 
 /**
@@ -77,18 +80,8 @@ public class NavigationActivity extends FragmentActivity
             @Override
             public void onClick(View v)
             {
-                drawer.setDrawerListener(new DrawerLayout.SimpleDrawerListener()
-                {
-                    @Override
-                    public void onDrawerClosed(View drawerView)
-                    {
-                        super.onDrawerClosed(drawerView);
-                        FragmentTransaction tx = getSupportFragmentManager().beginTransaction();
-                        tx.replace(R.id.navigation_main_FrameLayout, Fragment.instantiate(NavigationActivity.this, profilefragment));
-                        tx.commit();
-                    }
-                });
-                drawer.closeDrawer(layoutDrawer);
+                Intent i = new Intent(getApplicationContext(), ProfileFragment.class);
+                startActivity(i);
             }
         });
 

@@ -19,6 +19,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,6 +27,7 @@ import android.widget.*;
 import com.example.OnlineDio.content.CircularImageView;
 import com.example.OnlineDio.content.CropOption;
 import com.example.OnlineDio.content.CropOptionAdapter;
+import com.example.OnlineDio.nevigation.NavigationActivity;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -41,7 +43,7 @@ import static android.content.DialogInterface.OnClickListener;
  * Time: 8:26 AM
  * To change this template use File | Settings | File Templates.
  */
-public class ProfileFragment extends Fragment
+public class ProfileFragment extends Activity
 {
     private EditText dpBirthday;
     private EditText etCountry;
@@ -53,6 +55,7 @@ public class ProfileFragment extends Fragment
     private CircularImageView ibProfileIcon;
     private AlertDialog.Builder builder;
     private AlertDialog dialog;
+    private ImageButton ibProfileBack;
 
     private Uri mImageCaptureUri;
 
@@ -64,32 +67,40 @@ public class ProfileFragment extends Fragment
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+    protected void onCreate(Bundle savedInstanceState)
     {
-        View view = inflater.inflate(R.layout.profile2,
-                container, false);
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.profile2);
         final String[] items = new String[]{"Take from camera", "Select from gallery"};
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.select_dialog_item, items);
-        dpBirthday = (EditText) view.findViewById(R.id.profile_dpBirthday);
-        spListCountry = (Spinner) view.findViewById(R.id.profile_spListCountry);
-        etCountry = (EditText) view.findViewById(R.id.profile_etCountry);
-        rlCoverImage = (RelativeLayout) view.findViewById(R.id.profile_rlCoverImage);
-        ibProfileIcon = (CircularImageView) view.findViewById(R.id.profile_ivAvatar);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.select_dialog_item, items);
+        dpBirthday = (EditText) findViewById(R.id.profile_dpBirthday);
+        spListCountry = (Spinner) findViewById(R.id.profile_spListCountry);
+        etCountry = (EditText) findViewById(R.id.profile_etCountry);
+        rlCoverImage = (RelativeLayout) findViewById(R.id.profile_rlCoverImage);
+        ibProfileIcon = (CircularImageView) findViewById(R.id.profile_ivAvatar);
+        ibProfileBack = (ImageButton) findViewById(R.id.profile_ibBack);
 
         etCountry.setOnClickListener(clickedCountry);
         dpBirthday.setOnClickListener(setBirthdayDate);
         spListCountry.setOnItemSelectedListener(itemSelect);
-        builder = new AlertDialog.Builder(getActivity());
+        builder = new AlertDialog.Builder(this);
         builder.setTitle("Select Image");
         builder.setAdapter(adapter, dialogInterface);
         dialog = builder.create();
         initialCurrentTime();
         rlCoverImage.setOnClickListener(onClickCoverImage);
         ibProfileIcon.setOnClickListener(onClickProfileImage);
-
-        return view;
+        ibProfileBack.setOnClickListener(onClickProfileBackImage);
     }
 
+    private View.OnClickListener onClickProfileBackImage = new View.OnClickListener()
+    {
+        @Override
+        public void onClick(View v)
+        {
+            finish();
+        }
+    };
     private OnClickListener dialogInterface = new OnClickListener()
     {
 
@@ -208,13 +219,13 @@ public class ProfileFragment extends Fragment
         Intent intent = new Intent("com.android.camera.action.CROP");
         intent.setType("image/*");
 
-        List<ResolveInfo> list = getActivity().getPackageManager().queryIntentActivities(intent, 0);
+        List<ResolveInfo> list = this.getPackageManager().queryIntentActivities(intent, 0);
 
         int size = list.size();
 
         if (size == 0)
         {
-            Toast.makeText(getActivity(), "Can not find image crop app", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Can not find image crop app", Toast.LENGTH_SHORT).show();
 
             return;
         }
@@ -244,8 +255,8 @@ public class ProfileFragment extends Fragment
                 {
                     final CropOption co = new CropOption();
 
-                    co.title = getActivity().getPackageManager().getApplicationLabel(res.activityInfo.applicationInfo);
-                    co.icon = getActivity().getPackageManager().getApplicationIcon(res.activityInfo.applicationInfo);
+                    co.title = this.getPackageManager().getApplicationLabel(res.activityInfo.applicationInfo);
+                    co.icon = this.getPackageManager().getApplicationIcon(res.activityInfo.applicationInfo);
                     co.appIntent = new Intent(intent);
 
                     co.appIntent.setComponent(new ComponentName(res.activityInfo.packageName, res.activityInfo.name));
@@ -253,9 +264,9 @@ public class ProfileFragment extends Fragment
                     cropOptions.add(co);
                 }
 
-                CropOptionAdapter adapter = new CropOptionAdapter(getActivity().getApplicationContext(), cropOptions);
+                CropOptionAdapter adapter = new CropOptionAdapter(this.getApplicationContext(), cropOptions);
 
-                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setTitle("Choose Crop App");
                 builder.setAdapter(adapter, new OnClickListener()
                 {
@@ -273,7 +284,7 @@ public class ProfileFragment extends Fragment
 
                         if (mImageCaptureUri != null)
                         {
-                            getActivity().getContentResolver().delete(mImageCaptureUri, null, null);
+                            getContentResolver().delete(mImageCaptureUri, null, null);
                             mImageCaptureUri = null;
                         }
                     }
@@ -346,6 +357,6 @@ public class ProfileFragment extends Fragment
 
     protected Dialog onCreateDialog()
     {
-        return new DatePickerDialog(getActivity(), datePickerListener, year, month, day);
+        return new DatePickerDialog(this, datePickerListener, year, month, day);
     }
 }
