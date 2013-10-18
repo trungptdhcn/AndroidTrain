@@ -8,8 +8,10 @@ import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
-import android.widget.*;
-import com.example.OnlineDio.ProfileFragment;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
+import android.widget.ListView;
 import com.example.OnlineDio.R;
 
 /**
@@ -25,8 +27,10 @@ public class NavigationActivity extends FragmentActivity
     final String[] fragments =
             {
                     "com.example.OnlineDio.HomeFragment",
-                    "com.example.OnlineDio.content.ContentFragment"
+                    "com.example.OnlineDio.content.ContentFragment",
+
             };
+    final String profilefragment = "com.example.OnlineDio.ProfileFragment";
     private LinearLayout layoutDrawer;
     private LinearLayout llProfile;
 
@@ -73,13 +77,21 @@ public class NavigationActivity extends FragmentActivity
             @Override
             public void onClick(View v)
             {
-                ProfileFragment profileFragment = new ProfileFragment();
-                FragmentTransaction tx = getSupportFragmentManager().beginTransaction();
-                tx.replace(R.id.navigation_main_FrameLayout, profileFragment);
-                tx.commit();
+                drawer.setDrawerListener(new DrawerLayout.SimpleDrawerListener()
+                {
+                    @Override
+                    public void onDrawerClosed(View drawerView)
+                    {
+                        super.onDrawerClosed(drawerView);
+                        FragmentTransaction tx = getSupportFragmentManager().beginTransaction();
+                        tx.replace(R.id.navigation_main_FrameLayout, Fragment.instantiate(NavigationActivity.this, profilefragment));
+                        tx.commit();
+                    }
+                });
                 drawer.closeDrawer(layoutDrawer);
             }
         });
+
     }
 
 

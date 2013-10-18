@@ -3,7 +3,7 @@
     <dimen name="home_item_textSize_title">16sp</dimen>
     <dimen name="home_item_paddingLeft_title">3dp</dimen>
     <dimen name="home_item_height_ivAvatas">58dp</dimen>
-    <dimen name="home_item_marginTop_ivAvatas">7dp</dimen>
+    <dimen name="home_item_marginTop_ivAvatas">10dp</dimen>
     <dimen name="home_item_paddingBottom_ivAvatas">3dp</dimen>
     <dimen name="home_item_paddingTop_tvNameDirector">2dp</dimen>
     <dimen name="home_item_textSize_tvNamDirector">10sp</dimen>

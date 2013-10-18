@@ -45,7 +45,7 @@
             <Button
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:id="@+id/lauch_btloginFB" android:background="@drawable/login_fb"
+                    android:id="@+id/lauch_btloginFB" android:background="@drawable/lauch_customer_loginfb"
                     android:layout_gravity="center"
                     android:layout_marginLeft="10dp" android:layout_weight="1"/>
             <Button

@@ -54,7 +54,7 @@ public class ListViewCustomerAdapter extends BaseAdapter
         ViewHolder holder;
         if (convertView == null)
         {
-            convertView = layoutInflater.inflate(R.layout.home_row_of_listview, null);
+            convertView = layoutInflater.inflate(R.layout.home_row_of_listview2, null);
             holder = new ViewHolder();
             holder.titleOfSong = (TextView) convertView.findViewById(R.id.tvTitleOfSong);
             holder.nameOfDirector = (TextView) convertView.findViewById(R.id.tvNameOfDirector);

@@ -13,7 +13,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/login_btBack" android:layout_alignParentLeft="true" android:layout_marginLeft="6dp"
-                android:layout_centerVertical="true" android:background="@drawable/icon_back"/>
+                android:layout_centerVertical="true" android:background="@drawable/common_custom_btnback"/>
         <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
