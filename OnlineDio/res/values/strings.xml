@@ -41,4 +41,21 @@
     <string name="content_rbThumbnail">Thumbnail</string>
     <string name="content_rbDetail">Detail</string>
     <string name="content_rbCommnet">Comment</string>
+    <string name="profile">Profile</string>
+    <string name="tvDisplayName">Display Name</string>
+    <string name="etDisplayname">Your display name</string>
+    <string name="tvWarning">People can follow you as an audience using display name.Please node that display cannot be
+        change later.
+    </string>
+    <string name="tvAccountInfor">Account Information</string>
+    <string name="tvFullName">Full Name</string>
+    <string name="etFullName">Your full name</string>
+    <string name="tvPhone">Phone No.</string>
+    <string name="exPhone">Your phone no.</string>
+    <string name="tvBirthday">Birthday</string>
+    <string name="etBirthday">Your birthday</string>
+    <string name="tvGender">Gender</string>
+    <string name="tvCountry">Country</string>
+    <string name="etCountry">Your country</string>
+    <string name="tvDescription">Description</string>
 </resources>

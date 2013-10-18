@@ -1,22 +1,38 @@
 package com.example.OnlineDio;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.content.ActivityNotFoundException;
+import android.content.ComponentName;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.ResolveInfo;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.*;
+import com.example.OnlineDio.content.CircularImageView;
+import com.example.OnlineDio.content.CropOption;
+import com.example.OnlineDio.content.CropOptionAdapter;
 
+import java.io.File;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
+
+import static android.content.DialogInterface.OnClickListener;
 
 /**
  * Created with IntelliJ IDEA.
@@ -34,7 +50,17 @@ public class ProfileFragment extends Fragment
     private int day;
     private Spinner spListCountry;
     private RelativeLayout rlCoverImage;
-    private ImageView ibProfileIcon;
+    private CircularImageView ibProfileIcon;
+    private AlertDialog.Builder builder;
+    private AlertDialog dialog;
+
+    private Uri mImageCaptureUri;
+
+    private static final int PICK_FROM_CAMERA = 1;
+    private static final int CROP_FROM_CAMERA = 2;
+    private static final int PICK_FROM_FILE = 3;
+
+    private boolean coverOrBackground = false;
 
 
     @Override
@@ -42,67 +68,222 @@ public class ProfileFragment extends Fragment
     {
         View view = inflater.inflate(R.layout.profile2,
                 container, false);
+        final String[] items = new String[]{"Take from camera", "Select from gallery"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.select_dialog_item, items);
         dpBirthday = (EditText) view.findViewById(R.id.profile_dpBirthday);
         spListCountry = (Spinner) view.findViewById(R.id.profile_spListCountry);
         etCountry = (EditText) view.findViewById(R.id.profile_etCountry);
         rlCoverImage = (RelativeLayout) view.findViewById(R.id.profile_rlCoverImage);
-        ibProfileIcon = (ImageView) view.findViewById(R.id.profile_ivAvatar);
+        ibProfileIcon = (CircularImageView) view.findViewById(R.id.profile_ivAvatar);
 
         etCountry.setOnClickListener(clickedCountry);
         dpBirthday.setOnClickListener(setBirthdayDate);
         spListCountry.setOnItemSelectedListener(itemSelect);
+        builder = new AlertDialog.Builder(getActivity());
+        builder.setTitle("Select Image");
+        builder.setAdapter(adapter, dialogInterface);
+        dialog = builder.create();
         initialCurrentTime();
         rlCoverImage.setOnClickListener(onClickCoverImage);
-        ibProfileIcon.setOnClickListener(onClickCoverImage);
+        ibProfileIcon.setOnClickListener(onClickProfileImage);
 
         return view;
     }
 
+    private OnClickListener dialogInterface = new OnClickListener()
+    {
+
+        @Override
+        public void onClick(DialogInterface dialog, int which)
+        {
+            //pick from camera
+            if (which == 0)
+            {
+                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+
+                mImageCaptureUri = Uri.fromFile(new File(Environment.getExternalStorageDirectory(),
+                        "tmp_avatar_" + String.valueOf(System.currentTimeMillis()) + ".jpg"));
+
+                intent.putExtra(android.provider.MediaStore.EXTRA_OUTPUT, mImageCaptureUri);
+
+                try
+                {
+                    intent.putExtra("return-data", true);
+
+                    startActivityForResult(intent, PICK_FROM_CAMERA);
+                }
+                catch (ActivityNotFoundException e)
+                {
+                    e.printStackTrace();
+                }
+            }
+            else
+            { //pick from file
+                Intent intent = new Intent();
+
+                intent.setType("image/*");
+                intent.setAction(Intent.ACTION_GET_CONTENT);
+
+                startActivityForResult(Intent.createChooser(intent, "Complete action using"), PICK_FROM_FILE);
+            }
+        }
+
+    };
     private View.OnClickListener onClickCoverImage = new View.OnClickListener()
     {
         @Override
         public void onClick(View v)
         {
-            /*Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(
-                    "content://media/internal/images/media"));
-            startActivity(intent);*/
-            Intent i = new Intent(Intent.ACTION_PICK,
-                    android.provider.MediaStore.Images.Media.INTERNAL_CONTENT_URI);
-            final int ACTIVITY_SELECT_IMAGE = 1234;
-            startActivityForResult(i, ACTIVITY_SELECT_IMAGE);
+            coverOrBackground = true;
+            dialog.show();
+
+        }
+
+    };
+    private View.OnClickListener onClickProfileImage = new View.OnClickListener()
+    {
+        @Override
+        public void onClick(View v)
+        {
+            coverOrBackground = false;
+            dialog.show();
 
         }
 
     };
 
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data)
     {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == Activity.RESULT_OK)
+        switch (requestCode)
         {
-            if (requestCode == 1234)
-            {
-                Uri selectedImageUri = data.getData();
-                String selectedImagePath = getPath(selectedImageUri);
-                System.out.println("Image Path : " + selectedImagePath);
+            case PICK_FROM_CAMERA:
+                doCrop();
 
-                int height = ibProfileIcon.getHeight();
-                int width = ibProfileIcon.getWidth();
-                ibProfileIcon.setImageURI(selectedImageUri);
-                //ibProfileIcon.setLayoutParams(new LinearLayout.LayoutParams(width, height));
-            }
+                break;
+
+            case PICK_FROM_FILE:
+                mImageCaptureUri = data.getData();
+
+                doCrop();
+
+                break;
+
+            case CROP_FROM_CAMERA:
+                Bundle extras = data.getExtras();
+
+                if (extras != null)
+                {
+                    Bitmap photo = extras.getParcelable("data");
+                    if (!coverOrBackground)
+                    {
+                        ibProfileIcon.setImageBitmap(photo);
+                    }
+                    else
+                    {
+                        Drawable d = new BitmapDrawable(getResources(), photo);
+                        //rlCoverImage.setBackground(d);
+                        rlCoverImage.setBackgroundDrawable(d);
+                        coverOrBackground = false;
+                    }
+                }
+
+                File f = new File(mImageCaptureUri.getPath());
+
+                if (f.exists())
+                {
+                    f.delete();
+                }
+
+                break;
+
         }
-
     }
 
-    private String getPath(Uri selectedImageUri)
+    private void doCrop()
     {
-        String[] projection = {MediaStore.Images.Media.DATA};
-        Cursor cursor = getActivity().managedQuery(selectedImageUri, projection, null, null, null);
-        int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
-        cursor.moveToFirst();
-        return cursor.getString(column_index);
+        final ArrayList<CropOption> cropOptions = new ArrayList<CropOption>();
+
+        Intent intent = new Intent("com.android.camera.action.CROP");
+        intent.setType("image/*");
+
+        List<ResolveInfo> list = getActivity().getPackageManager().queryIntentActivities(intent, 0);
+
+        int size = list.size();
+
+        if (size == 0)
+        {
+            Toast.makeText(getActivity(), "Can not find image crop app", Toast.LENGTH_SHORT).show();
+
+            return;
+        }
+        else
+        {
+            intent.setData(mImageCaptureUri);
+
+            intent.putExtra("outputX", 200);
+            intent.putExtra("outputY", 200);
+            intent.putExtra("aspectX", 1);
+            intent.putExtra("aspectY", 1);
+            intent.putExtra("scale", true);
+            intent.putExtra("return-data", true);
+
+            if (size == 1)
+            {
+                Intent i = new Intent(intent);
+                ResolveInfo res = list.get(0);
+
+                i.setComponent(new ComponentName(res.activityInfo.packageName, res.activityInfo.name));
+
+                startActivityForResult(i, CROP_FROM_CAMERA);
+            }
+            else
+            {
+                for (ResolveInfo res : list)
+                {
+                    final CropOption co = new CropOption();
+
+                    co.title = getActivity().getPackageManager().getApplicationLabel(res.activityInfo.applicationInfo);
+                    co.icon = getActivity().getPackageManager().getApplicationIcon(res.activityInfo.applicationInfo);
+                    co.appIntent = new Intent(intent);
+
+                    co.appIntent.setComponent(new ComponentName(res.activityInfo.packageName, res.activityInfo.name));
+
+                    cropOptions.add(co);
+                }
+
+                CropOptionAdapter adapter = new CropOptionAdapter(getActivity().getApplicationContext(), cropOptions);
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                builder.setTitle("Choose Crop App");
+                builder.setAdapter(adapter, new OnClickListener()
+                {
+                    public void onClick(DialogInterface dialog, int item)
+                    {
+                        startActivityForResult(cropOptions.get(item).appIntent, CROP_FROM_CAMERA);
+                    }
+                });
+
+                builder.setOnCancelListener(new DialogInterface.OnCancelListener()
+                {
+                    @Override
+                    public void onCancel(DialogInterface dialog)
+                    {
+
+                        if (mImageCaptureUri != null)
+                        {
+                            getActivity().getContentResolver().delete(mImageCaptureUri, null, null);
+                            mImageCaptureUri = null;
+                        }
+                    }
+                });
+
+                AlertDialog alert = builder.create();
+
+                alert.show();
+            }
+        }
     }
 
     private void initialCurrentTime()

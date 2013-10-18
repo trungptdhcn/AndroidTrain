@@ -51,34 +51,39 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content" android:layout_alignParentLeft="true"
                     android:layout_alignParentTop="false" android:background="@drawable/cover_image"
-                    android:id="@+id/profile_rlCoverImage" android:layout_marginLeft="3dp"
-                    android:layout_marginRight="2dp"
+                    android:id="@+id/profile_rlCoverImage"
+                    android:layout_marginLeft="@dimen/profile_marginLeft_rlProfileBar"
+                    android:layout_marginRight="@dimen/profile_marginRight_rlProfileBar"
                     android:layout_below="@+id/profile_bar">
-                <ImageView
+                <com.example.OnlineDio.content.CircularImageView
                         android:id="@+id/profile_ivAvatar"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-
+                        android:layout_width="@dimen/profile_width_customerProfileIcon"
+                        android:layout_height="@dimen/profile_height_customerProfileIcon"
                         android:background="@drawable/profile_icon"
-                        android:layout_alignParentLeft="true" android:layout_marginLeft="28dp"
+                        android:src="@drawable/profile_icon"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginLeft="@dimen/profile_marginLeft_customerProfileIcon"
                         android:layout_alignParentTop="true"
-                        android:layout_marginTop="88dp"/>
+                        android:layout_marginTop="@dimen/profile_marginTop_customerProfileIcon"/>
 
             </RelativeLayout>
             <RelativeLayout
                     android:layout_width="fill_parent"
                     android:layout_height="match_parent"
-                    android:layout_below="@+id/profile_rlCoverImage" android:id="@+id/profile_rlContent"
-                    android:layout_marginLeft="3dp" android:layout_marginRight="2dp">
+                    android:layout_below="@+id/profile_rlCoverImage"
+                    android:id="@+id/profile_rlContent"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginRight="2dp">
                 <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Profile"
-                        android:textSize="15sp"
+                        android:text="@string/profile"
+                        android:textSize="@dimen/profile_textSize_tvProfile"
                         android:textColor="@color/Black"
                         android:id="@+id/textView" android:layout_alignParentLeft="true"
                         android:layout_alignParentTop="true"
-                        android:layout_marginTop="23dp" android:layout_marginLeft="5dp"/>
+                        android:layout_marginTop="@dimen/profile_marginTop_tvProfile"
+                        android:layout_marginLeft="@dimen/profile_marginLeft_tvProfile"/>
                 <RelativeLayout
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content" android:layout_alignLeft="@+id/textView"
@@ -87,11 +92,12 @@
                     <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Display Name"
-                            android:textSize="20sp"
+                            android:text="@string/tvDisplayName"
+                            android:textStyle="bold"
+                            android:textSize="@dimen/profile_TextSize_tvDisplayName"
                             android:textColor="@color/Black"
                             android:id="@+id/textView1" android:layout_alignParentLeft="true"
-                            android:layout_marginLeft="13dp"
+                            android:layout_marginLeft="@dimen/profile_marginLeft_tvDisplayName"
                             android:layout_centerVertical="true"/>
                     <EditText
                             android:layout_width="match_parent"
@@ -99,27 +105,29 @@
                             android:id="@+id/editText"
                             android:layout_centerVertical="true"
                             android:background="@null"
-                            android:hint="Your display name" android:layout_toRightOf="@+id/textView1"
-                            android:layout_alignBaseline="@+id/textView1" android:layout_marginLeft="10dp"
-                            android:layout_marginRight="5dp"/>
+                            android:hint="@string/etDisplayname" android:layout_toRightOf="@+id/textView1"
+                            android:layout_alignBaseline="@+id/textView1"
+                            android:layout_marginLeft="@dimen/profile_marginLeft_tvYourDisplayName"
+                            android:layout_marginRight="@dimen/profile_marginRight_tvYourDisplayName"/>
 
                 </RelativeLayout>
                 <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="People can follow you as an audience using display name.Please node that display cannot be change later."
+                        android:text="@string/tvWarning"
                         android:layout_centerInParent="true"
                         android:id="@+id/textView2"
                         android:layout_below="@+id/relativeLayout" android:layout_alignLeft="@+id/textView"/>
                 <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Account Information"
-                        android:textSize="15sp"
+                        android:text="@string/tvAccountInfor"
+                        android:textSize="@dimen/profile_textSize_tvAccountInfor"
                         android:textColor="@color/Black"
                         android:id="@+id/textView3" android:layout_alignLeft="@+id/textView"
-                        android:layout_below="@+id/textView2" android:layout_marginTop="10dp"
-                        android:layout_marginLeft="10dp"/>
+                        android:layout_below="@+id/textView2"
+                        android:layout_marginTop="@dimen/profile_marginTop_tvAccountInfor"
+                        android:layout_marginLeft="@dimen/profile_marginLeft_tvAccountInfor"/>
                 <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -130,23 +138,27 @@
                     <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_weight="4"
-                            android:text="Full Name"
-                            android:textSize="20sp"
+                            android:text="@string/tvFullName"
+                            android:textStyle="bold"
+                            android:textSize="@dimen/profile_textSize_tvFullName"
                             android:textColor="@color/Black"
                             android:id="@+id/profile_tvFullName"
                             android:layout_alignParentTop="false"
-                            android:layout_marginTop="10dp" android:layout_marginLeft="10dp"/>
+                            android:layout_marginTop="@dimen/profile_marginTop_tvFullName"
+                            android:layout_marginLeft="@dimen/profile_marginLeft_tvFullName"/>
                     <EditText
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Your full name"
+                            android:text="@string/etFullName"
                             android:id="@+id/editText1"
                             android:background="@null"
+                            android:textSize="@dimen/profile_textSize_etFullName"
                             android:lines="1"
                             android:layout_toRightOf="@+id/profile_tvFullName"
-                            android:layout_alignBottom="@+id/profile_tvFullName" android:layout_marginLeft="20dp"
-                            android:layout_marginRight="5dp" android:layout_alignParentTop="false"/>
+                            android:layout_alignBottom="@+id/profile_tvFullName"
+                            android:layout_marginLeft="@dimen/profile_marginLeft_etFullName"
+                            android:layout_marginRight="@dimen/profile_marginRight_etFullName"
+                            android:layout_alignParentTop="false"/>
                     <ImageButton
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -165,19 +177,21 @@
                     <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textSize="20sp"
+                            android:textSize="@dimen/profile_textSize_tvPhone"
                             android:textColor="@color/Black"
-                            android:text="Phone No."
+                            android:textStyle="bold"
+                            android:text="@string/tvPhone"
                             android:id="@+id/profile_tvPhoneNumber"
                             android:layout_alignLeft="@+id/profile_tvFullName"
                             android:layout_below="@+id/viewBelowFullName"/>
                     <EditText
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="Your phone no."
+                            android:hint="@string/exPhone"
                             android:id="@+id/profile_etPhoneNumber"
                             android:background="@null"
                             android:phoneNumber="true"
+                            android:textSize="@dimen/profile_textSize_etPhone"
                             android:lines="1"
                             android:layout_toRightOf="@+id/profile_tvPhoneNumber"
                             android:layout_alignLeft="@+id/editText1" android:layout_below="@+id/viewBelowFullName"/>
@@ -200,20 +214,22 @@
                     <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textSize="20sp"
+                            android:textSize="@dimen/profile_textSize_tvBirthday"
                             android:textColor="@color/Black"
-                            android:text="Birthday    "
+                            android:textStyle="bold"
+                            android:text="@string/tvBirthday"
                             android:id="@+id/profile_tvBirthday"
                             android:layout_alignLeft="@+id/profile_tvFullName"
                             android:layout_below="@+id/viewBelowPhone"/>
                     <EditText
-                            android:text="Your birthday"
+                            android:text="@string/etBirthday"
                             android:background="@null"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:focusable="false"
                             android:inputType="date"
+                            android:textSize="@dimen/profile_textSize_etBirthday"
                             android:id="@+id/profile_dpBirthday" android:layout_gravity="center_horizontal"
                             android:layout_alignLeft="@+id/editText1"
                             android:layout_below="@+id/viewBelowPhone"/>
@@ -228,9 +244,10 @@
                     <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textSize="20sp"
+                            android:textSize="@dimen/profile_textSize_tvGender"
                             android:textColor="@color/Black"
-                            android:text="Gender"
+                            android:textStyle="bold"
+                            android:text="@string/tvGender"
                             android:id="@+id/textView7"
                             android:layout_alignLeft="@+id/profile_tvFullName"
                             android:layout_below="@+id/viewBelowBirthday"/>
@@ -247,22 +264,24 @@
                     <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textSize="20sp"
+                            android:textSize="@dimen/profile_testSize_tvCountry"
                             android:textColor="@color/Black"
-                            android:text="Country   "
+                            android:textStyle="bold"
+                            android:text="@string/tvCountry"
                             android:id="@+id/profile_tvCountry"
-                            android:layout_alignRight="@+id/profile_tvFullName"
+                            android:layout_alignLeft="@+id/profile_tvFullName"
                             android:layout_below="@+id/viewBelowGender"/>
                     <EditText
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Your country"
+                            android:text="@string/etCountry"
                             android:background="@null"
+                            android:textSize="@dimen/profile_testSize_edCountry"
                             android:focusable="false"
                             android:id="@+id/profile_etCountry"
                             android:drawableRight="@drawable/home_arrow"
                             android:layout_alignLeft="@+id/editText1" android:layout_below="@+id/viewBelowGender"
-                            android:layout_marginRight="10dp"/>
+                            android:layout_marginRight="@dimen/profile_marginRight_edCountry"/>
                     <RadioGroup
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -291,30 +310,46 @@
                             android:id="@+id/profile_spListCountry" android:layout_centerHorizontal="true"
                             android:entries="@array/listCountry"
                             android:layout_below="@+id/profile_ibCleanPhone"/>
+                    <ImageButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:visibility="invisible"
+                            android:background="@drawable/login_incondelete"
+                            android:id="@+id/imageButton" android:layout_alignRight="@+id/editText1"
+                            android:layout_alignBottom="@+id/profile_tvFullName" android:layout_marginRight="5dp"/>
                 </RelativeLayout>
 
             </RelativeLayout>
             <RelativeLayout
                     android:layout_width="fill_parent"
-                    android:layout_height="190dp" android:layout_below="@+id/profile_rlContent"
+                    android:layout_height="190dp"
+                    android:layout_below="@+id/profile_rlContent"
                     android:layout_marginLeft="3dp" android:layout_marginRight="2dp">
                 <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Description"
-                        android:textSize="15sp"
+                        android:text="@string/tvDescription"
+                        android:textSize="@dimen/profile_textSize_tvDescription"
                         android:textColor="@color/Black"
-                        android:id="@+id/textView4" android:layout_marginTop="10dp" android:layout_marginLeft="5dp"/>
+                        android:id="@+id/textView4" android:layout_marginTop="@dimen/profile_marginTop_tvDescription"
+                        android:layout_marginLeft="@dimen/profile_marginLeft_tvDescription"/>
                 <EditText
                         android:layout_width="match_parent"
-                        android:layout_height="141dp"
+                        android:layout_height="@dimen/profile_height_etDescription"
                         android:text="Your profile description"
                         android:ems="20"
+                        android:scrollbars="vertical"
                         android:gravity="top|left"
+                        android:background="@drawable/image_cell_description"
                         android:inputType="textMultiLine|textImeMultiLine"
                         android:id="@+id/editText2" android:layout_below="@+id/textView4"
-                        android:layout_alignParentBottom="true" android:layout_marginLeft="3dp"
-                        android:layout_marginRight="2dp"/>
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginLeft="@dimen/profile_marginLeft_etDescription"
+                        android:layout_marginRight="@dimen/profile_marginRight_etDescription"
+                        android:paddingLeft="@dimen/profile_paddingLeft_etDescription"
+                        android:paddingRight="@dimen/profile_paddingRight_etDescription"
+                        android:paddingBottom="@dimen/profile_paddingBottom_etDescription"
+                        android:paddingTop="@dimen/profile_paddingTop_etDescription"/>
             </RelativeLayout>
         </RelativeLayout>
 
