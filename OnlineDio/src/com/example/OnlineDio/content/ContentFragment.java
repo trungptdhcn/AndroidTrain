@@ -1,16 +1,24 @@
 package com.example.OnlineDio.content;
 
-import android.content.Context;
+import android.app.AlertDialog;
+import android.content.*;
+import android.content.pm.ResolveInfo;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.FrameLayout;
-import android.widget.RadioButton;
+import android.widget.*;
 import com.example.OnlineDio.R;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -28,12 +36,20 @@ public class ContentFragment extends Fragment
     private RadioButton content_rbDetail;
     private RadioButton content_rbComment;
     private Button content_btnPlay;
+    private CircularImageView mImageView;
     private FrameLayout content_frame_layout;
     boolean check_Detail = false;
     boolean check_Thumbnail = true;
     boolean check_Comment = false;
     private String flag;
     boolean check_play = true;
+
+    private Uri mImageCaptureUri;
+
+    private static final int PICK_FROM_CAMERA = 1;
+    private static final int CROP_FROM_CAMERA = 2;
+    private static final int PICK_FROM_FILE = 3;
+
 
     public static Fragment newInstance(Context context)
     {
@@ -44,11 +60,15 @@ public class ContentFragment extends Fragment
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
+        final String[] items = new String[]{"Take from camera", "Select from gallery"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.select_dialog_item, items);
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         View view = inflater.inflate(R.layout.content_layout, container, false);
         content_rbComment = (RadioButton) view.findViewById(R.id.content_rbComment);
         content_rbDetail = (RadioButton) view.findViewById(R.id.content_rbDetail);
         content_btnPlay = (Button) view.findViewById(R.id.content_btnPlay);
         content_rbThumbnail = (RadioButton) view.findViewById(R.id.content_rbThumbnail);
+        mImageView = (CircularImageView) view.findViewById(R.id.content_imgAvatar);
         content_rbComment.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -103,20 +123,176 @@ public class ContentFragment extends Fragment
                 }
             }
         });
+        builder.setTitle("Select Image");
+        builder.setAdapter(adapter, new DialogInterface.OnClickListener()
+        {
+            public void onClick(DialogInterface dialog, int item)
+            { //pick from camera
+                if (item == 0)
+                {
+                    Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 
-//        content_btThumbnail = (Button)view.findViewById(R.id.content_btThumbnail);
-//        content_btThumbnail.setOnClickListener(new View.OnClickListener()
-//        {
-//            @Override
-//            public void onClick(View v)
-//            {
-//                FragmentTransaction tx = getFragmentManager().beginTransaction();
-//                ThumbnailFragment thumbnailFragment = new ThumbnailFragment();
-//                tx.replace(R.id.content_frame_layout,thumbnailFragment);
-//                tx.commit();
-//            }
-//        });
+                    mImageCaptureUri = Uri.fromFile(new File(Environment.getExternalStorageDirectory(),
+                            "tmp_avatar_" + String.valueOf(System.currentTimeMillis()) + ".jpg"));
+
+                    intent.putExtra(android.provider.MediaStore.EXTRA_OUTPUT, mImageCaptureUri);
+
+                    try
+                    {
+                        intent.putExtra("return-data", true);
+
+                        startActivityForResult(intent, PICK_FROM_CAMERA);
+                    }
+                    catch (ActivityNotFoundException e)
+                    {
+                        e.printStackTrace();
+                    }
+                }
+                else
+                { //pick from file
+                    Intent intent = new Intent();
+
+                    intent.setType("image/*");
+                    intent.setAction(Intent.ACTION_GET_CONTENT);
+
+                    startActivityForResult(Intent.createChooser(intent, "Complete action using"), PICK_FROM_FILE);
+                }
+            }
+        });
+        final AlertDialog dialog = builder.create();
+        mImageView.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                dialog.show();
+            }
+        });
         return view;
     }
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
+        switch (requestCode)
+        {
+            case PICK_FROM_CAMERA:
+                doCrop();
+
+                break;
+
+            case PICK_FROM_FILE:
+                mImageCaptureUri = data.getData();
+
+                doCrop();
+
+                break;
+
+            case CROP_FROM_CAMERA:
+                Bundle extras = data.getExtras();
+
+                if (extras != null)
+                {
+                    Bitmap photo = extras.getParcelable("data");
+
+                    mImageView.setImageBitmap(photo);
+                }
+
+                File f = new File(mImageCaptureUri.getPath());
+
+                if (f.exists())
+                {
+                    f.delete();
+                }
+
+                break;
+
+        }
+    }
+
+    private void doCrop()
+    {
+        final ArrayList<CropOption> cropOptions = new ArrayList<CropOption>();
+
+        Intent intent = new Intent("com.android.camera.action.CROP");
+        intent.setType("image/*");
+
+        List<ResolveInfo> list = getActivity().getPackageManager().queryIntentActivities(intent, 0);
+
+        int size = list.size();
+
+        if (size == 0)
+        {
+            Toast.makeText(getActivity(), "Can not find image crop app", Toast.LENGTH_SHORT).show();
+
+            return;
+        }
+        else
+        {
+            intent.setData(mImageCaptureUri);
+
+            intent.putExtra("outputX", 200);
+            intent.putExtra("outputY", 200);
+            intent.putExtra("aspectX", 1);
+            intent.putExtra("aspectY", 1);
+            intent.putExtra("scale", true);
+            intent.putExtra("return-data", true);
+
+            if (size == 1)
+            {
+                Intent i = new Intent(intent);
+                ResolveInfo res = list.get(0);
+
+                i.setComponent(new ComponentName(res.activityInfo.packageName, res.activityInfo.name));
+
+                startActivityForResult(i, CROP_FROM_CAMERA);
+            }
+            else
+            {
+                for (ResolveInfo res : list)
+                {
+                    final CropOption co = new CropOption();
+
+                    co.title = getActivity().getPackageManager().getApplicationLabel(res.activityInfo.applicationInfo);
+                    co.icon = getActivity().getPackageManager().getApplicationIcon(res.activityInfo.applicationInfo);
+                    co.appIntent = new Intent(intent);
+
+                    co.appIntent.setComponent(new ComponentName(res.activityInfo.packageName, res.activityInfo.name));
+
+                    cropOptions.add(co);
+                }
+
+                CropOptionAdapter adapter = new CropOptionAdapter(getActivity().getApplicationContext(), cropOptions);
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                builder.setTitle("Choose Crop App");
+                builder.setAdapter(adapter, new DialogInterface.OnClickListener()
+                {
+                    public void onClick(DialogInterface dialog, int item)
+                    {
+                        startActivityForResult(cropOptions.get(item).appIntent, CROP_FROM_CAMERA);
+                    }
+                });
+
+                builder.setOnCancelListener(new DialogInterface.OnCancelListener()
+                {
+                    @Override
+                    public void onCancel(DialogInterface dialog)
+                    {
+
+                        if (mImageCaptureUri != null)
+                        {
+                            getActivity().getContentResolver().delete(mImageCaptureUri, null, null);
+                            mImageCaptureUri = null;
+                        }
+                    }
+                });
+
+                AlertDialog alert = builder.create();
+
+                alert.show();
+            }
+        }
+    }
 }
+

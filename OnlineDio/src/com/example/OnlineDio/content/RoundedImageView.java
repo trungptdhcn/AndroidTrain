@@ -4,13 +4,14 @@ import android.content.Context;
 import android.graphics.*;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.util.AttributeSet;
 import android.widget.ImageView;
 
 /**
  * Created with IntelliJ IDEA.
  * User: Trung
- * Date: 17/10/2013
- * Time: 17:01
+ * Date: 18/10/2013
+ * Time: 08:36
  * To change this template use File | Settings | File Templates.
  */
 public class RoundedImageView extends ImageView
@@ -18,6 +19,17 @@ public class RoundedImageView extends ImageView
     public RoundedImageView(Context context)
     {
         super(context);
+        // TODO Auto-generated constructor stub
+    }
+
+    public RoundedImageView(Context context, AttributeSet attrs)
+    {
+        super(context, attrs);
+    }
+
+    public RoundedImageView(Context context, AttributeSet attrs, int defStyle)
+    {
+        super(context, attrs, defStyle);
     }
 
     @Override
