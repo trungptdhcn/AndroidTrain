@@ -20,6 +20,8 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -56,6 +58,10 @@ public class ProfileFragment extends Activity
     private AlertDialog.Builder builder;
     private AlertDialog dialog;
     private ImageButton ibProfileBack;
+    private EditText etDisplayName;
+    private ImageView ivCancelDisplayName;
+    private EditText etFullName;
+    private ImageButton ibCleanFullName;
 
     private Uri mImageCaptureUri;
 
@@ -79,6 +85,10 @@ public class ProfileFragment extends Activity
         rlCoverImage = (RelativeLayout) findViewById(R.id.profile_rlCoverImage);
         ibProfileIcon = (CircularImageView) findViewById(R.id.profile_ivAvatar);
         ibProfileBack = (ImageButton) findViewById(R.id.profile_ibBack);
+        etDisplayName = (EditText) findViewById(R.id.profile_etDisplayName);
+        ivCancelDisplayName = (ImageView) findViewById(R.id.profile_ivCleanDisplayName);
+        etFullName = (EditText) findViewById(R.id.profile_etFullName);
+        ibCleanFullName = (ImageButton) findViewById(R.id.profile_ibClearFullName);
 
         etCountry.setOnClickListener(clickedCountry);
         dpBirthday.setOnClickListener(setBirthdayDate);
@@ -91,8 +101,80 @@ public class ProfileFragment extends Activity
         rlCoverImage.setOnClickListener(onClickCoverImage);
         ibProfileIcon.setOnClickListener(onClickProfileImage);
         ibProfileBack.setOnClickListener(onClickProfileBackImage);
+
+        etDisplayName.addTextChangedListener(textChangeDisplayName);
+        etDisplayName.setOnFocusChangeListener(focusChangeDisplayName);
+
+        etFullName.addTextChangedListener(textChangeDisplayName);
+        etFullName.setOnFocusChangeListener(focusChangeDisplayName);
     }
 
+    private View.OnFocusChangeListener focusChangeDisplayName = new View.OnFocusChangeListener()
+    {
+        @Override
+        public void onFocusChange(View view, boolean b)
+        {
+            switch (view.getId())
+            {
+                case R.id.profile_etDisplayName:
+                    if (!b)
+                    {
+                        ivCancelDisplayName.setVisibility(View.INVISIBLE);
+                    }
+                    else if (!etDisplayName.getText().toString().isEmpty() && b)
+                    {
+                        ivCancelDisplayName.setVisibility(View.VISIBLE);
+                    }
+                    break;
+                case R.id.profile_etFullName:
+                    if (!b)
+                    {
+                        ibCleanFullName.setVisibility(View.INVISIBLE);
+                    }
+                    else if (!etFullName.getText().toString().isEmpty() && b)
+                    {
+                        ibCleanFullName.setVisibility(View.VISIBLE);
+                    }
+            }
+
+        }
+    };
+    private TextWatcher textChangeDisplayName = new TextWatcher()
+    {
+        @Override
+        public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3)
+        {
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence charSequence, int i, int i2, int i3)
+        {
+
+        }
+
+        @Override
+        public void afterTextChanged(Editable editable)
+        {
+            if (!etDisplayName.getText().toString().isEmpty() && etDisplayName.isFocused())
+            {
+                ivCancelDisplayName.setVisibility(View.VISIBLE);
+            }
+            else
+            {
+                ivCancelDisplayName.setVisibility(View.INVISIBLE);
+            }
+
+            if (!etFullName.getText().toString().isEmpty() && etFullName.isFocused())
+            {
+                ibCleanFullName.setVisibility(View.VISIBLE);
+            }
+            else
+            {
+                ibCleanFullName.setVisibility(View.INVISIBLE);
+            }
+        }
+    };
     private View.OnClickListener onClickProfileBackImage = new View.OnClickListener()
     {
         @Override

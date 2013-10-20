@@ -102,13 +102,22 @@
                     <EditText
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:id="@+id/editText"
+                            android:id="@+id/profile_etDisplayName"
                             android:layout_centerVertical="true"
                             android:background="@null"
                             android:hint="@string/etDisplayname" android:layout_toRightOf="@+id/textView1"
                             android:layout_alignBaseline="@+id/textView1"
                             android:layout_marginLeft="@dimen/profile_marginLeft_tvYourDisplayName"
                             android:layout_marginRight="@dimen/profile_marginRight_tvYourDisplayName"/>
+                    <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/login_incondelete"
+                            android:visibility="invisible"
+                            android:id="@+id/profile_ivCleanDisplayName"
+                            android:layout_alignRight="@+id/profile_etDisplayName"
+                            android:layout_alignTop="@+id/profile_etDisplayName" android:layout_marginRight="5dp"
+                            android:layout_centerVertical="true"/>
 
                 </RelativeLayout>
                 <TextView
@@ -150,7 +159,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/etFullName"
-                            android:id="@+id/editText1"
+                            android:id="@+id/profile_etFullName"
                             android:background="@null"
                             android:textSize="@dimen/profile_textSize_etFullName"
                             android:lines="1"
@@ -162,7 +171,7 @@
                     <ImageButton
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:id="@+id/profile_ibClearnFullName"
+                            android:id="@+id/profile_ibClearFullName"
                             android:visibility="invisible"
                             android:background="@drawable/login_incondelete"
                             android:layout_alignRight="@+id/profile_etPhoneNumber"
@@ -194,14 +203,15 @@
                             android:textSize="@dimen/profile_textSize_etPhone"
                             android:lines="1"
                             android:layout_toRightOf="@+id/profile_tvPhoneNumber"
-                            android:layout_alignLeft="@+id/editText1" android:layout_below="@+id/viewBelowFullName"/>
+                            android:layout_alignLeft="@+id/profile_etFullName"
+                            android:layout_below="@+id/viewBelowFullName"/>
                     <ImageButton
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:visibility="invisible"
                             android:id="@+id/profile_ibCleanPhone"
                             android:background="@drawable/login_incondelete"
-                            android:layout_alignLeft="@+id/profile_ibClearnFullName"
+                            android:layout_alignLeft="@+id/profile_ibClearFullName"
                             android:layout_below="@+id/viewBelowFullName"/>
 
                     <View
@@ -231,7 +241,7 @@
                             android:inputType="date"
                             android:textSize="@dimen/profile_textSize_etBirthday"
                             android:id="@+id/profile_dpBirthday" android:layout_gravity="center_horizontal"
-                            android:layout_alignLeft="@+id/editText1"
+                            android:layout_alignLeft="@+id/profile_etFullName"
                             android:layout_below="@+id/viewBelowPhone"/>
                     <View
                             android:layout_width="fill_parent"
@@ -280,12 +290,13 @@
                             android:focusable="false"
                             android:id="@+id/profile_etCountry"
                             android:drawableRight="@drawable/home_arrow"
-                            android:layout_alignLeft="@+id/editText1" android:layout_below="@+id/viewBelowGender"
+                            android:layout_alignLeft="@+id/profile_etFullName"
+                            android:layout_below="@+id/viewBelowGender"
                             android:layout_marginRight="@dimen/profile_marginRight_edCountry"/>
                     <RadioGroup
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_alignLeft="@+id/editText1"
+                            android:layout_alignLeft="@+id/profile_etFullName"
                             android:layout_below="@+id/viewBelowBirthday"
                             android:orientation="horizontal">
                         <RadioButton
@@ -310,13 +321,7 @@
                             android:id="@+id/profile_spListCountry" android:layout_centerHorizontal="true"
                             android:entries="@array/listCountry"
                             android:layout_below="@+id/profile_ibCleanPhone"/>
-                    <ImageButton
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:visibility="invisible"
-                            android:background="@drawable/login_incondelete"
-                            android:id="@+id/imageButton" android:layout_alignRight="@+id/editText1"
-                            android:layout_alignBottom="@+id/profile_tvFullName" android:layout_marginRight="5dp"/>
+
                 </RelativeLayout>
 
             </RelativeLayout>

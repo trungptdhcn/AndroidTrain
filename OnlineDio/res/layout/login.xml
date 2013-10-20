@@ -54,7 +54,8 @@
                       android:singleLine="true" android:textSize="16sp"/>
             <ImageButton android:layout_width="wrap_content" android:layout_height="wrap_content"
                          android:layout_centerVertical="true" android:id="@+id/login_ib_cancelOfEmail"
-                         android:background="@drawable/login_incondelete"
+                         android:src="@drawable/login_incondelete"
+                         android:background="@null"
                          android:visibility="invisible"
                          android:layout_alignParentRight="true" android:layout_alignTop="@+id/login_edtEmail"
                          android:layout_gravity="center_vertical" android:layout_marginRight="10dp"/>
@@ -73,8 +74,9 @@
                       android:layout_marginLeft="10dp" android:layout_marginRight="5dp"
                       android:hint="@string/login_edtPasswordHint" android:singleLine="true" android:textSize="16sp"/>
             <ImageButton android:layout_width="wrap_content" android:layout_height="wrap_content"
-                         android:id="@+id/login_ib_cancelOfPass" android:background="@drawable/login_incondelete"
+                         android:id="@+id/login_ib_cancelOfPass" android:src="@drawable/login_incondelete"
                          android:layout_gravity="center_vertical"
+                         android:background="@null"
                          android:visibility="invisible"
                          android:layout_alignRight="@+id/login_edtPass" android:layout_centerVertical="true"
                          android:layout_marginRight="10dp"/>
