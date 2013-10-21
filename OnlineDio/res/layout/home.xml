@@ -13,10 +13,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:id="@+id/ibBack"
-                android:background="@drawable/home_bi_option" android:paddingLeft="@dimen/home_paddingLeft_ibOption"
+                android:id="@+id/ibOption"
+                android:paddingLeft="@dimen/home_paddingLeft_ibOption"
                 android:layout_marginLeft="@dimen/home_marginLeft_ibOption" android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"/>
+                android:layout_marginBottom="8dp" android:background="@drawable/home_custom_btoption"/>
         <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

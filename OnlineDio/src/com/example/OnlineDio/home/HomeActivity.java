@@ -6,8 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import com.example.OnlineDio.LauchActivity;
 import com.example.OnlineDio.R;
-import com.example.OnlineDio.nevigation.NavigationActivity;
 
 import java.util.ArrayList;
 
@@ -17,7 +17,7 @@ public class HomeActivity extends Activity
      * Called when the activity is first created.
      */
     ListView lisView;
-    private ImageButton imageButton;
+    private ImageButton home_ibOption;
 
     @Override
     public void onCreate(Bundle savedInstanceState)
@@ -27,13 +27,13 @@ public class HomeActivity extends Activity
         lisView = (ListView) findViewById(R.id.lvListSongs);
         ArrayList<Items> listItems = buildData();
         lisView.setAdapter(new ListViewCustomerAdapter(this, listItems));
-        ImageButton imageButton = (ImageButton) findViewById(R.id.ibBack);
-        imageButton.setOnClickListener(new View.OnClickListener()
+        ImageButton home_ibOption = (ImageButton) findViewById(R.id.ibOption);
+        home_ibOption.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
             {
-                Intent i = new Intent(HomeActivity.this, NavigationActivity.class);
+                Intent i = new Intent(HomeActivity.this, LauchActivity.class);
                 startActivity(i);
             }
         });

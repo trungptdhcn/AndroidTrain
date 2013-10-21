@@ -185,6 +185,7 @@ public class LoginActivity extends Activity
                     {
                         Intent i = new Intent(LoginActivity.this, NavigationActivity.class);
                         startActivity(i);
+                        finish();
                     }
 
                     else
