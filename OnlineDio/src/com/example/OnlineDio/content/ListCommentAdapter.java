@@ -59,7 +59,7 @@ public class ListCommentAdapter extends ArrayAdapter<CommentDTO>
         {
             holder = (ViewHolder) convertView.getTag();
         }
-        holder.ivAvatar.setImageResource(rowItem.getCommentIdImage());
+        holder.ivAvatar.setImageResource(R.drawable.content_avatatest);
         holder.tvName.setText(rowItem.getCommentName());
         holder.tvComment.setText((rowItem.getCommentComment()));
         holder.tvTime.setText(rowItem.getCommentTime());

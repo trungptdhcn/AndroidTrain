@@ -28,9 +28,11 @@ public class CommentFragment extends Fragment
         View view = inflater.inflate(R.layout.comment_fragment, container, false);
         listView = (ListView) view.findViewById(R.id.comment_lvComment);
         List<CommentDTO> listComment = new ArrayList<CommentDTO>();
-        listComment.add(new CommentDTO(" ", " ", " "));
-        listComment.add(new CommentDTO(" ", " ", " "));
-        listComment.add(new CommentDTO(" ", " ", " "));
+        CommentDTO commentDTO1 = new CommentDTO("asd ", "das ", "as ");
+//        commentDTO1.setCommentIdImage(getResources().getIdentifier("",,));
+        listComment.add(new CommentDTO("asd ", "das ", "as "));
+        listComment.add(new CommentDTO(" asd", " as", " as"));
+        listComment.add(new CommentDTO(" asdas", "asdas ", " asdas"));
         listComment.add(new CommentDTO(" ", " ", " "));
         listComment.add(new CommentDTO(" ", " ", " "));
         listComment.add(new CommentDTO(" ", " ", " "));

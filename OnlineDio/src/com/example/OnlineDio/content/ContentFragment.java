@@ -10,6 +10,7 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.widget.DrawerLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,6 +36,9 @@ public class ContentFragment extends Fragment
     private RadioButton content_rbThumbnail;
     private RadioButton content_rbDetail;
     private RadioButton content_rbComment;
+    LinearLayout layoutDrawer;
+    private Button content_btBack;
+    private DrawerLayout drawer;
     private Button content_btnPlay;
     private CircularImageView mImageView;
     private FrameLayout content_frame_layout;
@@ -69,6 +73,17 @@ public class ContentFragment extends Fragment
         content_btnPlay = (Button) view.findViewById(R.id.content_btnPlay);
         content_rbThumbnail = (RadioButton) view.findViewById(R.id.content_rbThumbnail);
         mImageView = (CircularImageView) view.findViewById(R.id.content_imgAvatar);
+        content_btBack = (Button) view.findViewById(R.id.content_btBack);
+        layoutDrawer = (LinearLayout) getActivity().findViewById(R.id.left_drawer);
+        drawer = (DrawerLayout) getActivity().findViewById(R.id.navigation_drawer_layout);
+        content_btBack.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                getFragmentManager().popBackStack();
+            }
+        });
         content_rbComment.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -169,6 +184,11 @@ public class ContentFragment extends Fragment
             }
         });
         return view;
+    }
+
+    public void onBackPressed()
+    {
+        //Handle any cleanup you don't always want done in the normal lifecycle
     }
 
     @Override

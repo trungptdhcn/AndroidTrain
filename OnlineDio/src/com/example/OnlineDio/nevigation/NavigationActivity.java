@@ -8,7 +8,6 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
 import android.view.View;
-import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
@@ -41,12 +40,12 @@ public class NavigationActivity extends FragmentActivity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_ACTION_BAR);
         setContentView(R.layout.navigation);
         layoutDrawer = (LinearLayout) findViewById(R.id.left_drawer);
         Log.e(this.getPackageName().toString(), "Yes");
         llProfile = (LinearLayout) findViewById(R.id.navigation_station_layout);
         ArrayAdapter<String> adapter = new ListNavigationAdapter(this, data);
+
 
         final DrawerLayout drawer = (DrawerLayout) findViewById(R.id.navigation_drawer_layout);
         final ListView navList = (ListView) findViewById(R.id.navigation_lvDrawer);
@@ -63,8 +62,9 @@ public class NavigationActivity extends FragmentActivity
                     public void onDrawerClosed(View drawerView)
                     {
                         super.onDrawerClosed(drawerView);
-                        FragmentTransaction tx = getSupportFragmentManager().beginTransaction();
+                        final FragmentTransaction tx = getSupportFragmentManager().beginTransaction();
                         tx.replace(R.id.navigation_main_FrameLayout, Fragment.instantiate(NavigationActivity.this, fragments[pos]));
+                        tx.addToBackStack(null);
                         tx.commit();
                     }
                 });
@@ -85,6 +85,5 @@ public class NavigationActivity extends FragmentActivity
         });
 
     }
-
 
 }

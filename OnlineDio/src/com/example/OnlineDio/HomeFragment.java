@@ -55,6 +55,7 @@ public class HomeFragment extends Fragment
             {
                 FragmentTransaction tx = getActivity().getSupportFragmentManager().beginTransaction();
                 tx.replace(R.id.navigation_main_FrameLayout, new ContentFragment());
+                tx.addToBackStack(null);
                 tx.commit();
             }
         });

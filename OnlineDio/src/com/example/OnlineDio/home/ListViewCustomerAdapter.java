@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 import com.example.OnlineDio.R;
 
@@ -57,6 +58,8 @@ public class ListViewCustomerAdapter extends BaseAdapter
             convertView = layoutInflater.inflate(R.layout.home_row_of_listview2, null);
             holder = new ViewHolder();
             holder.titleOfSong = (TextView) convertView.findViewById(R.id.tvTitleOfSong);
+            holder.imge_avata = (ImageView) convertView.findViewById(R.id.ivAvatars);
+
             holder.nameOfDirector = (TextView) convertView.findViewById(R.id.tvNameOfDirector);
             holder.numberOfComment = (TextView) convertView.findViewById(R.id.tvNumberOfComment);
             holder.numberOfLike = (TextView) convertView.findViewById(R.id.tvNumberOfLiked);
@@ -68,6 +71,7 @@ public class ListViewCustomerAdapter extends BaseAdapter
             holder = (ViewHolder) convertView.getTag();
         }
         holder.titleOfSong.setText(listData.get(position).getTitleOfSong());
+        holder.imge_avata.setImageResource(R.drawable.home_avatasnhac);
         holder.nameOfDirector.setText(listData.get(position).getNameOfDirector());
         holder.numberOfLike.setText(listData.get(position).getNumberOfLike());
         holder.numberOfComment.setText(listData.get(position).getNumberOfComment());
@@ -77,6 +81,7 @@ public class ListViewCustomerAdapter extends BaseAdapter
 
     static class ViewHolder
     {
+        ImageView imge_avata;
         TextView titleOfSong;
         TextView nameOfDirector;
         TextView numberOfLike;
