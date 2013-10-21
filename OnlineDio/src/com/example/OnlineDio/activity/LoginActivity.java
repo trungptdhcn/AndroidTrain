@@ -1,4 +1,4 @@
-package com.example.OnlineDio.login;
+package com.example.OnlineDio.activity;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -9,8 +9,8 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.*;
-import com.example.OnlineDio.nevigation.NavigationActivity;
 import com.example.OnlineDio.R;
+import com.example.OnlineDio.util.EmailValidator;
 
 public class LoginActivity extends Activity
 {

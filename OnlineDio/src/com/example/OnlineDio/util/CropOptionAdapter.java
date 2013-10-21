@@ -1,4 +1,4 @@
-package com.example.OnlineDio.content;
+package com.example.OnlineDio.util;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.example.OnlineDio.R;
+import com.example.OnlineDio.util.CropOption;
 
 import java.util.ArrayList;
 

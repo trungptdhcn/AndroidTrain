@@ -1,11 +1,11 @@
-package com.example.OnlineDio;
+package com.example.OnlineDio.activity;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import com.example.OnlineDio.login.LoginActivity;
+import com.example.OnlineDio.R;
 
 /**
  * Created with IntelliJ IDEA.
@@ -17,17 +17,18 @@ import com.example.OnlineDio.login.LoginActivity;
 public class LauchActivity extends Activity
 {
     private Button lauch_btloginNormal;
+
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lauch);
-        lauch_btloginNormal = (Button)findViewById(R.id.lauch_btloginNormal);
+        lauch_btloginNormal = (Button) findViewById(R.id.lauch_btloginNormal);
         lauch_btloginNormal.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
             {
-                Intent i = new Intent(LauchActivity.this,LoginActivity.class);
+                Intent i = new Intent(LauchActivity.this, LoginActivity.class);
                 startActivity(i);
             }
         });

@@ -1,4 +1,4 @@
-package com.example.OnlineDio.login;
+package com.example.OnlineDio.util;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

@@ -1,4 +1,4 @@
-package com.example.OnlineDio.content;
+package com.example.OnlineDio.util;
 
 import android.content.Intent;
 import android.graphics.drawable.Drawable;

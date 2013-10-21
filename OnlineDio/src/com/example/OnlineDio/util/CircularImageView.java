@@ -1,21 +1,22 @@
-package com.example.OnlineDio.content;
-
-/**
- * Created with IntelliJ IDEA.
- * User: Trung
- * Date: 18/10/2013
- * Time: 09:01
- * To change this template use File | Settings | File Templates.
- */
+package com.example.OnlineDio.util;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapShader;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.Shader;
+import android.graphics.*;
+import android.graphics.drawable.BitmapDrawable;
+import android.util.AttributeSet;
+import android.widget.ImageView;
+
+/**
+ * Created with IntelliJ IDEA.
+ * User: khangpv
+ * Date: 10/21/13
+ * Time: 3:30 PM
+ * To change this template use File | Settings | File Templates.
+ */
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.graphics.*;
 import android.graphics.drawable.BitmapDrawable;
 import android.util.AttributeSet;
 import android.widget.ImageView;

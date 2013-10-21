@@ -1,4 +1,4 @@
-package com.example.OnlineDio.content;
+package com.example.OnlineDio.fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 import com.example.OnlineDio.R;
+import com.example.OnlineDio.util.ListCommentAdapter;
+import com.example.OnlineDio.model.CommentDTO;
 
 import java.util.ArrayList;
 import java.util.List;

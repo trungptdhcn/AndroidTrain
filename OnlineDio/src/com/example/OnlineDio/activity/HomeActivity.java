@@ -1,4 +1,4 @@
-package com.example.OnlineDio.home;
+package com.example.OnlineDio.activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -6,8 +6,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ListView;
-import com.example.OnlineDio.LauchActivity;
 import com.example.OnlineDio.R;
+import com.example.OnlineDio.model.SongDTO;
+import com.example.OnlineDio.util.ListViewCustomerAdapter;
 
 import java.util.ArrayList;
 
@@ -25,7 +26,7 @@ public class HomeActivity extends Activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home);
         lisView = (ListView) findViewById(R.id.lvListSongs);
-        ArrayList<Items> listItems = buildData();
+        ArrayList<SongDTO> listItems = buildData();
         lisView.setAdapter(new ListViewCustomerAdapter(this, listItems));
         ImageButton home_ibOption = (ImageButton) findViewById(R.id.ibOption);
         home_ibOption.setOnClickListener(new View.OnClickListener()
@@ -40,10 +41,10 @@ public class HomeActivity extends Activity
 
     }
 
-    private ArrayList<Items> buildData()
+    private ArrayList<SongDTO> buildData()
     {
-        ArrayList<Items> listResult = new ArrayList<Items>();
-        Items item = new Items("Sound Of Silence", "Mr. Bean", "Liked: 100", "Comment: 9", "s days ago");
+        ArrayList<SongDTO> listResult = new ArrayList<SongDTO>();
+        SongDTO item = new SongDTO("Sound Of Silence", "Mr. Bean", "Liked: 100", "Comment: 9", "s days ago");
         listResult.add(item);
         listResult.add(item);
         listResult.add(item);

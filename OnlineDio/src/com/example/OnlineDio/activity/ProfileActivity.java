@@ -1,4 +1,4 @@
-package com.example.OnlineDio;
+package com.example.OnlineDio.activity;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -20,9 +20,10 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.*;
-import com.example.OnlineDio.content.CircularImageView;
-import com.example.OnlineDio.content.CropOption;
-import com.example.OnlineDio.content.CropOptionAdapter;
+import com.example.OnlineDio.R;
+import com.example.OnlineDio.util.CircularImageView;
+import com.example.OnlineDio.util.CropOption;
+import com.example.OnlineDio.util.CropOptionAdapter;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -38,7 +39,7 @@ import static android.content.DialogInterface.OnClickListener;
  * Time: 8:26 AM
  * To change this template use File | Settings | File Templates.
  */
-public class Profile extends Activity
+public class ProfileActivity extends Activity
 {
     private EditText dpBirthday;
     private EditText etCountry;

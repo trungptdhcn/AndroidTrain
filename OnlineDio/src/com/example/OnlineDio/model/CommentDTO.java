@@ -1,4 +1,4 @@
-package com.example.OnlineDio.content;
+package com.example.OnlineDio.model;
 
 /**
  * Created with IntelliJ IDEA.

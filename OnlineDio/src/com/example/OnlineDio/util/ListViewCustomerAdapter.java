@@ -1,4 +1,4 @@
-package com.example.OnlineDio.home;
+package com.example.OnlineDio.util;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,6 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.example.OnlineDio.R;
+import com.example.OnlineDio.model.SongDTO;
 
 import java.util.ArrayList;
 
@@ -20,11 +21,11 @@ import java.util.ArrayList;
  */
 public class ListViewCustomerAdapter extends BaseAdapter
 {
-    private ArrayList<Items> listData;
+    private ArrayList<SongDTO> listData;
     private LayoutInflater layoutInflater;
 
 
-    public ListViewCustomerAdapter(Context context, ArrayList<Items> listItems)
+    public ListViewCustomerAdapter(Context context, ArrayList<SongDTO> listItems)
     {
         this.listData = listItems;
         this.layoutInflater = LayoutInflater.from(context);

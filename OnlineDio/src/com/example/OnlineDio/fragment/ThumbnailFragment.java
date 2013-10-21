@@ -1,4 +1,4 @@
-package com.example.OnlineDio.content;
+package com.example.OnlineDio.fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;

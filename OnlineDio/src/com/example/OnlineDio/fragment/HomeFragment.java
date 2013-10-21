@@ -1,4 +1,4 @@
-package com.example.OnlineDio;
+package com.example.OnlineDio.fragment;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -12,9 +12,10 @@ import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import com.example.OnlineDio.content.ContentFragment;
-import com.example.OnlineDio.home.Items;
-import com.example.OnlineDio.home.ListViewCustomerAdapter;
+import com.example.OnlineDio.R;
+import com.example.OnlineDio.fragment.ContentFragment;
+import com.example.OnlineDio.model.SongDTO;
+import com.example.OnlineDio.util.ListViewCustomerAdapter;
 
 import java.util.ArrayList;
 
@@ -46,7 +47,7 @@ public class HomeFragment extends Fragment
         lisView = (ListView) view.findViewById(R.id.lvListSongs);
         home_ibOption = (ImageButton) view.findViewById(R.id.ibOption);
         layoutDrawer = (LinearLayout) getActivity().findViewById(R.id.left_drawer);
-        ArrayList<Items> listItems = buildData();
+        ArrayList<SongDTO> listItems = buildData();
         lisView.setAdapter(new ListViewCustomerAdapter(getActivity(), listItems));
         lisView.setOnItemClickListener(new AdapterView.OnItemClickListener()
         {
@@ -72,10 +73,10 @@ public class HomeFragment extends Fragment
         return view;
     }
 
-    private ArrayList<Items> buildData()
+    private ArrayList<SongDTO> buildData()
     {
-        ArrayList<Items> listResult = new ArrayList<Items>();
-        Items item = new Items("Sound Of Silence", "Mr. Bean", "Liked: 100", "Comment: 9", "s days ago");
+        ArrayList<SongDTO> listResult = new ArrayList<SongDTO>();
+        SongDTO item = new SongDTO("Sound Of Silence", "Mr. Bean", "Liked: 100", "Comment: 9", "s days ago");
         listResult.add(item);
         listResult.add(item);
         listResult.add(item);

@@ -5,14 +5,14 @@
           android:state_pressed="false"
             >
         <!--<color android:color="#f6f6f6"/>-->
-        <color android:color ="#f6f6f6"/>
+        <color android:color="#f6f6f6"/>
     </item>
     <item android:state_pressed="true">
         <!--<color android:color="#f6f6f6"/>-->
-        <color android:color ="@color/Gray"/>
+        <color android:color="@color/Gray"/>
     </item>
     <item android:state_selected="true"
           android:state_pressed="false">
-        <color android:color = "@color/Gray"/>
-          </item>
+        <color android:color="@color/Gray"/>
+    </item>
 </selector>

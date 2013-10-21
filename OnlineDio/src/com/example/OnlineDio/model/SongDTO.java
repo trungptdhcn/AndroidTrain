@@ -1,4 +1,4 @@
-package com.example.OnlineDio.home;
+package com.example.OnlineDio.model;
 
 /**
  * Created with IntelliJ IDEA.
@@ -7,7 +7,7 @@ package com.example.OnlineDio.home;
  * Time: 5:02 PM
  * To change this template use File | Settings | File Templates.
  */
-public class Items
+public class SongDTO
 {
     private String titleOfSong;
     private String nameOfDirector;
@@ -15,7 +15,7 @@ public class Items
     private String numberOfComment;
     private String numberOfPostedDay;
 
-    public Items(String titleOfSong, String nameOfDirector, String numberOfLike, String numberOfComment, String numberOfPostedDay)
+    public SongDTO(String titleOfSong, String nameOfDirector, String numberOfLike, String numberOfComment, String numberOfPostedDay)
     {
         this.titleOfSong = titleOfSong;
         this.nameOfDirector = nameOfDirector;

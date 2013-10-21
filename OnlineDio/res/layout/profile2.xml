@@ -55,7 +55,7 @@
                     android:layout_marginLeft="@dimen/profile_marginLeft_rlProfileBar"
                     android:layout_marginRight="@dimen/profile_marginRight_rlProfileBar"
                     android:layout_below="@+id/profile_bar">
-                <com.example.OnlineDio.content.CircularImageView
+                <com.example.OnlineDio.util.CircularImageView
                         android:id="@+id/profile_ivAvatar"
                         android:layout_width="@dimen/profile_width_customerProfileIcon"
                         android:layout_height="@dimen/profile_height_customerProfileIcon"

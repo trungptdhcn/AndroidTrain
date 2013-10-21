@@ -1,4 +1,4 @@
-package com.example.OnlineDio.content;
+package com.example.OnlineDio.util;
 
 import android.app.Activity;
 import android.content.Context;
@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.example.OnlineDio.R;
+import com.example.OnlineDio.model.CommentDTO;
 
 import java.util.List;
 

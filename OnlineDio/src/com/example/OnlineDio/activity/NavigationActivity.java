@@ -1,4 +1,4 @@
-package com.example.OnlineDio.nevigation;
+package com.example.OnlineDio.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,8 +12,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import com.example.OnlineDio.Profile;
 import com.example.OnlineDio.R;
+import com.example.OnlineDio.util.ListNavigationAdapter;
 
 /**
  * Created with IntelliJ IDEA.
@@ -27,11 +27,11 @@ public class NavigationActivity extends FragmentActivity
     final String[] data = {"Home", "Favorite", "Following", "Audience", "Genres", "Setting", "Help Center", "Sign Out"};
     final String[] fragments =
             {
-                    "com.example.OnlineDio.HomeFragment",
-                    "com.example.OnlineDio.content.ContentFragment",
+                    "com.example.OnlineDio.fragment.HomeFragment",
+                    "com.example.OnlineDio.fragment.ContentFragment",
 
             };
-    final String profilefragment = "com.example.OnlineDio.Profile";
+    final String profilefragment = "com.example.OnlineDio.activity.ProfileActivity";
     private LinearLayout layoutDrawer;
     private LinearLayout llProfile;
 
@@ -73,13 +73,14 @@ public class NavigationActivity extends FragmentActivity
         });
         FragmentTransaction tx = getSupportFragmentManager().beginTransaction();
         tx.replace(R.id.navigation_main_FrameLayout, Fragment.instantiate(NavigationActivity.this, fragments[0]));
+        tx.addToBackStack(null);
         tx.commit();
         llProfile.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
             {
-                Intent i = new Intent(getApplicationContext(), Profile.class);
+                Intent i = new Intent(getApplicationContext(), ProfileActivity.class);
                 startActivity(i);
             }
         });

@@ -1,4 +1,4 @@
-package com.example.OnlineDio.content;
+package com.example.OnlineDio.fragment;
 
 import android.app.AlertDialog;
 import android.content.*;
@@ -16,6 +16,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.*;
 import com.example.OnlineDio.R;
+import com.example.OnlineDio.util.CircularImageView;
+import com.example.OnlineDio.util.CropOption;
+import com.example.OnlineDio.util.CropOptionAdapter;
 
 import java.io.File;
 import java.util.ArrayList;

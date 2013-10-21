@@ -8,7 +8,7 @@
     <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/navbar_1">
+            android:background="@drawable/navbar_1" android:minHeight="35dp">
         <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -33,7 +33,7 @@
         <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
-            <com.example.OnlineDio.content.CircularImageView
+            <com.example.OnlineDio.util.CircularImageView
                     android:id="@+id/content_imgAvatar"
                     android:layout_width="90dp"
                     android:layout_height="90dp"
