@@ -29,7 +29,7 @@ import java.util.List;
  * Time: 15:57
  * To change this template use File | Settings | File Templates.
  */
-public class ContentFragment extends Fragment implements View.OnClickListener
+public class ContentFragment extends Fragment
 {
     private static final String FLAG_DETAIL = "Detail";
     private static final String FLAG_THUMBNAIL = "Thumbnail";
@@ -314,12 +314,6 @@ public class ContentFragment extends Fragment implements View.OnClickListener
                 alert.show();
             }
         }
-    }
-
-    @Override
-    public void onClick(View v)
-    {
-        //To change body of implemented methods use File | Settings | File Templates.
     }
 }
 
