@@ -13,7 +13,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import com.example.OnlineDio.ProfileFragment;
+import com.example.OnlineDio.Profile;
 import com.example.OnlineDio.R;
 
 /**
@@ -32,7 +32,7 @@ public class NavigationActivity extends FragmentActivity
                     "com.example.OnlineDio.content.ContentFragment",
 
             };
-    final String profilefragment = "com.example.OnlineDio.ProfileFragment";
+    final String profilefragment = "com.example.OnlineDio.Profile";
     private LinearLayout layoutDrawer;
     private LinearLayout llProfile;
 
@@ -79,7 +79,7 @@ public class NavigationActivity extends FragmentActivity
             @Override
             public void onClick(View v)
             {
-                Intent i = new Intent(getApplicationContext(), ProfileFragment.class);
+                Intent i = new Intent(getApplicationContext(), Profile.class);
                 startActivity(i);
             }
         });

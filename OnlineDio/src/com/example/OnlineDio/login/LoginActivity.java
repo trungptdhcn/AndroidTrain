@@ -157,7 +157,7 @@ public class LoginActivity extends Activity
             if (new EmailValidator().validate(login_edEmail.getText().toString()) && !login_edEmail.getText().toString().isEmpty() && !login_edPass.getText().toString().isEmpty())
             {
                 login_btDone.setEnabled(true);
-                login_btDone.setBackgroundDrawable(getResources().getDrawable(R.drawable.custom_button_done));
+                login_btDone.setBackgroundDrawable(getResources().getDrawable(R.drawable.soundboard_btn_done));
             }
             else
             {

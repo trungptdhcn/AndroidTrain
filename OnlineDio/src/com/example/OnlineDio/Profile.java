@@ -9,27 +9,20 @@ import android.content.ComponentName;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ResolveInfo;
-import android.database.Cursor;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.*;
 import com.example.OnlineDio.content.CircularImageView;
 import com.example.OnlineDio.content.CropOption;
 import com.example.OnlineDio.content.CropOptionAdapter;
-import com.example.OnlineDio.nevigation.NavigationActivity;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -45,7 +38,7 @@ import static android.content.DialogInterface.OnClickListener;
  * Time: 8:26 AM
  * To change this template use File | Settings | File Templates.
  */
-public class ProfileFragment extends Activity
+public class Profile extends Activity
 {
     private EditText dpBirthday;
     private EditText etCountry;
