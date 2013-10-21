@@ -189,7 +189,7 @@
                     android:id="@+id/content_btnPlay"
                     android:layout_centerVertical="true"
                     android:layout_centerHorizontal="true"
-                    android:background="@drawable/content_buttonpause"/>
+                    android:background="@drawable/content_buttonplay"/>
         </RelativeLayout>
         <LinearLayout
                 android:orientation="vertical"
@@ -224,7 +224,8 @@
                             android:layout_height="wrap_content"
                             android:progressDrawable="@drawable/scrubber_progress_horizontal_holo_light"
                             android:thumb="@drawable/scrubber_control_selector_holo_light"
-                            android:id="@+id/seekBar" android:layout_gravity="center" android:paddingLeft="5dp"/>
+                            android:id="@+id/content_sbMusic" android:layout_gravity="center" android:paddingLeft="5dp"
+                            android:indeterminate="false"/>
                 </LinearLayout>
                 <LinearLayout
                         android:orientation="vertical"
@@ -262,7 +263,7 @@
                             android:layout_height="wrap_content"
                             android:progressDrawable="@drawable/scrubber_progress_horizontal_holo_light"
                             android:thumb="@drawable/scrubber_control_selector_holo_light"
-                            android:id="@+id/seekBar1" android:paddingLeft="5dp"/>
+                            android:id="@+id/content_sbVolume" android:paddingLeft="5dp" android:indeterminate="false"/>
                 </LinearLayout>
                 <RelativeLayout android:orientation="vertical" android:layout_width="match_parent"
                                 android:layout_height="match_parent" android:layout_weight="4"

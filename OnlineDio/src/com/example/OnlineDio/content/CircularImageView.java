@@ -55,9 +55,12 @@ public class CircularImageView extends ImageView
         paint.setAntiAlias(true);
 
         paintBorder = new Paint();
-        //setBorderColor(Color.WHITE);
+        setBorderColor(Color.WHITE);
         paintBorder.setAntiAlias(true);
-        this.setLayerType(LAYER_TYPE_SOFTWARE, paintBorder);
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.HONEYCOMB)
+        {
+            this.setLayerType(LAYER_TYPE_SOFTWARE, paintBorder);
+        }
         paintBorder.setShadowLayer(4.0f, 0.0f, 1.0f, Color.BLACK);
     }
 

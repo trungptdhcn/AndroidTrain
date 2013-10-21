@@ -7,6 +7,7 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
 import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -28,7 +29,7 @@ import java.util.List;
  * Time: 15:57
  * To change this template use File | Settings | File Templates.
  */
-public class ContentFragment extends Fragment
+public class ContentFragment extends Fragment implements View.OnClickListener
 {
     private static final String FLAG_DETAIL = "Detail";
     private static final String FLAG_THUMBNAIL = "Thumbnail";
@@ -36,6 +37,10 @@ public class ContentFragment extends Fragment
     private RadioButton content_rbThumbnail;
     private RadioButton content_rbDetail;
     private RadioButton content_rbComment;
+    private SeekBar content_SeekbarMusic;
+    private SeekBar content_SeekbarVolume;
+
+    private Handler mHandler = new Handler();
     LinearLayout layoutDrawer;
     private Button content_btBack;
     private DrawerLayout drawer;
@@ -53,7 +58,6 @@ public class ContentFragment extends Fragment
     private static final int PICK_FROM_CAMERA = 1;
     private static final int CROP_FROM_CAMERA = 2;
     private static final int PICK_FROM_FILE = 3;
-
 
     public static Fragment newInstance(Context context)
     {
@@ -73,8 +77,11 @@ public class ContentFragment extends Fragment
         content_btnPlay = (Button) view.findViewById(R.id.content_btnPlay);
         content_rbThumbnail = (RadioButton) view.findViewById(R.id.content_rbThumbnail);
         mImageView = (CircularImageView) view.findViewById(R.id.content_imgAvatar);
+        content_SeekbarMusic = (SeekBar) view.findViewById(R.id.content_sbMusic);
         content_btBack = (Button) view.findViewById(R.id.content_btBack);
         layoutDrawer = (LinearLayout) getActivity().findViewById(R.id.left_drawer);
+
+
         drawer = (DrawerLayout) getActivity().findViewById(R.id.navigation_drawer_layout);
         content_btBack.setOnClickListener(new View.OnClickListener()
         {
@@ -121,25 +128,9 @@ public class ContentFragment extends Fragment
         ThumbnailFragment thumbnailFragment = new ThumbnailFragment();
         tx.replace(R.id.content_frame_layout, thumbnailFragment);
         tx.commit();
-        content_btnPlay.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                if (check_play == true)
-                {
-                    content_btnPlay.setBackground(getResources().getDrawable(R.drawable.content_buttonplay));
-                    check_play = false;
-                }
-                else
-                {
-                    content_btnPlay.setBackground(getResources().getDrawable(R.drawable.content_buttonpause));
-                    check_play = true;
-                }
-            }
-        });
         builder.setTitle("Select Image");
         builder.setAdapter(adapter, new DialogInterface.OnClickListener()
+
         {
             public void onClick(DialogInterface dialog, int item)
             { //pick from camera
@@ -173,22 +164,32 @@ public class ContentFragment extends Fragment
                     startActivityForResult(Intent.createChooser(intent, "Complete action using"), PICK_FROM_FILE);
                 }
             }
-        });
+        }
+
+        );
         final AlertDialog dialog = builder.create();
         mImageView.setOnClickListener(new View.OnClickListener()
+
         {
             @Override
             public void onClick(View v)
             {
                 dialog.show();
             }
-        });
-        return view;
-    }
+        }
 
-    public void onBackPressed()
-    {
-        //Handle any cleanup you don't always want done in the normal lifecycle
+        );
+
+        content_btnPlay.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+
+            }
+        });
+
+        return view;
     }
 
     @Override
@@ -313,6 +314,12 @@ public class ContentFragment extends Fragment
                 alert.show();
             }
         }
+    }
+
+    @Override
+    public void onClick(View v)
+    {
+        //To change body of implemented methods use File | Settings | File Templates.
     }
 }
 
