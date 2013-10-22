@@ -28,62 +28,59 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" readonly="true" id="03a71fb1-6ed9-4ee5-985e-409887dd835e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../sqplitedatabase/.idea/.name" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../SHAREDPREFERENCE/.idea/.name" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../SHAREDPREFERENCE/out/production/SHAREDPREFERENCE/com/example/SHAREDPREFERENCE/BuildConfig.class" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../sqplitedatabase/out/production/sqplitedatabase/com/example/sqplitedatabase/BuildConfig.class" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../sqplitedatabase/out/production/sqplitedatabase/com/example/sqplitedatabase/Comment.class" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../sqplitedatabase/out/production/sqplitedatabase/com/example/sqplitedatabase/CommentsDataSource.class" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../sqplitedatabase/out/production/sqplitedatabase/com/example/sqplitedatabase/MainActivity.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../SHAREDPREFERENCE/out/production/SHAREDPREFERENCE/com/example/SHAREDPREFERENCE/MyActivity.class" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../sqplitedatabase/out/production/sqplitedatabase/com/example/sqplitedatabase/MySQLiteHelper.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../SHAREDPREFERENCE/out/production/SHAREDPREFERENCE/com/example/SHAREDPREFERENCE/R$attr.class" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../sqplitedatabase/out/production/sqplitedatabase/com/example/sqplitedatabase/R$attr.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../SHAREDPREFERENCE/out/production/SHAREDPREFERENCE/com/example/SHAREDPREFERENCE/R$id.class" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../sqplitedatabase/out/production/sqplitedatabase/com/example/sqplitedatabase/R$id.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../SHAREDPREFERENCE/out/production/SHAREDPREFERENCE/com/example/SHAREDPREFERENCE/R$layout.class" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../sqplitedatabase/out/production/sqplitedatabase/com/example/sqplitedatabase/R$layout.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../SHAREDPREFERENCE/out/production/SHAREDPREFERENCE/com/example/SHAREDPREFERENCE/R$string.class" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../sqplitedatabase/out/production/sqplitedatabase/com/example/sqplitedatabase/R$string.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../SHAREDPREFERENCE/out/production/SHAREDPREFERENCE/com/example/SHAREDPREFERENCE/R.class" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../sqplitedatabase/out/production/sqplitedatabase/com/example/sqplitedatabase/R.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../SHAREDPREFERENCE/out/production/SHAREDPREFERENCE/SHAREDPREFERENCE.apk" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../SHAREDPREFERENCE/out/production/SHAREDPREFERENCE/SHAREDPREFERENCE.unaligned.apk" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../sqplitedatabase/out/production/sqplitedatabase/sqplitedatabase.apk" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../sqplitedatabase/out/production/sqplitedatabase/sqplitedatabase.unaligned.apk" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../sqplitedatabase/AndroidManifest.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../sqplitedatabase/src/com/example/sqplitedatabase/Comment.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/example/OnlineDio/activity/CommentPostActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../sqplitedatabase/src/com/example/sqplitedatabase/CommentsDataSource.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../sqplitedatabase/src/com/example/sqplitedatabase/MainActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../sqplitedatabase/src/com/example/sqplitedatabase/MySQLiteHelper.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../sqplitedatabase/ant.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../sqplitedatabase/build.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/layout/comment_post_layout.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../sqplitedatabase/.idea/compiler.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/layout-port/content_layout.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../sqplitedatabase/.idea/encodings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../sqplitedatabase/res/layout/main.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../sqplitedatabase/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../sqplitedatabase/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../sqplitedatabase/.idea/copyright/profiles_settings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../sqplitedatabase/proguard-project.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../sqplitedatabase/project.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../sqplitedatabase/.idea/scopes/scope_settings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../sqplitedatabase/sqplitedatabase.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../sqplitedatabase/res/values/strings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../sqplitedatabase/.idea/uiDesigner.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../sqplitedatabase/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../sqplitedatabase/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AndroidManifest.xml" afterPath="$PROJECT_DIR$/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/example/OnlineDio/fragment/CommentFragment.java" afterPath="$PROJECT_DIR$/src/com/example/OnlineDio/fragment/CommentFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/example/OnlineDio/fragment/ContentFragment.java" afterPath="$PROJECT_DIR$/src/com/example/OnlineDio/fragment/ContentFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/navigation.xml" afterPath="$PROJECT_DIR$/res/layout/navigation.xml" />
-      <change type="MOVED" beforePath="F:\Android\Android Qsoft\MyAndroidTeam\OnlineDio\gen\com\example\OnlineDio\BuildConfig.java" afterPath="$PROJECT_DIR$/../sqplitedatabase/gen/com/example/sqplitedatabase/BuildConfig.java" />
-      <change type="MOVED" beforePath="F:\Android\Android Qsoft\MyAndroidTeam\OnlineDio\gen\com\example\OnlineDio\Manifest.java" afterPath="$PROJECT_DIR$/../sqplitedatabase/gen/com/example/sqplitedatabase/Manifest.java" />
-      <change type="MOVED" beforePath="F:\Android\Android Qsoft\MyAndroidTeam\OnlineDio\gen\com\example\OnlineDio\R.java" afterPath="$PROJECT_DIR$/../sqplitedatabase/gen/com/example/sqplitedatabase/R.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../SHAREDPREFERENCE/AndroidManifest.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../SHAREDPREFERENCE/gen/com/example/SHAREDPREFERENCE/BuildConfig.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../SHAREDPREFERENCE/gen/com/example/SHAREDPREFERENCE/Manifest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../SHAREDPREFERENCE/src/com/example/SHAREDPREFERENCE/MyActivity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../SHAREDPREFERENCE/gen/com/example/SHAREDPREFERENCE/R.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../SHAREDPREFERENCE/SHAREDPREFERENCE.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../SHAREDPREFERENCE/ant.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../SHAREDPREFERENCE/build.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../SHAREDPREFERENCE/.idea/compiler.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../SHAREDPREFERENCE/.idea/encodings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../SHAREDPREFERENCE/res/layout/main.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../SHAREDPREFERENCE/.idea/misc.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../SHAREDPREFERENCE/.idea/modules.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../SHAREDPREFERENCE/.idea/copyright/profiles_settings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../SHAREDPREFERENCE/proguard-project.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../SHAREDPREFERENCE/project.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../SHAREDPREFERENCE/.idea/scopes/scope_settings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../SHAREDPREFERENCE/res/values/strings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../SHAREDPREFERENCE/.idea/uiDesigner.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../SHAREDPREFERENCE/.idea/vcs.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../SHAREDPREFERENCE/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../sqplitedatabase/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../sqplitedatabase/.idea/workspace.xml" />
     </list>
     <list id="6b9a0844-5eac-4903-8f82-5f888c8f04b4" name="New changelist" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/OnlineDio.iml" afterPath="$PROJECT_DIR$/OnlineDio.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project.properties" afterPath="$PROJECT_DIR$/project.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="OnlineDio.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/fragment.java" changelist="03a71fb1-6ed9-4ee5-985e-409887dd835e" time="1382405078296" ignored="false" />
-    <file path="/Dummy.txt" changelist="03a71fb1-6ed9-4ee5-985e-409887dd835e" time="1382406291456" ignored="false" />
-    <file path="/MyActivity.java" changelist="03a71fb1-6ed9-4ee5-985e-409887dd835e" time="1381741527634" ignored="false" />
+    <file path="/fragment.java" changelist="03a71fb1-6ed9-4ee5-985e-409887dd835e" time="1382406949807" ignored="false" />
+    <file path="/Dummy.txt" changelist="03a71fb1-6ed9-4ee5-985e-409887dd835e" time="1382407613038" ignored="false" />
+    <file path="/MyActivity.java" changelist="03a71fb1-6ed9-4ee5-985e-409887dd835e" time="1382407210732" ignored="false" />
     <file path="/AndroidManifest.xml" changelist="03a71fb1-6ed9-4ee5-985e-409887dd835e" time="1382405043536" ignored="false" />
     <file path="/a.dummy" changelist="03a71fb1-6ed9-4ee5-985e-409887dd835e" time="1381733716946" ignored="false" />
     <file path="/navigation.xml" changelist="03a71fb1-6ed9-4ee5-985e-409887dd835e" time="1382351429893" ignored="false" />
@@ -109,7 +106,7 @@
     <file path="$PROJECT_DIR$/../../ABSSideMenuTutorial/ABS/test/com/actionbarsherlock/internal/ManifestParsingTest.java" changelist="03a71fb1-6ed9-4ee5-985e-409887dd835e" time="1381747029323" ignored="false" />
     <file path="/MenuItemAssert.java" changelist="03a71fb1-6ed9-4ee5-985e-409887dd835e" time="1381751710411" ignored="false" />
     <file path="/login.xml" changelist="03a71fb1-6ed9-4ee5-985e-409887dd835e" time="1381764094361" ignored="false" />
-    <file path="$PROJECT_DIR$/.idea/workspace.xml" changelist="03a71fb1-6ed9-4ee5-985e-409887dd835e" time="1382351453357" ignored="false" />
+    <file path="$PROJECT_DIR$/.idea/workspace.xml" changelist="03a71fb1-6ed9-4ee5-985e-409887dd835e" time="1382407614407" ignored="false" />
     <file path="/home.xml" changelist="03a71fb1-6ed9-4ee5-985e-409887dd835e" time="1382079303080" ignored="false" />
     <file path="$PROJECT_DIR$/../../NavigationDemo/src/com/example/NavigationDemo/ACtionDrawerBasic.java" changelist="03a71fb1-6ed9-4ee5-985e-409887dd835e" time="1381767622456" ignored="false" />
     <file path="$PROJECT_DIR$/../../NavigationDemo/src/com/example/NavigationDemo/ActionDrawerBasic.java" changelist="03a71fb1-6ed9-4ee5-985e-409887dd835e" time="1381774123189" ignored="false" />
@@ -170,7 +167,6 @@
     <file path="/ListCommentAdapter.java" changelist="03a71fb1-6ed9-4ee5-985e-409887dd835e" time="1382324787669" ignored="false" />
     <file path="/CommentDTO.java" changelist="03a71fb1-6ed9-4ee5-985e-409887dd835e" time="1382324353459" ignored="false" />
     <file path="/comment_fragment.xml" changelist="03a71fb1-6ed9-4ee5-985e-409887dd835e" time="1382091412067" ignored="false" />
-    <file path="$PROJECT_DIR$/project.properties" changelist="03a71fb1-6ed9-4ee5-985e-409887dd835e" time="1382292728027" ignored="false" />
     <file path="/home_custom_btoption.xml" changelist="03a71fb1-6ed9-4ee5-985e-409887dd835e" time="1382292606683" ignored="false" />
     <file path="/custom_button_done.xml" changelist="03a71fb1-6ed9-4ee5-985e-409887dd835e" time="1382318612414" ignored="false" />
     <file path="/CircularImageView.java" changelist="03a71fb1-6ed9-4ee5-985e-409887dd835e" time="1382328256888" ignored="false" />
@@ -196,6 +192,13 @@
     <file path="/MainActivity.java" changelist="03a71fb1-6ed9-4ee5-985e-409887dd835e" time="1382405000861" ignored="false" />
     <file path="/main.xml" changelist="03a71fb1-6ed9-4ee5-985e-409887dd835e" time="1382404824376" ignored="false" />
     <file path="$USER_HOME$/Desktop/sqplitedatabase/gen/com/example/sqplitedatabase/BuildConfig.java" changelist="03a71fb1-6ed9-4ee5-985e-409887dd835e" time="1382405115715" ignored="false" />
+    <file path="$PROJECT_DIR$/../sqplitedatabase/gen/com/example/sqplitedatabase/BuildConfig.java" changelist="03a71fb1-6ed9-4ee5-985e-409887dd835e" time="1382406368765" ignored="false" />
+    <file path="$USER_HOME$/Desktop/SHAREDPREFERENCE/AndroidManifest.xml" changelist="03a71fb1-6ed9-4ee5-985e-409887dd835e" time="1382406392226" ignored="false" />
+    <file path="$USER_HOME$/Desktop/SHAREDPREFERENCE/src/com/example/SHAREDPREFERENCE/MyActivity.java" changelist="03a71fb1-6ed9-4ee5-985e-409887dd835e" time="1382407211563" ignored="false" />
+    <file path="$USER_HOME$/Desktop/SHAREDPREFERENCE/res/layout/main.xml" changelist="03a71fb1-6ed9-4ee5-985e-409887dd835e" time="1382406473962" ignored="false" />
+    <file path="$USER_HOME$/Desktop/SHAREDPREFERENCE/build.xml" changelist="03a71fb1-6ed9-4ee5-985e-409887dd835e" time="1382406392226" ignored="false" />
+    <file path="$USER_HOME$/Desktop/SHAREDPREFERENCE/res/values/strings.xml" changelist="03a71fb1-6ed9-4ee5-985e-409887dd835e" time="1382406392226" ignored="false" />
+    <file path="$USER_HOME$/Desktop/SHAREDPREFERENCE/.idea/workspace.xml" changelist="03a71fb1-6ed9-4ee5-985e-409887dd835e" time="1382407557938" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
