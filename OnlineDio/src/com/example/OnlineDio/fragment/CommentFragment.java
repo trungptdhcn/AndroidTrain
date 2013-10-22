@@ -1,12 +1,15 @@
 package com.example.OnlineDio.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ListView;
 import com.example.OnlineDio.R;
+import com.example.OnlineDio.activity.CommentPostActivity;
 import com.example.OnlineDio.util.ListCommentAdapter;
 import com.example.OnlineDio.model.CommentDTO;
 
@@ -23,12 +26,23 @@ import java.util.List;
 public class CommentFragment extends Fragment
 {
     private ListView listView;
+    private EditText comment_edtComment;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
         View view = inflater.inflate(R.layout.comment_fragment, container, false);
         listView = (ListView) view.findViewById(R.id.comment_lvComment);
+        comment_edtComment = (EditText)view.findViewById(R.id.comment_edtComment);
+        comment_edtComment.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Intent i = new Intent(getActivity(), CommentPostActivity.class);
+                startActivityForResult(i, 1);
+            }
+        });
         List<CommentDTO> listComment = new ArrayList<CommentDTO>();
         CommentDTO commentDTO1 = new CommentDTO("asd ", "das ", "as ");
 //        commentDTO1.setCommentIdImage(getResources().getIdentifier("",,));

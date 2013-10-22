@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.*;
 import android.content.pm.ResolveInfo;
 import android.graphics.Bitmap;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -40,9 +41,6 @@ public class ContentFragment extends Fragment
     private RadioButton content_rbThumbnail;
     private RadioButton content_rbDetail;
     private RadioButton content_rbComment;
-    private SeekBar content_SeekbarMusic;
-    private SeekBar content_SeekbarVolume;
-
     private Handler mHandler = new Handler();
     LinearLayout layoutDrawer;
     private Button content_btBack;
@@ -55,19 +53,22 @@ public class ContentFragment extends Fragment
     boolean check_Comment = false;
     private String flag;
     boolean check_play = true;
-
     private Uri mImageCaptureUri;
-
     private static final int PICK_FROM_CAMERA = 1;
     private static final int CROP_FROM_CAMERA = 2;
     private static final int PICK_FROM_FILE = 3;
+
+    private Button content_btPlayMusic;
+    private MediaPlayer mediaPlayer;
+    private SeekBar content_SeekbarMusic;
+
+    private final Handler handler = new Handler();
 
     public static Fragment newInstance(Context context)
     {
         Fragment f = new ContentFragment();
         return f;
     }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
@@ -80,7 +81,6 @@ public class ContentFragment extends Fragment
         content_btnPlay = (Button) view.findViewById(R.id.content_btnPlay);
         content_rbThumbnail = (RadioButton) view.findViewById(R.id.content_rbThumbnail);
         mImageView = (CircularImageView) view.findViewById(R.id.content_imgAvatar);
-        content_SeekbarMusic = (SeekBar) view.findViewById(R.id.content_sbMusic);
         content_btBack = (Button) view.findViewById(R.id.content_btBack);
         layoutDrawer = (LinearLayout) getActivity().findViewById(R.id.left_drawer);
 
@@ -101,6 +101,7 @@ public class ContentFragment extends Fragment
             {
                 FragmentTransaction tx = getFragmentManager().beginTransaction();
                 CommentFragment commentFragment = new CommentFragment();
+                tx.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
                 tx.replace(R.id.content_frame_layout, commentFragment);
                 tx.commit();
             }

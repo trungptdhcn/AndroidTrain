@@ -27,7 +27,7 @@
                     android:layout_marginLeft="8dp"
                     android:layout_marginRight="8dp"
                     android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
+                    android:layout_marginBottom="3dp"
                     android:background="@drawable/navigation_search"
                     >
                 <EditText
@@ -43,6 +43,7 @@
                         android:paddingLeft="5dp"
                         android:drawableLeft="@drawable/navigation_search_icon"
                         android:layout_marginLeft="3dp"
+                        android:minWidth="100dp"
                         android:textSize="10sp">
                 </EditText>
             </LinearLayout>
