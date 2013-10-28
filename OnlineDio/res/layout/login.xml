@@ -50,7 +50,7 @@
                       android:drawableLeft="@drawable/icon_email" android:background="@null"
                       android:id="@+id/login_et_email"
                       android:drawablePadding="5dp"
-                      android:text="khang@gmail.com"
+                      android:text="quachtest@gmail.com"
                       android:layout_weight="1" android:layout_marginLeft="10dp" android:layout_marginRight="5dp"
                       android:layout_gravity="left|center_vertical" android:hint="@string/login_edtEmailHint"
                       android:singleLine="true" android:textSize="16sp"/>
@@ -71,7 +71,7 @@
                       android:id="@+id/login_et_Pass" android:layout_gravity="left|center_vertical"
                       android:layout_weight="1"
                       android:password="true"
-                      android:text="khang"
+                      android:text="e10adc3949ba59abbe56e057f20f883e"
                       android:drawablePadding="5dp"
                       android:layout_marginLeft="10dp" android:layout_marginRight="5dp"
                       android:hint="@string/login_edtPasswordHint" android:singleLine="true" android:textSize="16sp"/>

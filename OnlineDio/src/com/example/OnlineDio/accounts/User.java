@@ -8,93 +8,64 @@ import java.io.Serializable;
 public class User implements Serializable
 {
 
-    private String firstName;
-    private String lastName;
-    private String username;
-    private String phone;
-    private String objectId;
-    public String sessionToken;
-    private String gravatarId;
-    private String avatarUrl;
+    private String access_token;
+    private String client_id;
+    private String user_id;
+    private String expires;
+    private String scope;
 
-
-    public String getFirstName()
+    public String getAccess_token()
     {
-        return firstName;
+        return access_token;
     }
 
-    public void setFirstName(String firstName)
+    public void setAccess_token(String access_token)
     {
-        this.firstName = firstName;
+        this.access_token = access_token;
     }
 
-    public String getLastName()
+    public String getClient_id()
     {
-        return lastName;
+        return client_id;
     }
 
-    public void setLastName(String lastName)
+    public void setClient_id(String client_id)
     {
-        this.lastName = lastName;
+        this.client_id = client_id;
     }
 
-    public String getUsername()
+    public String getUser_id()
     {
-        return username;
+        return user_id;
     }
 
-    public void setUsername(String username)
+    public void setUser_id(String user_id)
     {
-        this.username = username;
+        this.user_id = user_id;
     }
 
-    public String getPhone()
+    public String getExpires()
     {
-        return phone;
+        return expires;
     }
 
-    public void setPhone(String phone)
+    public void setExpires(String expires)
     {
-        this.phone = phone;
+        this.expires = expires;
     }
 
-    public String getObjectId()
+    public String getScope()
     {
-        return objectId;
+        return scope;
     }
 
-    public void setObjectId(String objectId)
+    public void setScope(String scope)
     {
-        this.objectId = objectId;
+        this.scope = scope;
     }
 
-    public String getSessionToken()
+    public String toString()
     {
-        return sessionToken;
-    }
-
-    public void setSessionToken(String sessionToken)
-    {
-        this.sessionToken = sessionToken;
-    }
-
-    public String getGravatarId()
-    {
-        return gravatarId;
-    }
-
-    public void setGravatarId(String gravatarId)
-    {
-        this.gravatarId = gravatarId;
-    }
-
-    public String getAvatarUrl()
-    {
-        return avatarUrl;
-    }
-
-    public void setAvatarUrl(String avatarUrl)
-    {
-        this.avatarUrl = avatarUrl;
+        return access_token + " " + user_id;
     }
 }

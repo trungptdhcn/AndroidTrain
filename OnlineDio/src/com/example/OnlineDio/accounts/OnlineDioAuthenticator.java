@@ -82,8 +82,8 @@ public class OnlineDioAuthenticator extends AbstractAccountAuthenticator
                     User user = AccountGeneral.sServerAuthenticate.userSignIn(account.name, password, authTokenType);
                     if (user != null)
                     {
-                        authToken = user.getSessionToken();
-                        userId = user.getObjectId();
+                        authToken = user.getAccess_token();
+                        userId = user.getUser_id();
                     }
                 }
                 catch (Exception e)

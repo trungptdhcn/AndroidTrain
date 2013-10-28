@@ -32,8 +32,8 @@ public class LoginActivity extends AccountAuthenticatorActivity
     private TextView login_tvForgotPass;
     private boolean typedEmail = false;
     private boolean typedPass = false;
-    private String dumEmail = "khang@gmail.com";
-    private String dumPass = "khang";
+    private String dumEmail = "quachtest@gmail.com";
+    private String dumPass = "e10adc3949ba59abbe56e057f20f883e";
 
     public final static String ARG_ACCOUNT_TYPE = "ACCOUNT_TYPE";
     public final static String ARG_AUTH_TYPE = "AUTH_TYPE";
@@ -56,6 +56,20 @@ public class LoginActivity extends AccountAuthenticatorActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
+
+        mAccountManager = AccountManager.get(getBaseContext());
+
+        String accountName = getIntent().getStringExtra(ARG_ACCOUNT_NAME);
+        mAuthTokenType = getIntent().getStringExtra(ARG_AUTH_TYPE);
+        if (mAuthTokenType == null)
+        {
+            mAuthTokenType = AccountGeneral.AUTHTOKEN_TYPE_FULL_ACCESS;
+        }
+
+        if (accountName != null)
+        {
+            ((TextView) findViewById(R.id.login_et_email)).setText(accountName);
+        }
         login_btDone = (Button) findViewById(R.id.login_btDone);
         login_btBack = (Button) findViewById(R.id.login_btBack);
         login_edEmail = (EditText) findViewById(R.id.login_et_email);
@@ -204,10 +218,11 @@ public class LoginActivity extends AccountAuthenticatorActivity
                 case R.id.login_btDone:
                     if (new EmailValidator().validate(login_edEmail.getText().toString()) && login_edEmail.getText().toString().equals(dumEmail) && login_edPass.getText().toString().equals(dumPass))
                     {
-                        Intent i = new Intent(LoginActivity.this, NavigationActivity.class);
-                        startActivity(i);
-                        //submit();
-                        finish();
+                        /*Intent i = new Intent(LoginActivity.this, NavigationActivity.class);
+                        startActivity(i);*/
+                        submit();
+
+                        //finish();
                     }
 
                     else
@@ -227,6 +242,8 @@ public class LoginActivity extends AccountAuthenticatorActivity
             }
         }
     }
+
+    boolean check = false;
 
     public void submit()
     {
@@ -249,15 +266,18 @@ public class LoginActivity extends AccountAuthenticatorActivity
                 try
                 {
                     User user = AccountGeneral.sServerAuthenticate.userSignIn(userName, userPass, mAuthTokenType);
-
+                  /*  if (user != null)
+                    {
+                        check = true;
+                    }*/
                     data.putString(AccountManager.KEY_ACCOUNT_NAME, userName);
                     data.putString(AccountManager.KEY_ACCOUNT_TYPE, accountType);
-                    data.putString(AccountManager.KEY_AUTHTOKEN, user.getSessionToken());
+                    data.putString(AccountManager.KEY_AUTHTOKEN, user.getAccess_token());
 
                     // We keep the user's object id as an extra data on the account.
                     // It's used later for determine ACL for the data we send to the Parse.com service
                     Bundle userData = new Bundle();
-                    userData.putString(AccountGeneral.USERDATA_USER_OBJ_ID, user.getObjectId());
+                    userData.putString(AccountGeneral.USERDATA_USER_OBJ_ID, user.getUser_id());
                     data.putBundle(AccountManager.KEY_USERDATA, userData);
 
                     data.putString(PARAM_USER_PASS, userPass);
@@ -286,6 +306,8 @@ public class LoginActivity extends AccountAuthenticatorActivity
                 }
             }
         }.execute();
+
+
     }
 
     private void finishLogin(Intent intent)
@@ -315,6 +337,9 @@ public class LoginActivity extends AccountAuthenticatorActivity
 
         setAccountAuthenticatorResult(intent.getExtras());
         setResult(RESULT_OK, intent);
+        Toast.makeText(getApplicationContext(), intent.getStringExtra(AccountManager.KEY_AUTHTOKEN).toString(), Toast.LENGTH_SHORT).show();
+        Intent i = new Intent(LoginActivity.this, NavigationActivity.class);
+        startActivity(i);
         finish();
     }
 }
